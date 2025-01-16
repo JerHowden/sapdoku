@@ -1,9 +1,17 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { ThemeToggle } from './ThemeToggle';
 import { Donation } from './Donation';
+import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
+import { Fish } from 'lucide-react';
+import { ChangeDate } from './ChangeDate';
 
 export function Header() {
+  const router = useRouter();
+
   return (
     <header className="sticky">
       <nav
@@ -26,7 +34,17 @@ export function Header() {
             </h1>
           </Link>
         </div>
-        <div className="flex gap-4 justify-end ">
+        <div className="flex gap-4 justify-end items-center">
+          <ChangeDate />
+          <Button
+            variant="outline"
+            type="button"
+            onClick={() => router.push('/pets')}
+            size="default"
+          >
+            <Fish />
+            Pets
+          </Button>
           <ThemeToggle />
           <Donation />
         </div>

@@ -10,7 +10,6 @@ export type Tier = 1 | 2 | 3 | 4 | 5 | 6 | 'Summoned';
 
 export type AbilityTrigger =
   | ''
-  | 'No Ability'
   | 'Buy'
   | 'Buy Friend'
   | 'Buy Food'
