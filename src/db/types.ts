@@ -9,19 +9,21 @@ export type Pack =
 export type Tier = 1 | 2 | 3 | 4 | 5 | 6 | 'Summoned';
 
 export type AbilityTrigger =
+  | ''
   | 'No Ability'
   | 'Buy'
   | 'Buy Friend'
   | 'Buy Food'
   | 'Sell'
   | 'Hurt'
+  | 'Hurt & Sell'
   | 'Faint'
   | 'Level Up'
   | 'Friend Summoned'
   | 'Summoned'
   | 'Start Of Battle'
   | 'Start Of Turn'
-  | 'End Of Turn'
+  | 'End Turn'
   | 'Knock Out'
   | 'Before Attack'
   | 'After Attack'
@@ -29,9 +31,14 @@ export type AbilityTrigger =
   | 'Friendly Eats Food'
   | 'Friendly Gained Perk'
   | 'Friendly Gained Ailment'
-  | 'Friend Ahead' // attacks, hurt, faints
+  | 'Friend Ahead Attacks'
+  | 'Friend Ahead Hurt'
+  | 'Friend Ahead Faints'
+  | 'Friend Level-Up'
   | 'Friend Hurt'
-  | 'Roll';
+  | 'Roll'
+  | 'Shop Tier Upgraded'
+  | 'Gains Mana';
 
 export type Tag =
   | 'Summon'
