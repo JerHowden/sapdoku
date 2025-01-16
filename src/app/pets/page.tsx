@@ -1,4 +1,4 @@
-import { Pets as PetsData } from '@/db';
+import { PETS_LIST } from '@/db';
 import { PetCard } from '@/modules/PetCard';
 
 export default function Pets() {
@@ -7,7 +7,7 @@ export default function Pets() {
       <h1 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
         Pets
       </h1>
-      {PetsData.map((pet) => (
+      {PETS_LIST.map((pet) => (
         <PetCard
           key={pet.name}
           pet={pet}
