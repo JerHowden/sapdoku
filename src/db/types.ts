@@ -9,6 +9,7 @@ export type Pack =
 export type Tier = 1 | 2 | 3 | 4 | 5 | 6 | 'Summoned';
 
 export type AbilityTrigger =
+  | 'No Ability'
   | 'Buy'
   | 'Buy Friend'
   | 'Buy Food'
@@ -56,8 +57,8 @@ export type Pet = {
   imageSrc: string;
   pack: Pack[];
   tier: Tier;
-  health: number;
   attack: number;
+  health: number;
   abilityTrigger: AbilityTrigger;
   tag: Tag[];
 };
