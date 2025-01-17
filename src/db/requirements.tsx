@@ -134,10 +134,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
     ),
     label: 'Tier 6',
   },
-  summonedTier: {
-    logic: (pet) => pet.tier === 'Summoned',
+  tierToken: {
+    logic: (pet) => pet.tier === 'Token',
     display: <SquarePlus className="w-6 md:w-12 h-auto" />,
-    label: 'Summoned',
+    label: 'Token Pet',
   },
   lowTier: {
     logic: (pet) => typeof pet.tier === 'number' && pet.tier <= 3,

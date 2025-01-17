@@ -17,15 +17,20 @@ type Box = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 type GuessingModalProps = {
   box: Box;
   reqs: Requirement[];
+  guessed: Pet[];
   makeGuess: (pet: Pet, box: Box) => void;
 };
 
-export function GuessingDialogContent({ box, reqs, makeGuess }: GuessingModalProps) {
+export function GuessingDialogContent({ box, reqs, guessed, makeGuess }: GuessingModalProps) {
   const [searchText, setSearchText] = useState('');
   const [chosenPet, setChosenPet] = useState<Pet>();
 
-  const sortedPets = PETS_LIST.sort((a, b) =>
-    a.name === '???' ? -1 : a.name.localeCompare(b.name)
+  const sortedPets = useMemo(
+    () =>
+      PETS_LIST.filter((pet) => !guessed.includes(pet)).sort((a, b) =>
+        a.name.localeCompare(b.name)
+      ),
+    [guessed]
   );
   const searchedPets = useMemo(
     () =>

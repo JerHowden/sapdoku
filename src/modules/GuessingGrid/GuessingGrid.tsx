@@ -39,6 +39,8 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
     [combo]
   );
 
+  const guessed = useMemo(() => Object.values(guesses).filter((pet) => !!pet), [guesses]);
+
   const makeGuess = useCallback(
     (pet: Pet, box: Box) => {
       setGuesses((guesses) => ({
@@ -91,6 +93,7 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
           box={1}
           reqs={reqsMap[1]}
           guess={guesses[1]}
+          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -99,6 +102,7 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
           box={2}
           reqs={reqsMap[2]}
           guess={guesses[2]}
+          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -107,6 +111,7 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
           box={3}
           reqs={reqsMap[3]}
           guess={guesses[3]}
+          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -115,6 +120,7 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
           box={4}
           reqs={reqsMap[4]}
           guess={guesses[4]}
+          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -123,6 +129,7 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
           box={5}
           reqs={reqsMap[5]}
           guess={guesses[5]}
+          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -131,6 +138,7 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
           box={6}
           reqs={reqsMap[6]}
           guess={guesses[6]}
+          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -139,6 +147,7 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
           box={7}
           reqs={reqsMap[7]}
           guess={guesses[7]}
+          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -147,6 +156,7 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
           box={8}
           reqs={reqsMap[8]}
           guess={guesses[8]}
+          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -155,6 +165,7 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
           box={9}
           reqs={reqsMap[9]}
           guess={guesses[9]}
+          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>

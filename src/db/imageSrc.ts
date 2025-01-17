@@ -1,3 +1,5 @@
+import { Pack } from './types';
+
 export const IMAGE_SRCS = {
   // Tiers
   tier_1: 'https://superautopets.wiki.gg/images/6/66/Tier_1_Icon.png',
@@ -17,3 +19,21 @@ export const IMAGE_SRCS = {
   attack: 'https://superautopets.wiki.gg/images/a/aa/Attack_Icon.png',
   health: 'https://superautopets.wiki.gg/images/4/44/Health_Icon.png',
 } as const;
+
+export const IMAGE_SRCS_TIER_MAP = {
+  1: IMAGE_SRCS.tier_1,
+  2: IMAGE_SRCS.tier_2,
+  3: IMAGE_SRCS.tier_3,
+  4: IMAGE_SRCS.tier_4,
+  5: IMAGE_SRCS.tier_5,
+  6: IMAGE_SRCS.tier_6,
+} as const;
+
+export const IMAGE_SRCS_PACK_MAP: Record<Pack, string> = {
+  'Turtle Pack': IMAGE_SRCS.turtle_pack,
+  'Puppy Pack': IMAGE_SRCS.puppy_pack,
+  'Star Pack': IMAGE_SRCS.star_pack,
+  'Golden Pack': IMAGE_SRCS.golden_pack,
+  'Unicorn Pack': IMAGE_SRCS.unicorn_pack,
+  'Custom Pack': IMAGE_SRCS.custom_pack,
+};

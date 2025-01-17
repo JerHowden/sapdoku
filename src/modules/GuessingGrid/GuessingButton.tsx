@@ -11,10 +11,11 @@ type GuessingButtonProps = {
   box: Box;
   reqs: Requirement[];
   guess?: Pet;
+  guessed: Pet[];
   makeGuess: (pet: Pet, box: Box) => void;
 };
 
-export function GuessingButton({ box, reqs, guess, makeGuess }: GuessingButtonProps) {
+export function GuessingButton({ box, reqs, guess, guessed, makeGuess }: GuessingButtonProps) {
   const image = useMemo(() => {
     if (guess) {
       return (
@@ -56,6 +57,7 @@ export function GuessingButton({ box, reqs, guess, makeGuess }: GuessingButtonPr
       <GuessingDialogContent
         box={box}
         reqs={reqs}
+        guessed={guessed}
         makeGuess={makeGuess}
       />
     </Dialog>
