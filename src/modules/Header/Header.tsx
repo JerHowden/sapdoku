@@ -34,7 +34,7 @@ export function Header() {
             </h1>
           </Link>
         </div>
-        <div className="flex gap-4 justify-end items-center">
+        <div className="flex gap-2 md:gap-4 justify-end items-center">
           <ChangeDate />
           <Button
             variant="outline"

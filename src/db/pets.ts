@@ -13,7 +13,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 2,
     abilityTrigger: 'Faint',
-    tag: ['Faint'],
+    tags: ['Faint'],
   },
   {
     name: 'Beaver',
@@ -23,7 +23,7 @@ export const PETS_LIST: Pet[] = [
     attack: 3,
     health: 2,
     abilityTrigger: 'Sell',
-    tag: ['Cycle'],
+    tags: ['Cycle'],
   },
   {
     name: 'Cricket',
@@ -33,7 +33,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 3,
     abilityTrigger: 'Faint',
-    tag: ['Summon'],
+    tags: ['Summon'],
   },
   {
     name: 'Duck',
@@ -43,7 +43,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 3,
     abilityTrigger: 'Sell',
-    tag: ['Buffs'],
+    tags: ['Buffs'],
   },
   {
     name: 'Fish',
@@ -53,7 +53,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 3,
     abilityTrigger: 'Level Up',
-    tag: ['Level-Up'],
+    tags: ['Level-Up'],
   },
   {
     name: 'Horse',
@@ -63,7 +63,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 1,
     abilityTrigger: 'Friend Summoned',
-    tag: ['Summon'],
+    tags: ['Summon'],
   },
   {
     name: 'Mosquito',
@@ -73,7 +73,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 2,
     abilityTrigger: 'Start Of Battle',
-    tag: ['Disruption'],
+    tags: ['Disruption'],
   },
   {
     name: 'Otter',
@@ -83,7 +83,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 3,
     abilityTrigger: 'Buy',
-    tag: ['Cycle'],
+    tags: ['Cycle'],
   },
   {
     name: 'Pig',
@@ -93,7 +93,7 @@ export const PETS_LIST: Pet[] = [
     attack: 4,
     health: 1,
     abilityTrigger: 'Sell',
-    tag: ['Gold', 'Cycle'],
+    tags: ['Gold', 'Cycle'],
   },
   {
     name: 'Pigeon',
@@ -103,7 +103,7 @@ export const PETS_LIST: Pet[] = [
     attack: 3,
     health: 1,
     abilityTrigger: 'Sell',
-    tag: ['Food'],
+    tags: ['Food'],
   },
   {
     name: 'Chinchilla',
@@ -113,7 +113,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 2,
     abilityTrigger: 'Sell',
-    tag: ['Gold', 'Cycle'],
+    tags: ['Gold', 'Cycle'],
   },
   {
     name: 'Moth',
@@ -123,7 +123,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 3,
     abilityTrigger: 'Start Of Battle',
-    tag: [],
+    tags: [],
   },
   {
     name: 'Marmoset',
@@ -133,7 +133,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 3,
     abilityTrigger: 'Sell',
-    tag: ['Cycle'],
+    tags: ['Cycle'],
   },
   {
     name: 'Budgie',
@@ -143,7 +143,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 1,
     abilityTrigger: 'Start Of Battle',
-    tag: ['Perks'],
+    tags: ['Perks'],
   },
   {
     name: 'Farmer Mouse',
@@ -153,7 +153,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 2,
     abilityTrigger: 'Faint',
-    tag: ['Food'],
+    tags: ['Food'],
   },
   {
     name: 'Frilled Dragon',
@@ -163,7 +163,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 1,
     abilityTrigger: 'Start Of Battle',
-    tag: ['Faint'],
+    tags: ['Faint'],
   },
   {
     name: 'Weevil',
@@ -173,7 +173,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 2,
     abilityTrigger: 'Friendly Eats Food',
-    tag: ['Food'],
+    tags: ['Food'],
   },
   {
     name: 'Beetle',
@@ -183,7 +183,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 2,
     abilityTrigger: 'Start Of Battle',
-    tag: ['Perks'],
+    tags: ['Perks'],
   },
   {
     name: 'Bluebird',
@@ -193,7 +193,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 1,
     abilityTrigger: 'End Turn',
-    tag: ['Buffs'],
+    tags: ['Buffs'],
   },
   {
     name: 'Chipmunk',
@@ -203,7 +203,7 @@ export const PETS_LIST: Pet[] = [
     attack: 3,
     health: 2,
     abilityTrigger: 'Sell',
-    tag: ['Perks'],
+    tags: ['Perks'],
   },
   {
     name: 'Ferret',
@@ -213,7 +213,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 1,
     abilityTrigger: 'Buy',
-    tag: ['Toys'],
+    tags: ['Toys'],
   },
   {
     name: 'Gecko',
@@ -223,7 +223,7 @@ export const PETS_LIST: Pet[] = [
     attack: 3,
     health: 1,
     abilityTrigger: 'Start Of Battle',
-    tag: ['Toys'],
+    tags: ['Toys'],
   },
   {
     name: 'Ladybug',
@@ -233,7 +233,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 3,
     abilityTrigger: 'Friendly Gained Perk',
-    tag: ['Perks'],
+    tags: ['Perks'],
   },
   {
     name: 'Chihuahua',
@@ -243,7 +243,7 @@ export const PETS_LIST: Pet[] = [
     attack: 4,
     health: 1,
     abilityTrigger: 'Start Of Battle',
-    tag: ['Disruption'],
+    tags: ['Disruption'],
   },
   {
     name: 'Cockroach',
@@ -253,7 +253,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 1,
     abilityTrigger: 'Faint',
-    tag: ['Level-Up', 'Summon'],
+    tags: ['Level-Up', 'Summon'],
   },
   {
     name: 'Duckling',
@@ -263,7 +263,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 2,
     abilityTrigger: 'Sell',
-    tag: ['Buffs'],
+    tags: ['Buffs'],
   },
   {
     name: 'Firefly',
@@ -273,7 +273,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 2,
     abilityTrigger: 'Faint',
-    tag: ['Hurt'],
+    tags: ['Hurt'],
   },
   {
     name: 'Frog',
@@ -283,7 +283,7 @@ export const PETS_LIST: Pet[] = [
     attack: 3,
     health: 2,
     abilityTrigger: 'Sell',
-    tag: [],
+    tags: [],
   },
   {
     name: 'Gibbon',
@@ -293,7 +293,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 2,
     abilityTrigger: 'Shop Tier Upgraded',
-    tag: ['Buffs'],
+    tags: ['Buffs'],
   },
   {
     name: 'Hummingbird',
@@ -303,7 +303,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 2,
     abilityTrigger: 'Start Of Battle',
-    tag: ['Strawberry', 'Perks'],
+    tags: ['Strawberry', 'Perks'],
   },
   {
     name: 'Kiwi',
@@ -313,7 +313,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 4,
     abilityTrigger: 'Hurt & Sell',
-    tag: ['Strawberry'],
+    tags: ['Strawberry'],
   },
   {
     name: 'Mouse',
@@ -323,7 +323,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 2,
     abilityTrigger: 'Sell',
-    tag: ['Food'],
+    tags: ['Food'],
   },
   {
     name: 'Pheasant',
@@ -333,7 +333,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 1,
     abilityTrigger: 'Friend Summoned',
-    tag: ['Strawberry', 'Perks'],
+    tags: ['Strawberry', 'Perks'],
   },
   {
     name: 'Pillbug',
@@ -343,7 +343,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 2,
     abilityTrigger: 'Sell',
-    tag: ['Faint'],
+    tags: ['Faint'],
   },
   {
     name: 'Termite',
@@ -353,7 +353,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 4,
     abilityTrigger: 'Start Of Turn',
-    tag: [],
+    tags: [],
   },
   {
     name: 'Bulldog',
@@ -363,7 +363,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 3,
     abilityTrigger: 'After Attack',
-    tag: [],
+    tags: [],
   },
   {
     name: 'Cone Snail',
@@ -373,7 +373,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 2,
     abilityTrigger: 'Start Of Battle',
-    tag: [],
+    tags: [],
   },
   {
     name: 'Goose',
@@ -383,7 +383,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 2,
     abilityTrigger: 'Start Of Battle',
-    tag: [],
+    tags: [],
   },
   {
     name: 'Groundhog',
@@ -393,7 +393,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 1,
     abilityTrigger: 'Faint',
-    tag: ['Trumpets'],
+    tags: ['Trumpets'],
   },
   {
     name: 'Magpie',
@@ -403,7 +403,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 4,
     abilityTrigger: 'End Turn',
-    tag: ['Gold'],
+    tags: ['Gold'],
   },
   {
     name: 'Opossum',
@@ -413,7 +413,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 3,
     abilityTrigger: 'Sell',
-    tag: ['Buffs'],
+    tags: ['Buffs'],
   },
   {
     name: 'Pied Tamarin',
@@ -423,7 +423,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 2,
     abilityTrigger: 'Faint',
-    tag: ['Trumpets'],
+    tags: ['Trumpets'],
   },
   {
     name: 'Silkmoth',
@@ -433,7 +433,7 @@ export const PETS_LIST: Pet[] = [
     attack: 3,
     health: 1,
     abilityTrigger: 'Friend Ahead Hurt',
-    tag: [],
+    tags: [],
   },
   {
     name: '???',
@@ -443,7 +443,7 @@ export const PETS_LIST: Pet[] = [
     attack: 3,
     health: 2,
     abilityTrigger: 'End Turn',
-    tag: ['Ailment'],
+    tags: ['Ailment'],
   },
   {
     name: 'Alchemedes',
@@ -453,7 +453,7 @@ export const PETS_LIST: Pet[] = [
     attack: 3,
     health: 2,
     abilityTrigger: 'Start Of Battle',
-    tag: ['Mana'],
+    tags: ['Mana'],
   },
   {
     name: 'Baku',
@@ -463,7 +463,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 4,
     abilityTrigger: 'End Turn',
-    tag: ['Ailment'],
+    tags: ['Ailment'],
   },
   {
     name: 'Barghest',
@@ -473,7 +473,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 3,
     abilityTrigger: 'Start Of Battle',
-    tag: ['Ailment'],
+    tags: ['Ailment'],
   },
   {
     name: 'Basilisk',
@@ -483,7 +483,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 1,
     abilityTrigger: 'Start Of Battle',
-    tag: ['Disruption'],
+    tags: ['Disruption'],
   },
   {
     name: 'Bunyip',
@@ -493,7 +493,7 @@ export const PETS_LIST: Pet[] = [
     attack: 3,
     health: 1,
     abilityTrigger: 'Start Of Battle',
-    tag: ['Rolling'],
+    tags: ['Rolling'],
   },
   {
     name: 'Cuddle Toad',
@@ -503,7 +503,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 3,
     abilityTrigger: 'Sell',
-    tag: ['Toys'],
+    tags: ['Toys'],
   },
   {
     name: 'Murmel',
@@ -513,7 +513,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 2,
     abilityTrigger: 'Friend Level-Up',
-    tag: ['Level-Up'],
+    tags: ['Level-Up'],
   },
   {
     name: 'Pengobble',
@@ -523,7 +523,7 @@ export const PETS_LIST: Pet[] = [
     attack: 1,
     health: 3,
     abilityTrigger: 'Gains Mana',
-    tag: ['Mana'],
+    tags: ['Mana'],
   },
   {
     name: 'Sneaky Egg',
@@ -533,7 +533,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 4,
     abilityTrigger: 'Start Of Battle',
-    tag: ['Guard'],
+    tags: ['Guard'],
   },
   {
     name: 'Tsuchinoko',
@@ -543,7 +543,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 1,
     abilityTrigger: 'Start Of Battle',
-    tag: ['Level-Up', 'Guard'],
+    tags: ['Level-Up', 'Guard'],
   },
   {
     name: 'Pygmy Seahorse',
@@ -553,7 +553,7 @@ export const PETS_LIST: Pet[] = [
     attack: 3,
     health: 1,
     abilityTrigger: 'Start Of Battle',
-    tag: ['Cycle'],
+    tags: ['Cycle'],
   },
   {
     name: 'Silverfish',
@@ -563,7 +563,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 2,
     abilityTrigger: 'Sell',
-    tag: ['Gold'],
+    tags: ['Gold'],
   },
   {
     name: 'Umbrella Bird',
@@ -573,7 +573,7 @@ export const PETS_LIST: Pet[] = [
     attack: 3,
     health: 2,
     abilityTrigger: 'End Turn',
-    tag: ['Ailment'],
+    tags: ['Ailment'],
   },
   {
     name: 'Nudibranch',
@@ -583,7 +583,7 @@ export const PETS_LIST: Pet[] = [
     attack: 2,
     health: 2,
     abilityTrigger: 'Start Of Battle',
-    tag: [],
+    tags: [],
   },
   //
   // --- TIER 2 ---
