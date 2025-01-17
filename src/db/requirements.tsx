@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import { Requirement } from './types';
 import Image from 'next/image';
-import { IMAGE_SRCS } from '@/db';
+import { IMAGE_SRCS } from './imageSrc';
 
 export const REQUIREMENT_MAP: Record<string, Requirement> = {
   //
