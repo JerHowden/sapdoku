@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Apple,
   ArrowLeft,
@@ -9,7 +11,7 @@ import {
   Coins,
   DiamondPlus,
   Milk,
-  RedoDot,
+  Redo,
   RefreshCw,
   Skull,
   SquarePlus,
@@ -31,6 +33,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.tier_1}
         alt="Tier 1"
+        width="64"
+        height="64"
       />
     ),
     label: 'Tier 1',
@@ -41,6 +45,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.tier_2}
         alt="Tier 2"
+        width="64"
+        height="64"
       />
     ),
     label: 'Tier 2',
@@ -51,6 +57,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.tier_3}
         alt="Tier 3"
+        width="64"
+        height="64"
       />
     ),
     label: 'Tier 3',
@@ -61,6 +69,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.tier_4}
         alt="Tier 4"
+        width="64"
+        height="64"
       />
     ),
     label: 'Tier 4',
@@ -71,6 +81,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.tier_5}
         alt="Tier 5"
+        width="64"
+        height="64"
       />
     ),
     label: 'Tier 5',
@@ -81,6 +93,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.tier_6}
         alt="Tier 6"
+        width="64"
+        height="64"
       />
     ),
     label: 'Tier 6',
@@ -98,6 +112,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
         <Image
           src={IMAGE_SRCS.tier_3}
           alt="Tier 3"
+          width="64"
+          height="64"
         />
       </div>
     ),
@@ -110,6 +126,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
         <Image
           src={IMAGE_SRCS.tier_4}
           alt="Tier 4"
+          width="64"
+          height="64"
         />
         <ArrowRight />
       </div>
@@ -125,6 +143,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.turtle_pack}
         alt="Turtle Pack"
+        width="64"
+        height="64"
       />
     ),
     label: 'Turtle Pack',
@@ -135,6 +155,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.puppy_pack}
         alt="Puppy Pack"
+        width="64"
+        height="64"
       />
     ),
     label: 'Puppy Pack',
@@ -145,6 +167,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.star_pack}
         alt="Star Pack"
+        width="64"
+        height="64"
       />
     ),
     label: 'Star Pack',
@@ -155,6 +179,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.golden_pack}
         alt="Golden Pack"
+        width="64"
+        height="64"
       />
     ),
     label: 'Golden Pack',
@@ -165,6 +191,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.unicorn_pack}
         alt="Unicorn Pack"
+        width="64"
+        height="64"
       />
     ),
     label: 'Unicorn Pack',
@@ -175,6 +203,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.custom_pack}
         alt="Custom Pack"
+        width="64"
+        height="64"
       />
     ),
     label: 'Custom Pack',
@@ -188,6 +218,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.health}
         alt="Health"
+        width="64"
+        height="64"
       />
     ),
     label: 'Health 5 or Less',
@@ -198,6 +230,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.health}
         alt="Health"
+        width="64"
+        height="64"
       />
     ),
     label: 'Health 6 or More',
@@ -208,6 +242,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.attack}
         alt="Attack"
+        width="64"
+        height="64"
       />
     ),
     label: 'Attack 5 or Less',
@@ -218,6 +254,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       <Image
         src={IMAGE_SRCS.attack}
         alt="Attack"
+        width="64"
+        height="64"
       />
     ),
     label: 'Attack 6 or More',
@@ -227,98 +265,98 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   //
   noAbility: {
     logic: (pet) => pet.abilityTrigger === '',
-    display: <X />,
+    display: <X size={64} />,
     label: 'No Ability Trigger',
   },
   buy: {
     logic: (pet) => pet.abilityTrigger === 'Buy',
-    display: <Coins />,
+    display: <Coins size={64} />,
     label: 'Buy',
   },
   buyFriend: {
     logic: (pet) => pet.abilityTrigger === 'Buy Friend',
-    display: <Coins />,
+    display: <Coins size={64} />,
     label: 'Buy Friend',
   },
   buyFood: {
     logic: (pet) => pet.abilityTrigger === 'Buy Food',
-    display: <Coins />,
+    display: <Coins size={64} />,
     label: 'Buy Food',
   },
   sell: {
     logic: (pet) => pet.abilityTrigger === 'Sell',
-    display: <Coins />,
+    display: <Coins size={64} />,
     label: 'Sell',
   },
   hurt: {
     logic: (pet) => pet.abilityTrigger === 'Hurt',
-    display: <Sword />,
+    display: <Sword size={64} />,
     label: 'Hurt',
   },
   faint: {
     logic: (pet) => pet.abilityTrigger === 'Faint',
-    display: <Skull />,
+    display: <Skull size={64} />,
     label: 'Faint',
   },
   levelUp: {
     logic: (pet) => pet.abilityTrigger === 'Level Up',
-    display: <BadgePlus />,
+    display: <BadgePlus size={64} />,
     label: 'Level Up',
   },
   friendSummoned: {
     logic: (pet) => pet.abilityTrigger === 'Friend Summoned',
-    display: <DiamondPlus />,
+    display: <DiamondPlus size={64} />,
     label: 'Friend Summoned',
   },
   summoned: {
     logic: (pet) => pet.abilityTrigger === 'Summoned',
-    display: <DiamondPlus />,
+    display: <DiamondPlus size={64} />,
     label: 'Summoned',
   },
   startOfBattle: {
     logic: (pet) => pet.abilityTrigger === 'Start Of Battle',
-    display: <Swords />,
+    display: <Swords size={64} />,
     label: 'Start of Battle',
   },
   startOfTurn: {
     logic: (pet) => pet.abilityTrigger === 'Start Of Turn',
-    display: <ArrowRightFromLine />,
+    display: <ArrowRightFromLine size={64} />,
     label: 'Start of Turn',
   },
   endTurn: {
     logic: (pet) => pet.abilityTrigger === 'End Turn',
-    display: <ArrowRightToLine />,
+    display: <ArrowRightToLine size={64} />,
     label: 'End Turn',
   },
   knockOut: {
     logic: (pet) => pet.abilityTrigger === 'Knock Out',
-    display: <Sword />,
+    display: <Sword size={64} />,
     label: 'Knock Out',
   },
   beforeAttack: {
     logic: (pet) => pet.abilityTrigger === 'Before Attack',
-    display: <Sword />,
+    display: <Sword size={64} />,
     label: 'Before Attack',
   },
   afterAttack: {
     logic: (pet) => pet.abilityTrigger === 'After Attack',
-    display: <Sword />,
+    display: <Sword size={64} />,
     label: 'After Attack',
   },
   eatsFood: {
     logic: (pet) => pet.abilityTrigger === 'Eats Food',
-    display: <Apple />,
+    display: <Apple size={64} />,
     label: 'Eats Food',
   },
   friendlyEatsFood: {
     logic: (pet) => pet.abilityTrigger === 'Friendly Eats Food',
-    display: <Apple />,
+    display: <Apple size={64} />,
     label: 'Friendly Eats Food',
   },
   friendlyGained: {
     logic: (pet) =>
       ['Friendly Gained Perk', 'Friendly Gained Ailment'].includes(pet.abilityTrigger),
-    display: <Beef />,
+    display: <Beef size={64} />,
     label: 'Friendly Gained ...',
   },
   friendAhead: {
@@ -326,37 +364,37 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       ['Friend Ahead Attacks', 'Friend Ahead Hurt', 'Friend Ahead Faints'].includes(
         pet.abilityTrigger
       ),
-    display: <RedoDot />,
+    display: <Redo size={64} />,
     label: 'Friend Ahead ...',
   },
   friendLevelUp: {
     logic: (pet) => pet.abilityTrigger === 'Friend Level-Up',
-    display: <BadgePlus />,
+    display: <BadgePlus size={64} />,
     label: 'Friend Level-Up',
   },
   friendHurt: {
     logic: (pet) => pet.abilityTrigger === 'Friend Hurt',
-    display: <Sword />,
+    display: <Sword size={64} />,
     label: 'Friend Hurt',
   },
   roll: {
     logic: (pet) => pet.abilityTrigger === 'Roll',
-    display: <RefreshCw />,
+    display: <RefreshCw size={64} />,
     label: 'Roll',
   },
   shopTierUpgraded: {
     logic: (pet) => pet.abilityTrigger === 'Shop Tier Upgraded',
-    display: <ArrowRight />,
+    display: <ArrowRight size={64} />,
     label: 'Shop Tier Upgraded',
   },
   gainsMana: {
     logic: (pet) => pet.abilityTrigger === 'Gains Mana',
-    display: <Milk />,
+    display: <Milk size={64} />,
     label: 'Gains Mana',
   },
 } as const;
 
-export const REUIREMENT_LIST_TIERS: Requirement[] = [
+export const REQUIREMENT_LIST_TIERS: Requirement[] = [
   REQUIREMENT_MAP.tier1,
   REQUIREMENT_MAP.tier2,
   REQUIREMENT_MAP.tier3,
@@ -367,7 +405,7 @@ export const REUIREMENT_LIST_TIERS: Requirement[] = [
   REQUIREMENT_MAP.lowTier,
   REQUIREMENT_MAP.highTier,
 ] as const;
-export const REUIREMENT_LIST_PACKS: Requirement[] = [
+export const REQUIREMENT_LIST_PACKS: Requirement[] = [
   REQUIREMENT_MAP.turtlePack,
   REQUIREMENT_MAP.puppyPack,
   REQUIREMENT_MAP.starPack,
@@ -375,13 +413,13 @@ export const REUIREMENT_LIST_PACKS: Requirement[] = [
   REQUIREMENT_MAP.unicornPack,
   REQUIREMENT_MAP.customPack,
 ] as const;
-export const REUIREMENT_LIST_STATS: Requirement[] = [
+export const REQUIREMENT_LIST_STATS: Requirement[] = [
   REQUIREMENT_MAP.health5Under,
   REQUIREMENT_MAP.health6Over,
   REQUIREMENT_MAP.attack5Under,
   REQUIREMENT_MAP.attack6Over,
 ] as const;
-export const REUIREMENT_LIST_TRIGGERS: Requirement[] = [
+export const REQUIREMENT_LIST_TRIGGERS: Requirement[] = [
   REQUIREMENT_MAP.noAbility,
   REQUIREMENT_MAP.buy,
   REQUIREMENT_MAP.buyFriend,

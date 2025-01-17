@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type Pack =
   | 'Turtle Pack'
   | 'Puppy Pack'
@@ -67,4 +69,15 @@ export type Pet = {
   health: number;
   abilityTrigger: AbilityTrigger;
   tag: Tag[];
+};
+
+export type Requirement = {
+  logic: (pet: Pet) => boolean;
+  display: ReactNode;
+  label: string;
+};
+
+export type Combo = {
+  rows: [Requirement, Requirement, Requirement];
+  columns: [Requirement, Requirement, Requirement];
 };

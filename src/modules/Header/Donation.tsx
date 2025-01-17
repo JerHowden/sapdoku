@@ -10,6 +10,7 @@ export function Donation() {
       size="icon"
       type="button"
       onClick={() => window.open('https://buymeacoffee.com/jeremiahhowden', '_blank')}
+      title="Buy me a Coffee ↗"
     >
       <Coffee />
       <span className="sr-only">Donate to Sapdoku</span>

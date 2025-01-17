@@ -40,10 +40,11 @@ export function Header() {
             variant="outline"
             type="button"
             onClick={() => router.push('/pets')}
-            size="default"
+            size="textToIcon"
+            title="See all the SAP Pets"
           >
             <Fish />
-            Pets
+            <span className="hidden md:inline">Pets</span>
           </Button>
           <ThemeToggle />
           <Donation />

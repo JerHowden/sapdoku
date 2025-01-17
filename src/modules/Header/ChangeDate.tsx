@@ -8,10 +8,12 @@ export function ChangeDate() {
     <Button
       variant="outline"
       type="button"
+      size="textToIcon"
       onClick={() => window.open('https://buymeacoffee.com/jeremiahhowden', '_blank')}
+      title="Play a Game from another Day"
     >
       <Calendar />
-      Choose Date
+      <span className="hidden md:inline">Choose Date</span>
     </Button>
   );
 }
