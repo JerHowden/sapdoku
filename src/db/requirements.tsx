@@ -19,9 +19,50 @@ import {
   Swords,
   X,
 } from 'lucide-react';
-import { Requirement } from './types';
-import Image from 'next/image';
+import { getImageProps } from 'next/image';
 import { IMAGE_SRCS } from './imageSrc';
+import { Requirement } from './types';
+
+type RequirementImageProps = {
+  src: string;
+  alt: string;
+  baseSize: number;
+};
+
+function RequirementImage({ src, alt = '', baseSize }: RequirementImageProps) {
+  const common = { src, alt };
+  const {
+    props: { srcSet: desktop },
+  } = getImageProps({
+    ...common,
+    width: baseSize * 2,
+    height: baseSize * 2,
+    quality: 80,
+  });
+  const {
+    props: { srcSet: mobile, ...rest },
+  } = getImageProps({
+    ...common,
+    width: baseSize,
+    height: baseSize,
+    quality: 70,
+  });
+
+  return (
+    <picture>
+      <source
+        media="(min-width: 768px)"
+        srcSet={desktop}
+      />
+      <source srcSet={mobile} />
+      {/* eslint-disable-next-line jsx-a11y/alt-text */}
+      <img
+        {...rest}
+        style={{ width: '100%', height: 'auto' }}
+      />
+    </picture>
+  );
+}
 
 export const REQUIREMENT_MAP: Record<string, Requirement> = {
   //
@@ -30,11 +71,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   tier1: {
     logic: (pet) => pet.tier === 1,
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.tier_1}
         alt="Tier 1"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Tier 1',
@@ -42,11 +82,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   tier2: {
     logic: (pet) => pet.tier === 2,
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.tier_2}
         alt="Tier 2"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Tier 2',
@@ -54,11 +93,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   tier3: {
     logic: (pet) => pet.tier === 3,
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.tier_3}
         alt="Tier 3"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Tier 3',
@@ -66,11 +104,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   tier4: {
     logic: (pet) => pet.tier === 4,
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.tier_4}
         alt="Tier 4"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Tier 4',
@@ -78,11 +115,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   tier5: {
     logic: (pet) => pet.tier === 5,
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.tier_5}
         alt="Tier 5"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Tier 5',
@@ -90,30 +126,28 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   tier6: {
     logic: (pet) => pet.tier === 6,
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.tier_6}
         alt="Tier 6"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Tier 6',
   },
   summonedTier: {
     logic: (pet) => pet.tier === 'Summoned',
-    display: <SquarePlus />,
+    display: <SquarePlus className="w-6 md:w-12 h-auto" />,
     label: 'Summoned',
   },
   lowTier: {
     logic: (pet) => typeof pet.tier === 'number' && pet.tier <= 3,
     display: (
       <div className="flex flex-row gap-1 items-center">
-        <ArrowLeft size={48} />
-        <Image
+        <ArrowLeft className="w-6 md:w-12 h-auto" />
+        <RequirementImage
           src={IMAGE_SRCS.tier_3}
           alt="Tier 3"
-          width="48"
-          height="48"
+          baseSize={24}
         />
       </div>
     ),
@@ -123,13 +157,12 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
     logic: (pet) => typeof pet.tier === 'number' && pet.tier >= 4,
     display: (
       <div className="flex flex-row gap-1 items-center">
-        <Image
+        <RequirementImage
           src={IMAGE_SRCS.tier_4}
           alt="Tier 4"
-          width="48"
-          height="48"
+          baseSize={24}
         />
-        <ArrowRight size={48} />
+        <ArrowRight className="w-6 md:w-12 h-auto" />
       </div>
     ),
     label: 'Tiers 4 - 6',
@@ -140,11 +173,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   turtlePack: {
     logic: (pet) => pet.pack.includes('Turtle Pack'),
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.turtle_pack}
         alt="Turtle Pack"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Turtle Pack',
@@ -152,11 +184,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   puppyPack: {
     logic: (pet) => pet.pack.includes('Puppy Pack'),
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.puppy_pack}
         alt="Puppy Pack"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Puppy Pack',
@@ -164,11 +195,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   starPack: {
     logic: (pet) => pet.pack.includes('Star Pack'),
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.star_pack}
         alt="Star Pack"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Star Pack',
@@ -176,11 +206,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   goldenPack: {
     logic: (pet) => pet.pack.includes('Golden Pack'),
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.golden_pack}
         alt="Golden Pack"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Golden Pack',
@@ -188,11 +217,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   unicornPack: {
     logic: (pet) => pet.pack.includes('Unicorn Pack'),
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.unicorn_pack}
         alt="Unicorn Pack"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Unicorn Pack',
@@ -200,11 +228,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   customPack: {
     logic: (pet) => pet.pack.includes('Custom Pack'),
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.custom_pack}
         alt="Custom Pack"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Custom Pack',
@@ -215,11 +242,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   health5Under: {
     logic: (pet) => pet.health <= 5,
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.health}
         alt="Health"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Health 5 or Less',
@@ -227,11 +253,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   health6Over: {
     logic: (pet) => pet.health >= 6,
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.health}
         alt="Health"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Health 6 or More',
@@ -239,11 +264,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   attack5Under: {
     logic: (pet) => pet.attack <= 5,
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.attack}
         alt="Attack"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Attack 5 or Less',
@@ -251,11 +275,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   attack6Over: {
     logic: (pet) => pet.attack >= 6,
     display: (
-      <Image
+      <RequirementImage
         src={IMAGE_SRCS.attack}
         alt="Attack"
-        width="64"
-        height="64"
+        baseSize={32}
       />
     ),
     label: 'Attack 6 or More',
@@ -265,98 +288,98 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   //
   noAbility: {
     logic: (pet) => pet.abilityTrigger === '',
-    display: <X size={64} />,
+    display: <X className="w-6 md:w-12 h-auto" />,
     label: 'No Ability Trigger',
   },
   buy: {
     logic: (pet) => pet.abilityTrigger === 'Buy',
-    display: <Coins size={64} />,
+    display: <Coins className="w-6 md:w-12 h-auto" />,
     label: 'Buy',
   },
   buyFriend: {
     logic: (pet) => pet.abilityTrigger === 'Buy Friend',
-    display: <Coins size={64} />,
+    display: <Coins className="w-6 md:w-12 h-auto" />,
     label: 'Buy Friend',
   },
   buyFood: {
     logic: (pet) => pet.abilityTrigger === 'Buy Food',
-    display: <Coins size={64} />,
+    display: <Coins className="w-6 md:w-12 h-auto" />,
     label: 'Buy Food',
   },
   sell: {
     logic: (pet) => ['Sell', 'Hurt & Sell'].includes(pet.abilityTrigger),
-    display: <Coins size={64} />,
+    display: <Coins className="w-6 md:w-12 h-auto" />,
     label: 'Sell',
   },
   hurt: {
     logic: (pet) => ['Hurt', 'Hurt & Sell'].includes(pet.abilityTrigger),
-    display: <Sword size={64} />,
+    display: <Sword className="w-6 md:w-12 h-auto" />,
     label: 'Hurt',
   },
   faint: {
     logic: (pet) => pet.abilityTrigger === 'Faint',
-    display: <Skull size={64} />,
+    display: <Skull className="w-6 md:w-12 h-auto" />,
     label: 'Faint',
   },
   levelUp: {
     logic: (pet) => pet.abilityTrigger === 'Level Up',
-    display: <BadgePlus size={64} />,
+    display: <BadgePlus className="w-6 md:w-12 h-auto" />,
     label: 'Level Up',
   },
   friendSummoned: {
     logic: (pet) => pet.abilityTrigger === 'Friend Summoned',
-    display: <DiamondPlus size={64} />,
+    display: <DiamondPlus className="w-6 md:w-12 h-auto" />,
     label: 'Friend Summoned',
   },
   summoned: {
     logic: (pet) => pet.abilityTrigger === 'Summoned',
-    display: <DiamondPlus size={64} />,
+    display: <DiamondPlus className="w-6 md:w-12 h-auto" />,
     label: 'Summoned',
   },
   startOfBattle: {
     logic: (pet) => pet.abilityTrigger === 'Start Of Battle',
-    display: <Swords size={64} />,
+    display: <Swords className="w-6 md:w-12 h-auto" />,
     label: 'Start of Battle',
   },
   startOfTurn: {
     logic: (pet) => pet.abilityTrigger === 'Start Of Turn',
-    display: <ArrowRightFromLine size={64} />,
+    display: <ArrowRightFromLine className="w-6 md:w-12 h-auto" />,
     label: 'Start of Turn',
   },
   endTurn: {
     logic: (pet) => pet.abilityTrigger === 'End Turn',
-    display: <ArrowRightToLine size={64} />,
+    display: <ArrowRightToLine className="w-6 md:w-12 h-auto" />,
     label: 'End Turn',
   },
   knockOut: {
     logic: (pet) => pet.abilityTrigger === 'Knock Out',
-    display: <Sword size={64} />,
+    display: <Sword className="w-6 md:w-12 h-auto" />,
     label: 'Knock Out',
   },
   beforeAttack: {
     logic: (pet) => pet.abilityTrigger === 'Before Attack',
-    display: <Sword size={64} />,
+    display: <Sword className="w-6 md:w-12 h-auto" />,
     label: 'Before Attack',
   },
   afterAttack: {
     logic: (pet) => pet.abilityTrigger === 'After Attack',
-    display: <Sword size={64} />,
+    display: <Sword className="w-6 md:w-12 h-auto" />,
     label: 'After Attack',
   },
   eatsFood: {
     logic: (pet) => pet.abilityTrigger === 'Eats Food',
-    display: <Apple size={64} />,
+    display: <Apple className="w-6 md:w-12 h-auto" />,
     label: 'Eats Food',
   },
   friendlyEatsFood: {
     logic: (pet) => pet.abilityTrigger === 'Friendly Eats Food',
-    display: <Apple size={64} />,
+    display: <Apple className="w-6 md:w-12 h-auto" />,
     label: 'Friendly Eats Food',
   },
   friendlyGained: {
     logic: (pet) =>
       ['Friendly Gained Perk', 'Friendly Gained Ailment'].includes(pet.abilityTrigger),
-    display: <Beef size={64} />,
+    display: <Beef className="w-6 md:w-12 h-auto" />,
     label: 'Friendly Gained ...',
   },
   friendAhead: {
@@ -364,32 +387,32 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       ['Friend Ahead Attacks', 'Friend Ahead Hurt', 'Friend Ahead Faints'].includes(
         pet.abilityTrigger
       ),
-    display: <Redo size={64} />,
+    display: <Redo className="w-6 md:w-12 h-auto" />,
     label: 'Friend Ahead ...',
   },
   friendLevelUp: {
     logic: (pet) => pet.abilityTrigger === 'Friend Level-Up',
-    display: <BadgePlus size={64} />,
+    display: <BadgePlus className="w-6 md:w-12 h-auto" />,
     label: 'Friend Level-Up',
   },
   friendHurt: {
     logic: (pet) => pet.abilityTrigger === 'Friend Hurt',
-    display: <Sword size={64} />,
+    display: <Sword className="w-6 md:w-12 h-auto" />,
     label: 'Friend Hurt',
   },
   roll: {
     logic: (pet) => pet.abilityTrigger === 'Roll',
-    display: <RefreshCw size={64} />,
+    display: <RefreshCw className="w-6 md:w-12 h-auto" />,
     label: 'Roll',
   },
   shopTierUpgraded: {
     logic: (pet) => pet.abilityTrigger === 'Shop Tier Upgraded',
-    display: <ArrowRight size={64} />,
+    display: <ArrowRight className="w-6 md:w-12 h-auto" />,
     label: 'Shop Tier Upgraded',
   },
   gainsMana: {
     logic: (pet) => pet.abilityTrigger === 'Gains Mana',
-    display: <Milk size={64} />,
+    display: <Milk className="w-6 md:w-12 h-auto" />,
     label: 'Gains Mana',
   },
 } as const;

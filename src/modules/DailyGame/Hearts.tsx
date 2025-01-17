@@ -15,8 +15,9 @@ export function Hearts() {
           key={index}
           src={IMAGE_SRCS.health ?? ''}
           alt="1 Life"
-          width={48}
-          height={48}
+          width="48"
+          height="48"
+          className="w-6 sm:w-9 md:w-12 h-auto"
         />
       ))}
     </div>

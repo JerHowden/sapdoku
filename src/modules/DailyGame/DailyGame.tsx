@@ -4,6 +4,7 @@ import { SapdokuContext } from '@/app/providers';
 import { COMBO_MAP } from '@/db';
 import { useContext, useMemo } from 'react';
 import { GuessingGrid } from '../GuessingGrid';
+import { GameTimer } from './GameTimer';
 import { Hearts } from './Hearts';
 
 export function DailyGame() {
@@ -31,6 +32,7 @@ export function DailyGame() {
       </h1>
       <GuessingGrid combo={dateCombo} />
       <Hearts />
+      <GameTimer />
     </div>
   );
 }

@@ -62,7 +62,9 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
           gap-1
           [grid-template-areas:'corner_col-1_col-2_col-3''row-1_box-1_box-2_box-3''row-2_box-4_box-5_box-6''row-3_box-7_box-8_box-9']
           aspect-square
-          min-w-96
+          min-w-64
+          max-w-full
+          md:min-w-96
         `}
     >
       <div className="[grid-area:corner]"></div>
