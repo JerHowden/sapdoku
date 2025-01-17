@@ -13,7 +13,7 @@ export function Hearts() {
       {[...Array(hearts)].map((_, index) => (
         <Image
           key={index}
-          src={IMAGE_SRCS.health}
+          src={IMAGE_SRCS.health ?? ''}
           alt="1 Life"
           width={48}
           height={48}
