@@ -1,8 +1,8 @@
 import { Header } from '@/modules/Header';
 import type { Metadata } from 'next';
-import { ThemeProvider } from 'next-themes';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import { Providers } from './providers';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -30,15 +30,10 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <Providers>
           <Header />
           <div className="max-w-7xl mx-auto">{children}</div>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

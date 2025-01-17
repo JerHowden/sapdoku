@@ -8,7 +8,6 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { Separator } from '@/components/ui/separator';
 import { Pet, PETS_LIST, Requirement } from '@/db';
 import { Fragment, useMemo, useState } from 'react';
 import { PetsList } from './PetsList';
@@ -55,10 +54,7 @@ export function GuessingDialogContent({ box, reqs, makeGuess }: GuessingModalPro
             } else {
               return (
                 <Fragment key={req.label}>
-                  <Separator
-                    orientation="vertical"
-                    className="bg-muted-foreground"
-                  />
+                  <span>|</span>
                   <span>{req.label}</span>
                 </Fragment>
               );
@@ -81,7 +77,7 @@ export function GuessingDialogContent({ box, reqs, makeGuess }: GuessingModalPro
         />
       </div>
       <DialogFooter className="">
-        <DialogClose>
+        <DialogClose asChild>
           <Button
             type="submit"
             onClick={() => (chosenPet ? makeGuess(chosenPet, box) : {})}

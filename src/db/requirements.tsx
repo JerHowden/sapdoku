@@ -107,13 +107,13 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   lowTier: {
     logic: (pet) => typeof pet.tier === 'number' && pet.tier <= 3,
     display: (
-      <div className="flex flex-row gap-2">
-        <ArrowLeft />
+      <div className="flex flex-row gap-1 items-center">
+        <ArrowLeft size={48} />
         <Image
           src={IMAGE_SRCS.tier_3}
           alt="Tier 3"
-          width="64"
-          height="64"
+          width="48"
+          height="48"
         />
       </div>
     ),
@@ -122,14 +122,14 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   highTier: {
     logic: (pet) => typeof pet.tier === 'number' && pet.tier >= 4,
     display: (
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row gap-1 items-center">
         <Image
           src={IMAGE_SRCS.tier_4}
           alt="Tier 4"
-          width="64"
-          height="64"
+          width="48"
+          height="48"
         />
-        <ArrowRight />
+        <ArrowRight size={48} />
       </div>
     ),
     label: 'Tiers 4 - 6',
@@ -284,12 +284,12 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
     label: 'Buy Food',
   },
   sell: {
-    logic: (pet) => pet.abilityTrigger === 'Sell',
+    logic: (pet) => ['Sell', 'Hurt & Sell'].includes(pet.abilityTrigger),
     display: <Coins size={64} />,
     label: 'Sell',
   },
   hurt: {
-    logic: (pet) => pet.abilityTrigger === 'Hurt',
+    logic: (pet) => ['Hurt', 'Hurt & Sell'].includes(pet.abilityTrigger),
     display: <Sword size={64} />,
     label: 'Hurt',
   },

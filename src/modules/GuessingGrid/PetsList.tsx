@@ -30,7 +30,7 @@ export function PetsList({ pets, choosePet }: PetsListProps) {
                 width={80}
                 height={80}
               />
-              <p className="text-lg">{pet.name}</p>
+              <div className="text-lg">{pet.name}</div>
             </div>
           </ToggleGroupItem>
         ))}

@@ -28,13 +28,25 @@ export function GuessingButton({ box, reqs, guess, makeGuess }: GuessingButtonPr
     }
     return null;
   }, [guess]);
+  const guessStyles = useMemo(() => {
+    if (!guess) {
+      return '';
+    }
+    for (let i = 0; i < reqs.length; i++) {
+      if (!reqs[i].logic(guess)) {
+        return 'border-4 border-red-500';
+      }
+    }
+    return 'border-4 border-green-500';
+  }, [guess, reqs]);
+
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button
           variant="secondary"
-          className="w-full h-full"
-          title={`Choose Pet for Box ${box}`}
+          className={`w-full h-full ${guessStyles} disabled:opacity-100`}
+          title={guess ? `You chose ${guess}` : `Choose Pet for Box ${box}`}
           disabled={!!guess}
         >
           <span className="sr-only">Choose Pet for Box {box}</span>

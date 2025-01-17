@@ -21,7 +21,12 @@ export function Providers({ children }: ProvidersProps) {
   const [hearts, setHearts] = useState(5);
 
   return (
-    <ThemeProvider>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
       <SapdokuContext.Provider value={{ date, setDate, hearts, setHearts }}>
         {children}
       </SapdokuContext.Provider>

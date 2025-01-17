@@ -7,6 +7,7 @@ import { useContext } from 'react';
 
 export function Hearts() {
   const { hearts } = useContext(SapdokuContext);
+  console.log(hearts);
   return (
     <div className="flex flex-row gap-4 p-4">
       {[...Array(hearts)].map((_, index) => (
