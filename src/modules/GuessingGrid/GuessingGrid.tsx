@@ -1,59 +1,17 @@
 import { Combo, Pet } from '@/db';
+import { useReqsMap } from '@/lib';
 import { Category } from './Category';
 import { GuessingButton } from './GuessingButton';
-import { useCallback, useContext, useMemo, useState } from 'react';
-import { SapdokuContext } from '@/app/providers';
 
 type GuessingGridProps = {
   combo: Combo;
+  makeGuess: (pet: Pet, box: Box) => void;
 };
 
 type Box = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
-export function GuessingGrid({ combo }: GuessingGridProps) {
-  const { hearts, setHearts } = useContext(SapdokuContext);
-  const [guesses, setGuesses] = useState<Record<Box, Pet | undefined>>({
-    1: undefined,
-    2: undefined,
-    3: undefined,
-    4: undefined,
-    5: undefined,
-    6: undefined,
-    7: undefined,
-    8: undefined,
-    9: undefined,
-  });
-
-  const reqsMap = useMemo(
-    () => ({
-      1: [combo?.rows[0], combo?.columns[0]],
-      2: [combo?.rows[0], combo?.columns[1]],
-      3: [combo?.rows[0], combo?.columns[2]],
-      4: [combo?.rows[1], combo?.columns[0]],
-      5: [combo?.rows[1], combo?.columns[1]],
-      6: [combo?.rows[1], combo?.columns[2]],
-      7: [combo?.rows[2], combo?.columns[0]],
-      8: [combo?.rows[2], combo?.columns[1]],
-      9: [combo?.rows[2], combo?.columns[2]],
-    }),
-    [combo]
-  );
-
-  const guessed = useMemo(() => Object.values(guesses).filter((pet) => !!pet), [guesses]);
-
-  const makeGuess = useCallback(
-    (pet: Pet, box: Box) => {
-      setGuesses((guesses) => ({
-        ...guesses,
-        [box]: pet,
-      }));
-      if (reqsMap[box].some((req) => !req.logic(pet))) {
-        console.log('Oof.');
-        setHearts(hearts - 1);
-      }
-    },
-    [hearts, reqsMap, setHearts]
-  );
+export function GuessingGrid({ combo, makeGuess }: GuessingGridProps) {
+  const reqsMap = useReqsMap(combo);
 
   return (
     <div
@@ -92,8 +50,6 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
         <GuessingButton
           box={1}
           reqs={reqsMap[1]}
-          guess={guesses[1]}
-          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -101,8 +57,6 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
         <GuessingButton
           box={2}
           reqs={reqsMap[2]}
-          guess={guesses[2]}
-          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -110,8 +64,6 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
         <GuessingButton
           box={3}
           reqs={reqsMap[3]}
-          guess={guesses[3]}
-          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -119,8 +71,6 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
         <GuessingButton
           box={4}
           reqs={reqsMap[4]}
-          guess={guesses[4]}
-          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -128,8 +78,6 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
         <GuessingButton
           box={5}
           reqs={reqsMap[5]}
-          guess={guesses[5]}
-          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -137,8 +85,6 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
         <GuessingButton
           box={6}
           reqs={reqsMap[6]}
-          guess={guesses[6]}
-          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -146,8 +92,6 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
         <GuessingButton
           box={7}
           reqs={reqsMap[7]}
-          guess={guesses[7]}
-          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -155,8 +99,6 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
         <GuessingButton
           box={8}
           reqs={reqsMap[8]}
-          guess={guesses[8]}
-          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>
@@ -164,8 +106,6 @@ export function GuessingGrid({ combo }: GuessingGridProps) {
         <GuessingButton
           box={9}
           reqs={reqsMap[9]}
-          guess={guesses[9]}
-          guessed={guessed}
           makeGuess={makeGuess}
         />
       </div>

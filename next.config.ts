@@ -3,7 +3,14 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ['superautopets.wiki.gg'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'superautopets.wiki.gg',
+        port: '',
+        search: '',
+      },
+    ],
   },
 };
 

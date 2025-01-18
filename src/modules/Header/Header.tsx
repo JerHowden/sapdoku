@@ -1,16 +1,17 @@
 'use client';
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { ThemeToggle } from './ThemeToggle';
-import { Donation } from './Donation';
 import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
 import { Fish } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { ChangeDate } from './ChangeDate';
+import { Donation } from './Donation';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Header() {
   const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <header className="sticky">
@@ -35,17 +36,19 @@ export function Header() {
           </Link>
         </div>
         <div className="flex gap-2 md:gap-4 justify-end items-center">
-          <ChangeDate />
-          <Button
-            variant="outline"
-            type="button"
-            onClick={() => router.push('/pets')}
-            size="textToIcon"
-            title="See all the SAP Pets"
-          >
-            <Fish />
-            <span className="hidden md:inline">Pets</span>
-          </Button>
+          {pathname === '' || pathname === '/' ? <ChangeDate /> : null}
+          {pathname !== '/pets' ? (
+            <Button
+              variant="outline"
+              type="button"
+              onClick={() => router.push('/pets')}
+              size="textToIcon"
+              title="See all the SAP Pets"
+            >
+              <Fish />
+              <span className="hidden md:inline">Pets</span>
+            </Button>
+          ) : null}
           <ThemeToggle />
           <Donation />
         </div>

@@ -23,7 +23,18 @@ export type Requirement = {
   label: string;
 };
 
+export type Box = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+
 export type Combo = {
   rows: [Requirement, Requirement, Requirement];
   columns: [Requirement, Requirement, Requirement];
+};
+
+export type Guesses = Record<Box, Pet | undefined>;
+
+export type Run = {
+  guesses: Guesses;
+  time: number;
+  complete: boolean;
+  hearts: number;
 };

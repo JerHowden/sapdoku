@@ -40,11 +40,28 @@ export default function RootLayout({
         gtag('js', new Date());
         gtag('config', 'G-4PCFFWMNGF');`}
       </Script>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Providers>
-          <Header />
-          <div className="max-w-7xl mx-auto">{children}</div>
-        </Providers>
+      <body
+        className={`
+          ${geistSans.variable}
+          ${geistMono.variable}
+          antialiased
+          min-h-screen
+          flex
+          flex-col
+          justify-between
+        `}
+      >
+        <div>
+          <Providers>
+            <Header />
+            <div className="max-w-7xl mx-auto">{children}</div>
+          </Providers>
+        </div>
+        <footer className="mx-auto flex max-w-7xl items-center justify-center p-6 lg:px-8">
+          <p className="text-muted text-sm">
+            {`Not Affiliated with the official Super Auto Pets game or the wonderful people at Team Wood Games <3`}
+          </p>
+        </footer>
       </body>
     </html>
   );

@@ -18,6 +18,8 @@ export const IMAGE_SRCS = {
   // Stats
   attack: 'https://superautopets.wiki.gg/images/a/aa/Attack_Icon.png',
   health: 'https://superautopets.wiki.gg/images/4/44/Health_Icon.png',
+  experience: 'https://superautopets.wiki.gg/images/0/0f/Experience_Icon.png',
+  trophy: 'https://superautopets.wiki.gg/images/c/cb/TrophyHat.png',
 } as const;
 
 export const IMAGE_SRCS_TIER_MAP = {

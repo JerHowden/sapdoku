@@ -209,8 +209,8 @@ export function PetsTable() {
               <TableHead>Name</TableHead>
               <TableHead>Tier</TableHead>
               <TableHead>Pack</TableHead>
-              <TableHead>Attack</TableHead>
-              <TableHead>Health</TableHead>
+              <TableHead className="text-right">Attack</TableHead>
+              <TableHead className="text-right">Health</TableHead>
               <TableHead>Ability Trigger</TableHead>
               <TableHead>Tags</TableHead>
             </TableRow>
@@ -229,8 +229,8 @@ export function PetsTable() {
                 <TableCell>{pet.name}</TableCell>
                 <TableCell>{pet.tier}</TableCell>
                 <TableCell>{pet.pack.join(', ')}</TableCell>
-                <TableCell>{pet.attack}</TableCell>
-                <TableCell>{pet.health}</TableCell>
+                <TableCell className="text-right">{pet.attack}</TableCell>
+                <TableCell className="text-right">{pet.health}</TableCell>
                 <TableCell>{pet.abilityTrigger}</TableCell>
                 <TableCell>{pet.tags.join(', ')}</TableCell>
               </TableRow>
