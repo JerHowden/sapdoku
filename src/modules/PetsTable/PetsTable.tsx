@@ -32,6 +32,7 @@ import { Columns3, RotateCcw, Table2 } from 'lucide-react';
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import { PetCard } from './PetCard';
+import { Separator } from '@/components/ui/separator';
 
 export function PetsTable() {
   const [searchText, setSearchText] = useState('');
@@ -70,9 +71,9 @@ export function PetsTable() {
             placeholder="Search pets..."
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-            className="min-w-8"
+            className="min-w-8 sm:min-w-12 md:min-w-64"
           />
-          <Menubar>
+          <Menubar className="justify-evenly">
             <MenubarMenu>
               <MenubarTrigger className="whitespace-nowrap">
                 {tierFilter
@@ -83,10 +84,11 @@ export function PetsTable() {
               </MenubarTrigger>
               <MenubarContent>
                 <MenubarItem onClick={() => setTierFilter(undefined)}>All</MenubarItem>
+                <Separator className="my-1.5 mx-2 w-auto" />
                 {TIERS_LIST.map((tier) => (
                   <MenubarItem
                     key={tier}
-                    onClick={() => setTierFilter(tier as Tier)}
+                    onClick={() => setTierFilter(tier)}
                     className="flex flex-row justify-between items-center"
                   >
                     {typeof tier === 'number' ? `Tier ${tier}` : tier}
@@ -107,10 +109,11 @@ export function PetsTable() {
               <MenubarTrigger className="whitespace-nowrap">{packFilter || 'Packs'}</MenubarTrigger>
               <MenubarContent>
                 <MenubarItem onClick={() => setPackFilter(undefined)}>All</MenubarItem>
+                <Separator className="my-1.5 mx-2 w-auto" />
                 {PACKS_LIST.map((pack) => (
                   <MenubarItem
                     key={pack}
-                    onClick={() => setPackFilter(pack as Pack)}
+                    onClick={() => setPackFilter(pack)}
                     className="flex flex-row justify-between items-center"
                   >
                     {pack}
@@ -135,23 +138,22 @@ export function PetsTable() {
               </MenubarTrigger>
               <MenubarContent>
                 <MenubarItem onClick={() => setAbilityFilter(undefined)}>All</MenubarItem>
-                {ABILITY_TRIGGERS_LIST.map((ability) =>
-                  ability === '' ? (
-                    <MenubarItem
-                      key="No Ability"
-                      onClick={() => setAbilityFilter('' as AbilityTrigger)}
-                    >
-                      No Ability
-                    </MenubarItem>
-                  ) : (
-                    <MenubarItem
-                      key={ability}
-                      onClick={() => setAbilityFilter(ability as AbilityTrigger)}
-                    >
-                      {ability}
-                    </MenubarItem>
-                  )
-                )}
+                <Separator className="my-1.5 mx-2 w-auto" />
+                {ABILITY_TRIGGERS_LIST.filter((ability) => ability !== '').map((ability) => (
+                  <MenubarItem
+                    key={ability}
+                    onClick={() => setAbilityFilter(ability)}
+                  >
+                    {ability}
+                  </MenubarItem>
+                ))}
+                <Separator className="my-1.5 mx-2 w-auto" />
+                <MenubarItem
+                  key="No Trigger"
+                  onClick={() => setAbilityFilter('')}
+                >
+                  No Trigger
+                </MenubarItem>
               </MenubarContent>
             </MenubarMenu>
 
@@ -159,18 +161,22 @@ export function PetsTable() {
               <MenubarTrigger className="whitespace-nowrap">{tagFilter || 'Tags'}</MenubarTrigger>
               <MenubarContent>
                 <MenubarItem onClick={() => setTagFilter(undefined)}>All</MenubarItem>
+                <Separator className="my-1.5 mx-2 w-auto" />
                 {TAGS_LIST.map((tag) => (
                   <MenubarItem
                     key={tag}
-                    onClick={() => setTagFilter(tag as Tag)}
+                    onClick={() => setTagFilter(tag)}
                   >
                     {tag}
                   </MenubarItem>
                 ))}
+                <Separator className="my-1.5 mx-2 w-auto" />
                 <MenubarItem onClick={() => setTagFilter('No Tags')}>No Tags</MenubarItem>
               </MenubarContent>
             </MenubarMenu>
           </Menubar>
+        </div>
+        <div className="flex-1 flex flex-row flex-nowrap items-stretch justify-between">
           <Button
             variant="outline"
             size="icon"
@@ -180,26 +186,26 @@ export function PetsTable() {
           >
             <RotateCcw />
           </Button>
+          <ToggleGroup
+            type="single"
+            className="border rounded-md p-1"
+            value={mode}
+            onValueChange={(newMode: 'cards' | 'table') => (newMode ? setMode(newMode) : null)}
+          >
+            <ToggleGroupItem
+              value="cards"
+              className="rounded-sm h-full py-1"
+            >
+              <Columns3 />
+            </ToggleGroupItem>
+            <ToggleGroupItem
+              value="table"
+              className="rounded-sm h-full py-1"
+            >
+              <Table2 />
+            </ToggleGroupItem>
+          </ToggleGroup>
         </div>
-        <ToggleGroup
-          type="single"
-          className="border rounded-md p-1"
-          value={mode}
-          onValueChange={(newMode: 'cards' | 'table') => (newMode ? setMode(newMode) : null)}
-        >
-          <ToggleGroupItem
-            value="cards"
-            className="rounded-sm h-full py-1"
-          >
-            <Columns3 />
-          </ToggleGroupItem>
-          <ToggleGroupItem
-            value="table"
-            className="rounded-sm h-full py-1"
-          >
-            <Table2 />
-          </ToggleGroupItem>
-        </ToggleGroup>
       </div>
       {mode === 'table' ? (
         <Table>
