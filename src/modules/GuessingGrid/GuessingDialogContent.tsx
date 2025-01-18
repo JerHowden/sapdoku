@@ -8,11 +8,10 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { Pet, PETS_LIST, Requirement, Run } from '@/db';
-import { Fragment, useContext, useMemo, useState } from 'react';
+import { Pet, PETS_LIST, Requirement } from '@/db';
+import { useRun } from '@/lib';
+import { Fragment, useMemo, useState } from 'react';
 import { PetsList } from './PetsList';
-import { DEFAULT_RUN, isoDateKey, useLocalStorage } from '@/lib';
-import { SapdokuContext } from '@/app/providers';
 
 type Box = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
@@ -23,21 +22,27 @@ type GuessingModalProps = {
 };
 
 export function GuessingDialogContent({ box, reqs, makeGuess }: GuessingModalProps) {
-  const { date } = useContext(SapdokuContext);
-  const [run] = useLocalStorage<Run>(isoDateKey(date), DEFAULT_RUN);
+  const { run } = useRun();
 
   const [searchText, setSearchText] = useState('');
   const [chosenPet, setChosenPet] = useState<Pet>();
 
-  const guessed = useMemo(() => Object.values(run.guesses).filter((guess) => !!guess), [run]);
+  const guessed = useMemo(
+    () =>
+      Object.values(run.guesses)
+        .filter((guess) => !!guess)
+        .map((pet) => pet.name),
+    [run.guesses]
+  );
 
   const sortedPets = useMemo(
     () =>
-      PETS_LIST.filter((pet) => !guessed.includes(pet)).sort((a, b) =>
+      PETS_LIST.filter((pet) => !guessed.includes(pet.name)).sort((a, b) =>
         a.name.localeCompare(b.name)
       ),
     [guessed]
   );
+
   const searchedPets = useMemo(
     () =>
       sortedPets.filter((pet) =>

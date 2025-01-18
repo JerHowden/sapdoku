@@ -1,7 +1,9 @@
+import { IMAGE_SRCS } from '@/db';
+import Image from 'next/image';
 import { useMemo } from 'react';
 
 type CompletionMessageProps = {
-  type?: 'win' | 'loss' | 'perfect' | 'ultra-perfect';
+  type?: 'win' | 'loss' | 'perfect' | 'under-minute-gang';
 };
 
 export function CompletionMessage({ type }: CompletionMessageProps) {
@@ -13,10 +15,28 @@ export function CompletionMessage({ type }: CompletionMessageProps) {
         return 'You Lost :(';
       case 'perfect':
         return 'Perfect Win!';
-      case 'ultra-perfect':
-        return 'ULTRA PERFECT WIN!!';
+      case 'under-minute-gang':
+        return (
+          <div className="flex flex-row items-center gap-2">
+            <Image
+              src={IMAGE_SRCS.trophy}
+              width={48}
+              height={48}
+              alt=""
+              className="rotate-180"
+            />
+            <p className="text-xl sm:text-2xl md:text-3xl ">UNDER MINUTE GANG</p>
+            <Image
+              src={IMAGE_SRCS.trophy}
+              width={48}
+              height={48}
+              alt=""
+              className="rotate-180"
+            />
+          </div>
+        );
       default:
-        return "Completed? I don't think so";
+        return '';
     }
   }, [type]);
 
@@ -28,12 +48,12 @@ export function CompletionMessage({ type }: CompletionMessageProps) {
         return 'text-green-500 font-bold';
       case 'perfect':
         return 'text-blue-500 font-extrabold';
-      case 'ultra-perfect':
+      case 'under-minute-gang':
         return 'text-purple-500 font-black';
       default:
         return 'text-gray-500';
     }
   }, [type]);
 
-  return <p className={`text-3xl ${styles}`}>{message}</p>;
+  return <div className={`text-xl sm:text-2xl md:text-3xl ${styles}`}>{message}</div>;
 }

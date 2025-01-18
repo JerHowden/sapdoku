@@ -66,8 +66,8 @@ export function DailyGame() {
     if (!run.complete) return undefined;
     if (!run.hearts) return 'loss';
     if (run.hearts < 5) return 'win';
-    if (seconds >= 120) return 'perfect';
-    return 'ultra-perfect';
+    if (seconds >= 60) return 'perfect';
+    return 'under-minute-gang';
   }, [run.complete, run.hearts, seconds]);
 
   return (
