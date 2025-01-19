@@ -201,7 +201,7 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
   // --- STATS ---
   //
   healthLow: {
-    logic: (pet) => pet.health <= 4,
+    logic: (pet) => pet.health <= 3,
     display: (
       <RequirementImage
         src={IMAGE_SRCS.health}
@@ -209,10 +209,10 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
         baseSize={32}
       />
     ),
-    label: 'Low Health (1 - 4)',
+    label: 'Low Health (1 - 3)',
   },
   healthMedium: {
-    logic: (pet) => pet.health >= 5 && pet.health <= 8,
+    logic: (pet) => pet.health >= 4 && pet.health <= 6,
     display: (
       <RequirementImage
         src={IMAGE_SRCS.health}
@@ -220,10 +220,10 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
         baseSize={32}
       />
     ),
-    label: 'Medium Health (5 - 8)',
+    label: 'Medium Health (4 - 6)',
   },
   healthHigh: {
-    logic: (pet) => pet.health >= 9,
+    logic: (pet) => pet.health >= 7,
     display: (
       <RequirementImage
         src={IMAGE_SRCS.health}
@@ -231,10 +231,10 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
         baseSize={32}
       />
     ),
-    label: 'High Health (9+)',
+    label: 'High Health (7+)',
   },
   attackLow: {
-    logic: (pet) => pet.attack <= 4,
+    logic: (pet) => pet.attack <= 3,
     display: (
       <RequirementImage
         src={IMAGE_SRCS.attack}
@@ -242,10 +242,10 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
         baseSize={32}
       />
     ),
-    label: 'Low Attack (1 - 4)',
+    label: 'Low Attack (1 - 3)',
   },
   attackMedium: {
-    logic: (pet) => pet.attack >= 5 && pet.attack <= 8,
+    logic: (pet) => pet.attack >= 4 && pet.attack <= 6,
     display: (
       <RequirementImage
         src={IMAGE_SRCS.attack}
@@ -253,10 +253,10 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
         baseSize={32}
       />
     ),
-    label: 'Medium Attack (5 - 8)',
+    label: 'Medium Attack (4 - 6)',
   },
   attackHigh: {
-    logic: (pet) => pet.attack >= 9,
+    logic: (pet) => pet.attack >= 7,
     display: (
       <RequirementImage
         src={IMAGE_SRCS.attack}
@@ -264,7 +264,7 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
         baseSize={32}
       />
     ),
-    label: 'High Attack (9+)',
+    label: 'High Attack (7+)',
   },
   //
   // --- TRIGGER ---
