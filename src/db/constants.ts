@@ -32,22 +32,22 @@ export const ABILITY_TRIGGERS_LIST = [
   'Friendly Eats Food',
   'Friendly Gained Perk',
   'Friendly Gained Ailment',
-  'Friendly Attacked', // needs req key
-  'Friendly Level-Up', // nrk
+  'Friendly Attacked',
+  'Friendly Level-Up',
   'Friend Ahead Attacks',
   'Friend Ahead Hurt',
   'Friend Ahead Faints',
-  'Friend Faints', // nrk
+  'Friend Faints',
   'Friend Level-Up',
   'Friend Hurt',
-  'Friend Sold', // nrk
-  'Friend Jumped', // nrk
+  'Friend Sold',
+  'Friend Jumped',
   'Roll',
   'Roll 4 Times',
   'Shop Tier Upgraded',
   'Gains Mana',
   'Enemy Summoned or Pushed', // nrk
-  'Empty Front Space', // nrk
+  'Empty Front Space',
 ] as const;
 
 export const TAGS_LIST = [
@@ -70,25 +70,28 @@ export const TAGS_LIST = [
   'Disruption',
 ] as const;
 
-export const REQUIREMENT_KEYS = [
+export const REQUIREMENT_SPECIFIC_KEYS = [
   'tier1',
   'tier2',
   'tier3',
   'tier4',
   'tier5',
   'tier6',
-  'turtlePack',
-  'puppyPack',
-  'starPack',
-  'goldenPack',
-  'unicornPack',
-  'customPack',
   'healthLow',
   'healthMedium',
   'healthHigh',
   'attackLow',
   'attackMedium',
   'attackHigh',
+] as const;
+
+export const REQUIREMENT_GENERIC_KEYS = [
+  'turtlePack',
+  'puppyPack',
+  'starPack',
+  'goldenPack',
+  'unicornPack',
+  'customPack',
   'noAbility',
   'buy',
   'buyFriend',
@@ -108,10 +111,16 @@ export const REQUIREMENT_KEYS = [
   'eatsFood',
   'friendlyEatsFood',
   'friendlyGained',
+  'friendlyAttacked',
+  'friendlyLevelUp',
   'friendAhead',
   'friendLevelUp',
   'friendHurt',
+  'friendFaints',
+  'friendSold',
+  'friendJumped',
   'roll',
   'shopTierUpgraded',
   'gainsMana',
+  'emptyFrontSpace',
 ] as const;

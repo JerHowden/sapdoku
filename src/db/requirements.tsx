@@ -408,10 +408,27 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
       <RequirementImage
         src={IMAGE_SRCS.melon}
         alt="Friendly Gained Perk or Ailment"
+        title="Friendly Gained Perk or Ailment"
         baseSize={32}
       />
     ),
     label: 'Friendly Gained ...',
+  },
+  friendlyAttacked: {
+    logic: (pet) => pet.abilityTrigger === 'Friendly Attacked',
+    display: <Sword className="w-6 md:w-12 h-auto -scale-x-100" />,
+    label: 'Friendly Attacked',
+  },
+  friendlyLevelUp: {
+    logic: (pet) => pet.abilityTrigger === 'Friendly Level-Up',
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.experience}
+        alt="Friendly Level-Up"
+        baseSize={32}
+      />
+    ),
+    label: 'Friendly Level-Up',
   },
   friendAhead: {
     logic: (pet) =>
@@ -437,6 +454,27 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
     display: <Sword className="w-6 md:w-12 h-auto" />,
     label: 'Friend Hurt',
   },
+  friendFaints: {
+    logic: (pet) => pet.abilityTrigger === 'Friend Faints',
+    display: <Skull className="w-6 md:w-12 h-auto" />,
+    label: 'Friend Faints',
+  },
+  friendSold: {
+    logic: (pet) => pet.abilityTrigger === 'Friend Sold',
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.gold}
+        alt="Friend Sold"
+        baseSize={32}
+      />
+    ),
+    label: 'Friend Sold',
+  },
+  friendJumped: {
+    logic: (pet) => pet.abilityTrigger === 'Friend Jumped',
+    display: <Redo className="w-6 md:w-12 h-auto" />,
+    label: 'Friend Jumped',
+  },
   roll: {
     logic: (pet) => ['Roll', 'Roll 4 Times'].includes(pet.abilityTrigger),
     display: <RefreshCw className="w-6 md:w-12 h-auto" />,
@@ -457,6 +495,11 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
       />
     ),
     label: 'Gains Mana',
+  },
+  emptyFrontSpace: {
+    logic: (pet) => pet.abilityTrigger === 'Empty Front Space',
+    display: <Redo className="w-6 md:w-12 h-auto" />,
+    label: 'Empty Front Space',
   },
 } as const;
 
@@ -500,10 +543,16 @@ export const GENERIC_REQUIREMENT_LIST: Requirement[] = [
   REQUIREMENT_MAP.eatsFood,
   REQUIREMENT_MAP.friendlyEatsFood,
   REQUIREMENT_MAP.friendlyGained,
+  REQUIREMENT_MAP.friendlyAttacked,
+  REQUIREMENT_MAP.friendlyLevelUp,
   REQUIREMENT_MAP.friendAhead,
   REQUIREMENT_MAP.friendLevelUp,
   REQUIREMENT_MAP.friendHurt,
+  REQUIREMENT_MAP.friendFaints,
+  REQUIREMENT_MAP.friendSold,
+  REQUIREMENT_MAP.friendJumped,
   REQUIREMENT_MAP.roll,
   REQUIREMENT_MAP.shopTierUpgraded,
   REQUIREMENT_MAP.gainsMana,
+  REQUIREMENT_MAP.emptyFrontSpace,
 ] as const;

@@ -2,7 +2,8 @@ import { ReactNode } from 'react';
 import {
   ABILITY_TRIGGERS_LIST,
   PACKS_LIST,
-  REQUIREMENT_KEYS,
+  REQUIREMENT_GENERIC_KEYS,
+  REQUIREMENT_SPECIFIC_KEYS,
   TAGS_LIST,
   TIERS_LIST,
 } from './constants';
@@ -23,7 +24,9 @@ export type Pet = {
   tags: Tag[];
 };
 
-export type RequirementKey = (typeof REQUIREMENT_KEYS)[number];
+export type RequirementGenericKey = (typeof REQUIREMENT_GENERIC_KEYS)[number];
+export type RequirementSpecificKey = (typeof REQUIREMENT_SPECIFIC_KEYS)[number];
+export type RequirementKey = RequirementGenericKey | RequirementSpecificKey;
 
 export type Requirement = {
   logic: (pet: Pet) => boolean;
