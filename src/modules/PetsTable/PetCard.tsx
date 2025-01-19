@@ -1,33 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import {
-  IMAGE_SRCS,
-  IMAGE_SRCS_PACK_MAP,
-  IMAGE_SRCS_TIER_MAP,
-  Pet,
-  REQUIREMENT_MAP,
-  Tier,
-} from '@/db';
+import { IMAGE_SRCS, IMAGE_SRCS_PACK_MAP, IMAGE_SRCS_TIER_MAP, Pet } from '@/db';
 import Image from 'next/image';
 
 type PetCardProps = {
   pet: Pet;
 };
-
-function PetTier({ tier }: { tier: Tier }) {
-  if (tier === 'Token') {
-    return REQUIREMENT_MAP.tierToken.display;
-  }
-  return (
-    <Image
-      src={IMAGE_SRCS_TIER_MAP[tier]}
-      alt={`Tier ${tier}`}
-      width={16}
-      height={16}
-    />
-  );
-}
 
 export function PetCard({ pet }: PetCardProps) {
   return (
@@ -35,7 +14,7 @@ export function PetCard({ pet }: PetCardProps) {
       <div className="flex-1 flex flex-col justify-center gap-2">
         <div className="flex justify-center h-auto w-auto mt-2">
           <Image
-            src={pet.imageSrc ?? 'https://superautopets.wiki.gg/images/0/0b/Rock.png'}
+            src={pet.imageSrc || 'https://superautopets.wiki.gg/images/0/0b/Rock.png'}
             alt={pet.name}
             width={64}
             height={64}
@@ -95,7 +74,12 @@ export function PetCard({ pet }: PetCardProps) {
         <Separator />
         <div className="flex flex-row justify-between items-center gap-2">
           <p className="text-sm">{typeof pet.tier === 'number' ? `Tier ${pet.tier}` : pet.tier}</p>
-          <PetTier tier={pet.tier} />
+          <Image
+            src={IMAGE_SRCS_TIER_MAP[pet.tier]}
+            alt={`Tier ${pet.tier}`}
+            width={16}
+            height={16}
+          />
         </div>
         <Separator />
         <p className="text-sm">{pet.abilityTrigger}</p>

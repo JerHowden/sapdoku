@@ -1,5 +1,11 @@
 import { ReactNode } from 'react';
-import { ABILITY_TRIGGERS_LIST, PACKS_LIST, TAGS_LIST, TIERS_LIST } from './constants';
+import {
+  ABILITY_TRIGGERS_LIST,
+  PACKS_LIST,
+  REQUIREMENT_KEYS,
+  TAGS_LIST,
+  TIERS_LIST,
+} from './constants';
 
 export type Pack = (typeof PACKS_LIST)[number];
 export type Tier = (typeof TIERS_LIST)[number];
@@ -16,6 +22,8 @@ export type Pet = {
   abilityTrigger: AbilityTrigger;
   tags: Tag[];
 };
+
+export type RequirementKey = (typeof REQUIREMENT_KEYS)[number];
 
 export type Requirement = {
   logic: (pet: Pet) => boolean;

@@ -226,7 +226,7 @@ export function PetsTable() {
               <TableRow key={pet.name}>
                 <TableCell>
                   <Image
-                    src={pet.imageSrc}
+                    src={pet.imageSrc || 'https://superautopets.wiki.gg/images/0/0b/Rock.png'}
                     alt={pet.name}
                     width={32}
                     height={32}

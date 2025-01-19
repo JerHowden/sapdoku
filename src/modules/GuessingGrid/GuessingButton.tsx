@@ -1,10 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
-import { Pet, Requirement, Run } from '@/db';
+import { COMBO_MAP, Pet, PETS_LIST, Requirement, Run } from '@/db';
 import Image from 'next/image';
 import { useContext, useMemo } from 'react';
 import { GuessingDialogContent } from './GuessingDialogContent';
-import { DEFAULT_RUN, isoDateKey, useLocalStorage } from '@/lib';
+import { DEFAULT_RUN, isoDateKey, useLocalStorage, useReqsMap } from '@/lib';
 import { SapdokuContext } from '@/app/providers';
 
 type Box = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
@@ -18,6 +18,7 @@ type GuessingButtonProps = {
 export function GuessingButton({ box, reqs, makeGuess }: GuessingButtonProps) {
   const { date } = useContext(SapdokuContext);
   const [run] = useLocalStorage<Run>(isoDateKey(date), DEFAULT_RUN);
+  const reqsMap = useReqsMap(COMBO_MAP[isoDateKey(date)]);
 
   const guess = useMemo(() => run.guesses[box], [run, box]);
 
@@ -25,15 +26,16 @@ export function GuessingButton({ box, reqs, makeGuess }: GuessingButtonProps) {
     if (guess) {
       return (
         <Image
-          src={guess.imageSrc}
+          src={guess.imageSrc || 'https://superautopets.wiki.gg/images/0/0b/Rock.png'}
           alt={guess.name}
           width={64}
           height={64}
         />
       );
+    } else {
+      return <p>{PETS_LIST.filter((pet) => reqsMap[box].every((req) => req.logic(pet))).length}</p>;
     }
-    return null;
-  }, [guess]);
+  }, [box, guess, reqsMap]);
   const guessStyles = useMemo(() => {
     if (!guess) {
       return '';

@@ -7,7 +7,7 @@ export const PACKS_LIST = [
   'Custom Pack',
 ] as const;
 
-export const TIERS_LIST = [1, 2, 3, 4, 5, 6, 'Token'] as const;
+export const TIERS_LIST = [1, 2, 3, 4, 5, 6] as const;
 
 export const ABILITY_TRIGGERS_LIST = [
   '',
@@ -18,6 +18,7 @@ export const ABILITY_TRIGGERS_LIST = [
   'Hurt',
   'Hurt & Sell',
   'Faint',
+  'Faint & Sell',
   'Level Up',
   'Friend Summoned',
   'Summoned',
@@ -31,14 +32,22 @@ export const ABILITY_TRIGGERS_LIST = [
   'Friendly Eats Food',
   'Friendly Gained Perk',
   'Friendly Gained Ailment',
+  'Friendly Attacked', // needs req key
+  'Friendly Level-Up', // nrk
   'Friend Ahead Attacks',
   'Friend Ahead Hurt',
   'Friend Ahead Faints',
+  'Friend Faints', // nrk
   'Friend Level-Up',
   'Friend Hurt',
+  'Friend Sold', // nrk
+  'Friend Jumped', // nrk
   'Roll',
+  'Roll 4 Times',
   'Shop Tier Upgraded',
   'Gains Mana',
+  'Enemy Summoned or Pushed', // nrk
+  'Empty Front Space', // nrk
 ] as const;
 
 export const TAGS_LIST = [
@@ -59,4 +68,50 @@ export const TAGS_LIST = [
   'Faint',
   'Buffs',
   'Disruption',
+] as const;
+
+export const REQUIREMENT_KEYS = [
+  'tier1',
+  'tier2',
+  'tier3',
+  'tier4',
+  'tier5',
+  'tier6',
+  'turtlePack',
+  'puppyPack',
+  'starPack',
+  'goldenPack',
+  'unicornPack',
+  'customPack',
+  'healthLow',
+  'healthMedium',
+  'healthHigh',
+  'attackLow',
+  'attackMedium',
+  'attackHigh',
+  'noAbility',
+  'buy',
+  'buyFriend',
+  'buyFood',
+  'sell',
+  'hurt',
+  'faint',
+  'levelUp',
+  'friendSummoned',
+  'summoned',
+  'startOfBattle',
+  'startOfTurn',
+  'endTurn',
+  'knockOut',
+  'beforeAttack',
+  'afterAttack',
+  'eatsFood',
+  'friendlyEatsFood',
+  'friendlyGained',
+  'friendAhead',
+  'friendLevelUp',
+  'friendHurt',
+  'roll',
+  'shopTierUpgraded',
+  'gainsMana',
 ] as const;

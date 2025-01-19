@@ -2,7 +2,6 @@
 
 import {
   Apple,
-  ArrowLeft,
   ArrowRight,
   ArrowRightFromLine,
   ArrowRightToLine,
@@ -14,14 +13,13 @@ import {
   Redo,
   RefreshCw,
   Skull,
-  SquarePlus,
   Sword,
   Swords,
   X,
 } from 'lucide-react';
 import { getImageProps } from 'next/image';
 import { IMAGE_SRCS } from './imageSrc';
-import { Requirement } from './types';
+import { Requirement, RequirementKey } from './types';
 
 type RequirementImageProps = {
   src: string;
@@ -64,7 +62,7 @@ function RequirementImage({ src, alt = '', baseSize }: RequirementImageProps) {
   );
 }
 
-export const REQUIREMENT_MAP: Record<string, Requirement> = {
+export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
   //
   // --- TIERS ---
   //
@@ -133,39 +131,6 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
       />
     ),
     label: 'Tier 6',
-  },
-  tierToken: {
-    logic: (pet) => pet.tier === 'Token',
-    display: <SquarePlus className="w-6 md:w-12 h-auto" />,
-    label: 'Token Pet',
-  },
-  lowTier: {
-    logic: (pet) => typeof pet.tier === 'number' && pet.tier <= 3,
-    display: (
-      <div className="flex flex-row gap-1 items-center">
-        <ArrowLeft className="w-6 md:w-12 h-auto" />
-        <RequirementImage
-          src={IMAGE_SRCS.tier_3}
-          alt="Tier 3"
-          baseSize={24}
-        />
-      </div>
-    ),
-    label: 'Tiers 1 - 3',
-  },
-  highTier: {
-    logic: (pet) => typeof pet.tier === 'number' && pet.tier >= 4,
-    display: (
-      <div className="flex flex-row gap-1 items-center">
-        <RequirementImage
-          src={IMAGE_SRCS.tier_4}
-          alt="Tier 4"
-          baseSize={24}
-        />
-        <ArrowRight className="w-6 md:w-12 h-auto" />
-      </div>
-    ),
-    label: 'Tiers 4 - 6',
   },
   //
   // --- PACKS ---
@@ -239,8 +204,8 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   //
   // --- STATS ---
   //
-  health5Under: {
-    logic: (pet) => pet.health <= 5,
+  healthLow: {
+    logic: (pet) => pet.health <= 4,
     display: (
       <RequirementImage
         src={IMAGE_SRCS.health}
@@ -248,10 +213,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
         baseSize={32}
       />
     ),
-    label: 'Health 5 or Less',
+    label: 'Low Health (1 - 4)',
   },
-  health6Over: {
-    logic: (pet) => pet.health >= 6,
+  healthMedium: {
+    logic: (pet) => pet.health >= 5 && pet.health <= 8,
     display: (
       <RequirementImage
         src={IMAGE_SRCS.health}
@@ -259,10 +224,21 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
         baseSize={32}
       />
     ),
-    label: 'Health 6 or More',
+    label: 'Medium Health (5 - 8)',
   },
-  attack5Under: {
-    logic: (pet) => pet.attack <= 5,
+  healthHigh: {
+    logic: (pet) => pet.health >= 9,
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.health}
+        alt="Health"
+        baseSize={32}
+      />
+    ),
+    label: 'High Health (9+)',
+  },
+  attackLow: {
+    logic: (pet) => pet.attack <= 4,
     display: (
       <RequirementImage
         src={IMAGE_SRCS.attack}
@@ -270,10 +246,10 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
         baseSize={32}
       />
     ),
-    label: 'Attack 5 or Less',
+    label: 'Low Attack (1 - 4)',
   },
-  attack6Over: {
-    logic: (pet) => pet.attack >= 6,
+  attackMedium: {
+    logic: (pet) => pet.attack >= 5 && pet.attack <= 8,
     display: (
       <RequirementImage
         src={IMAGE_SRCS.attack}
@@ -281,7 +257,18 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
         baseSize={32}
       />
     ),
-    label: 'Attack 6 or More',
+    label: 'Medium Attack (5 - 8)',
+  },
+  attackHigh: {
+    logic: (pet) => pet.attack >= 9,
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.attack}
+        alt="Attack"
+        baseSize={32}
+      />
+    ),
+    label: 'High Attack (9+)',
   },
   //
   // --- TRIGGER ---
@@ -307,7 +294,7 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
     label: 'Buy Food',
   },
   sell: {
-    logic: (pet) => ['Sell', 'Hurt & Sell'].includes(pet.abilityTrigger),
+    logic: (pet) => ['Sell', 'Hurt & Sell', 'Faint & Sell'].includes(pet.abilityTrigger),
     display: <Coins className="w-6 md:w-12 h-auto" />,
     label: 'Sell',
   },
@@ -317,7 +304,7 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
     label: 'Hurt',
   },
   faint: {
-    logic: (pet) => pet.abilityTrigger === 'Faint',
+    logic: (pet) => ['Faint', 'Faint & Sell'].includes(pet.abilityTrigger),
     display: <Skull className="w-6 md:w-12 h-auto" />,
     label: 'Faint',
   },
@@ -401,7 +388,7 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
     label: 'Friend Hurt',
   },
   roll: {
-    logic: (pet) => pet.abilityTrigger === 'Roll',
+    logic: (pet) => ['Roll', 'Roll 4 Times'].includes(pet.abilityTrigger),
     display: <RefreshCw className="w-6 md:w-12 h-auto" />,
     label: 'Roll',
   },
@@ -417,32 +404,27 @@ export const REQUIREMENT_MAP: Record<string, Requirement> = {
   },
 } as const;
 
-export const REQUIREMENT_LIST_TIERS: Requirement[] = [
+export const SPECIFIC_REQUIREMENT_LIST: Requirement[] = [
   REQUIREMENT_MAP.tier1,
   REQUIREMENT_MAP.tier2,
   REQUIREMENT_MAP.tier3,
   REQUIREMENT_MAP.tier4,
   REQUIREMENT_MAP.tier5,
   REQUIREMENT_MAP.tier6,
-  REQUIREMENT_MAP.summonedTier,
-  REQUIREMENT_MAP.lowTier,
-  REQUIREMENT_MAP.highTier,
+  REQUIREMENT_MAP.healthLow,
+  REQUIREMENT_MAP.healthMedium,
+  REQUIREMENT_MAP.healthHigh,
+  REQUIREMENT_MAP.attackLow,
+  REQUIREMENT_MAP.attackMedium,
+  REQUIREMENT_MAP.attackHigh,
 ] as const;
-export const REQUIREMENT_LIST_PACKS: Requirement[] = [
+export const GENERIC_REQUIREMENT_LIST: Requirement[] = [
   REQUIREMENT_MAP.turtlePack,
   REQUIREMENT_MAP.puppyPack,
   REQUIREMENT_MAP.starPack,
   REQUIREMENT_MAP.goldenPack,
   REQUIREMENT_MAP.unicornPack,
   REQUIREMENT_MAP.customPack,
-] as const;
-export const REQUIREMENT_LIST_STATS: Requirement[] = [
-  REQUIREMENT_MAP.health5Under,
-  REQUIREMENT_MAP.health6Over,
-  REQUIREMENT_MAP.attack5Under,
-  REQUIREMENT_MAP.attack6Over,
-] as const;
-export const REQUIREMENT_LIST_TRIGGERS: Requirement[] = [
   REQUIREMENT_MAP.noAbility,
   REQUIREMENT_MAP.buy,
   REQUIREMENT_MAP.buyFriend,

@@ -27,7 +27,7 @@ export function PetsList({ pets, choosePet }: PetsListProps) {
             >
               <div className="flex flex-row items-center gap-6 text-sm sm:text-base md:text-lg">
                 <Image
-                  src={pet.imageSrc}
+                  src={pet.imageSrc || 'https://superautopets.wiki.gg/images/0/0b/Rock.png'}
                   alt={pet.name}
                   width={80}
                   height={80}
