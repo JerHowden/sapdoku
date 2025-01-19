@@ -960,7 +960,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Shima Enaga',
-    imageSrc: 'https://superautopets.wiki.gg/images/5/59/Shima_Enaga_Icon.png',
+    imageSrc: 'https://superautopets.wiki.gg/images/5/5f/Shima_Enaga.png',
     pack: ['Star Pack', 'Custom Pack'],
     tier: 2,
     attack: 2,
@@ -1010,7 +1010,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Desert Rain Frog',
-    imageSrc: 'https://superautopets.wiki.gg/images/f/fa/Desert_Rain_Frog_Icon.png',
+    imageSrc: 'https://superautopets.wiki.gg/images/3/37/Desert_Rain_Frog.png',
     pack: ['Golden Pack', 'Custom Pack'],
     tier: 2,
     attack: 2,
@@ -1050,7 +1050,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Honduran White Bat',
-    imageSrc: 'https://superautopets.wiki.gg/images/9/96/Honduran_White_Bat_Icon.png',
+    imageSrc: 'https://superautopets.wiki.gg/images/c/c3/Honduran_White_Bat.png',
     pack: ['Golden Pack', 'Custom Pack'],
     tier: 2,
     attack: 1,
@@ -1280,7 +1280,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Giant Squirrel',
-    imageSrc: 'https://superautopets.wiki.gg/images/0/0b/Giant_Squirrel_Icon.png',
+    imageSrc: 'https://superautopets.wiki.gg/images/5/50/Giant_Squirrel.png',
     pack: ['Custom Pack'],
     tier: 2,
     attack: 2,
@@ -1290,7 +1290,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Olm',
-    imageSrc: 'https://superautopets.wiki.gg/images/0/0b/Olm_Icon.png',
+    imageSrc: 'https://superautopets.wiki.gg/images/3/3b/Olm.png',
     pack: ['Custom Pack'],
     tier: 2,
     attack: 3,
@@ -1300,7 +1300,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Tadpole',
-    imageSrc: 'https://superautopets.wiki.gg/images/a/a0/Tadpole_Icon.png',
+    imageSrc: 'https://superautopets.wiki.gg/images/a/a9/Tadpole.png',
     pack: ['Custom Pack'],
     tier: 2,
     attack: 2,
@@ -1313,7 +1313,7 @@ export const PETS_LIST: Pet[] = [
   //
   {
     name: 'Badger',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/f/ff/Badger.png',
     pack: ['Turtle Pack'],
     tier: 3,
     attack: 6,
@@ -1323,7 +1323,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Camel',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/0/09/Camel.png',
     pack: ['Turtle Pack'],
     tier: 3,
     attack: 3,
@@ -1333,7 +1333,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Dodo',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/f/fc/Dodo.png',
     pack: ['Turtle Pack'],
     tier: 3,
     attack: 3,
@@ -1343,7 +1343,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Dog',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/3/35/Dog.png',
     pack: ['Turtle Pack'],
     tier: 3,
     attack: 3,
@@ -1353,7 +1353,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Dolphin',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/0/0b/Dolphin.png',
     pack: ['Turtle Pack'],
     tier: 3,
     attack: 4,
@@ -1363,7 +1363,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Elephant',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/6/60/Elephant.png',
     pack: ['Turtle Pack'],
     tier: 3,
     attack: 3,
@@ -1373,7 +1373,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Giraffe',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/6/60/Giraffe.png',
     pack: ['Turtle Pack'],
     tier: 3,
     attack: 1,
@@ -1383,7 +1383,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Ox',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/d/dc/Ox.png',
     pack: ['Turtle Pack'],
     tier: 3,
     attack: 1,
@@ -1393,7 +1393,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Rabbit',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/f/fd/Rabbit.png',
     pack: ['Turtle Pack'],
     tier: 3,
     attack: 1,
@@ -1403,7 +1403,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Sheep',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/c/cc/Sheep.png',
     pack: ['Turtle Pack'],
     tier: 3,
     attack: 2,
@@ -1413,8 +1413,8 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Gold Fish',
-    imageSrc: '',
-    pack: [],
+    imageSrc: 'https://superautopets.wiki.gg/images/4/47/Gold_Fish.png',
+    pack: ['Puppy Pack', 'Custom Pack'],
     tier: 3,
     attack: 1,
     health: 5,
@@ -1423,8 +1423,8 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Mole',
-    imageSrc: '',
-    pack: [],
+    imageSrc: 'https://superautopets.wiki.gg/images/6/63/Mole.png',
+    pack: ['Puppy Pack', 'Custom Pack'],
     tier: 3,
     attack: 2,
     health: 3,
@@ -1433,8 +1433,8 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Aardvark',
-    imageSrc: '',
-    pack: [],
+    imageSrc: 'https://superautopets.wiki.gg/images/8/80/Aardvark.png',
+    pack: ['Custom Pack'],
     tier: 3,
     attack: 2,
     health: 3,
@@ -1443,8 +1443,8 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Bear',
-    imageSrc: '',
-    pack: [],
+    imageSrc: 'https://superautopets.wiki.gg/images/a/a4/Bear.png',
+    pack: ['Custom Pack'],
     tier: 3,
     attack: 3,
     health: 5,
@@ -1453,8 +1453,8 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Emperor Tamarin',
-    imageSrc: '',
-    pack: [],
+    imageSrc: 'https://superautopets.wiki.gg/images/5/5c/Emperor_Tamarin.png',
+    pack: ['Custom Pack'],
     tier: 3,
     attack: 3,
     health: 3,
@@ -1463,8 +1463,8 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Farmer Pig',
-    imageSrc: '',
-    pack: [],
+    imageSrc: 'https://superautopets.wiki.gg/images/6/6d/Farmer_Pig.png',
+    pack: ['Custom Pack'],
     tier: 3,
     attack: 3,
     health: 4,
@@ -1473,8 +1473,8 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Pony',
-    imageSrc: '',
-    pack: [],
+    imageSrc: 'https://superautopets.wiki.gg/images/b/b1/Pony.png',
+    pack: ['Custom Pack'],
     tier: 3,
     attack: 4,
     health: 4,
@@ -1482,9 +1482,9 @@ export const PETS_LIST: Pet[] = [
     tags: ['Food'],
   },
   {
-    name: 'Wolverine',
-    imageSrc: '',
-    pack: [],
+    name: 'Porcupine',
+    imageSrc: 'https://superautopets.wiki.gg/images/1/1c/Porcupine.png',
+    pack: ['Custom Pack'],
     tier: 3,
     attack: 2,
     health: 6,
@@ -1493,8 +1493,8 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Quail Chick',
-    imageSrc: '',
-    pack: [],
+    imageSrc: 'https://superautopets.wiki.gg/images/4/4a/Quail_Chick.png',
+    pack: ['Custom Pack'],
     tier: 3,
     attack: 1,
     health: 1,
@@ -1503,8 +1503,8 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Quetzalcoatlus',
-    imageSrc: '',
-    pack: [],
+    imageSrc: 'https://superautopets.wiki.gg/images/e/e0/Quetzalcoatlus.png',
+    pack: ['Custom Pack'],
     tier: 3,
     attack: 4,
     health: 6,
@@ -1513,8 +1513,8 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Sarcastic Fringehead',
-    imageSrc: '',
-    pack: [],
+    imageSrc: 'https://superautopets.wiki.gg/images/8/8d/Sarcastic_Fringehead.png',
+    pack: ['Custom Pack'],
     tier: 3,
     attack: 4,
     health: 7,
@@ -1523,8 +1523,8 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Sugar Glider',
-    imageSrc: '',
-    pack: [],
+    imageSrc: 'https://superautopets.wiki.gg/images/b/b2/Sugar_Glider.png',
+    pack: ['Custom Pack'],
     tier: 3,
     attack: 1,
     health: 3,
@@ -1533,8 +1533,8 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Wasp',
-    imageSrc: '',
-    pack: [],
+    imageSrc: 'https://superautopets.wiki.gg/images/f/f8/Wasp.png',
+    pack: ['Custom Pack'],
     tier: 3,
     attack: 2,
     health: 2,
@@ -1543,7 +1543,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Flying Squirrel',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/6/62/Flying_Squirrel.png',
     pack: ['Puppy Pack'],
     tier: 3,
     attack: 3,
@@ -1553,7 +1553,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Hare',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/4/47/Hare.png',
     pack: ['Puppy Pack'],
     tier: 3,
     attack: 3,
@@ -1563,7 +1563,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Hatching Chick',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/0/07/Hatching_Chick.png',
     pack: ['Puppy Pack'],
     tier: 3,
     attack: 2,
@@ -1573,7 +1573,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Hoopoe Bird',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/3/32/Hoopoe_Bird.png',
     pack: ['Puppy Pack'],
     tier: 3,
     attack: 3,
@@ -1583,7 +1583,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Owl',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/5/5c/Owl.png',
     pack: ['Puppy Pack'],
     tier: 3,
     attack: 1,
@@ -1593,7 +1593,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Pangolin',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/2/28/Pangolin.png',
     pack: ['Puppy Pack'],
     tier: 3,
     attack: 2,
@@ -1603,7 +1603,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Puppy',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/0/05/Puppy.png',
     pack: ['Puppy Pack'],
     tier: 3,
     attack: 3,
@@ -1613,7 +1613,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Tropical Fish',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/2/24/Tropical_Fish.png',
     pack: ['Puppy Pack'],
     tier: 3,
     attack: 1,
@@ -1623,7 +1623,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Anteater',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/5/5b/Anteater.png',
     pack: ['Star Pack'],
     tier: 3,
     attack: 2,
@@ -1633,7 +1633,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Capybara',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/6/6e/Capybara.png',
     pack: ['Star Pack'],
     tier: 3,
     attack: 2,
@@ -1643,7 +1643,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Cardinal',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/d/d2/Cardinal.png',
     pack: ['Star Pack'],
     tier: 3,
     attack: 4,
@@ -1653,7 +1653,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Cassowary',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/5/5c/Cassowary.png',
     pack: ['Star Pack'],
     tier: 3,
     attack: 5,
@@ -1663,7 +1663,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Eel',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/9/91/Eel.png',
     pack: ['Star Pack', 'Custom Pack'],
     tier: 3,
     attack: 4,
@@ -1673,7 +1673,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Leech',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/3/32/Leech.png',
     pack: ['Star Pack'],
     tier: 3,
     attack: 2,
@@ -1683,7 +1683,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Okapi',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/7/7e/Okapi.png',
     pack: ['Star Pack'],
     tier: 3,
     attack: 2,
@@ -1693,7 +1693,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Orangutan',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/d/dd/Orangutan.png',
     pack: ['Star Pack'],
     tier: 3,
     attack: 1,
@@ -1703,7 +1703,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Pug',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/2/21/Pug.png',
     pack: ['Star Pack'],
     tier: 3,
     attack: 5,
@@ -1713,7 +1713,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Roadrunner',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/0/05/Roadrunner.png',
     pack: ['Star Pack', 'Custom Pack'],
     tier: 3,
     attack: 4,
@@ -1723,7 +1723,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Sage-Grouse',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/5/50/Sage-Grouse.png',
     pack: ['Star Pack', 'Custom Pack'],
     tier: 3,
     attack: 2,
@@ -1733,7 +1733,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Toad',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/c/c9/Toad.png',
     pack: ['Star Pack'],
     tier: 3,
     attack: 3,
@@ -1743,7 +1743,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Tuna',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/c/c5/Tuna.png',
     pack: ['Star Pack'],
     tier: 3,
     attack: 3,
@@ -1753,7 +1753,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Baboon',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/0/00/Baboon.png',
     pack: ['Golden Pack'],
     tier: 3,
     attack: 2,
@@ -1763,7 +1763,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Betta Fish',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/f/f6/Betta_Fish.png',
     pack: ['Golden Pack'],
     tier: 3,
     attack: 2,
@@ -1773,7 +1773,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Blue Dragon',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/5/5f/Blue_Dragon.png',
     pack: ['Golden Pack', 'Unicorn Pack', 'Custom Pack'],
     tier: 3,
     attack: 3,
@@ -1783,7 +1783,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Flea',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/d/d2/Flea.png',
     pack: ['Golden Pack'],
     tier: 3,
     attack: 3,
@@ -1793,7 +1793,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Flying Fish',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/b/bc/Flying_Fish.png',
     pack: ['Golden Pack'],
     tier: 3,
     attack: 5,
@@ -1803,7 +1803,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Guineafowl',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/5/5f/Guineafowl.png',
     pack: ['Golden Pack'],
     tier: 3,
     attack: 2,
@@ -1813,7 +1813,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Jewel Caterpillar',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/7/75/Jewel_Caterpillar.png',
     pack: ['Golden Pack', 'Custom Pack'],
     tier: 3,
     attack: 1,
@@ -1823,7 +1823,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Meerkat',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/c/c2/Meerkat.png',
     pack: ['Golden Pack'],
     tier: 3,
     attack: 1,
@@ -1833,7 +1833,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Musk Ox',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/1/1d/Musk_Ox.png',
     pack: ['Golden Pack'],
     tier: 3,
     attack: 2,
@@ -1843,7 +1843,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Osprey',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/8/81/Osprey.png',
     pack: ['Golden Pack'],
     tier: 3,
     attack: 3,
@@ -1853,7 +1853,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Patagonian Mara',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/7/77/Patagonian_Mara.png',
     pack: ['Golden Pack', 'Custom Pack'],
     tier: 3,
     attack: 2,
@@ -1863,7 +1863,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Royal Flycatcher',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/8/8c/Royal_Flycatcher.png',
     pack: ['Golden Pack'],
     tier: 3,
     attack: 2,
@@ -1873,7 +1873,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Surgeon Fish',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/f/f4/Surgeon_Fish.png',
     pack: ['Golden Pack'],
     tier: 3,
     attack: 4,
@@ -1883,7 +1883,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Weasel',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/c/c3/Weasel.png',
     pack: ['Golden Pack'],
     tier: 3,
     attack: 3,
@@ -1893,7 +1893,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Axehandle Hound',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/5/5b/Axehandle_Hound.png',
     pack: ['Unicorn Pack', 'Custom Pack'],
     tier: 3,
     attack: 4,
@@ -1903,7 +1903,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Brain Cramp',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/8/87/Brain_Cramp.png',
     pack: ['Unicorn Pack'],
     tier: 3,
     attack: 1,
@@ -1913,7 +1913,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Caladrius',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/b/ba/Caladrius.png',
     pack: ['Unicorn Pack', 'Custom Pack'],
     tier: 3,
     attack: 4,
@@ -1923,7 +1923,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Calygreyhound',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/f/f7/Calygreyhound.png',
     pack: ['Unicorn Pack'],
     tier: 3,
     attack: 4,
@@ -1933,7 +1933,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Deer Lord',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/9/9b/Deer_Lord.png',
     pack: ['Unicorn Pack', 'Custom Pack'],
     tier: 3,
     attack: 4,
@@ -1943,7 +1943,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Foo Dog',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/c/cd/Foo_Dog.png',
     pack: ['Unicorn Pack', 'Custom Pack'],
     tier: 3,
     attack: 3,
@@ -1953,7 +1953,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Fur-Bearing Trout',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/3/39/Fur-Bearing_Trout.png',
     pack: ['Unicorn Pack'],
     tier: 3,
     attack: 3,
@@ -1963,7 +1963,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Griffin',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/f/f8/Griffin.png',
     pack: ['Unicorn Pack'],
     tier: 3,
     attack: 5,
@@ -1973,7 +1973,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Lucky Cat',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/f/f1/Lucky_Cat.png',
     pack: ['Unicorn Pack'],
     tier: 3,
     attack: 2,
@@ -1983,7 +1983,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Mana Hound',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/5/5e/Mana_Hound.png',
     pack: ['Unicorn Pack'],
     tier: 3,
     attack: 5,
@@ -1993,7 +1993,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Mandrake',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/c/c3/Mandrake.png',
     pack: ['Unicorn Pack'],
     tier: 3,
     attack: 4,
@@ -2003,7 +2003,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Ouroboros',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/f/fa/Ouroboros.png',
     pack: ['Unicorn Pack'],
     tier: 3,
     attack: 2,
@@ -2013,7 +2013,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Skeleton Dog',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/b/b7/Skeleton_Dog.png',
     pack: ['Unicorn Pack'],
     tier: 3,
     attack: 3,
@@ -2023,7 +2023,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Slime',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/3/38/Slime.png',
     pack: ['Unicorn Pack', 'Custom Pack'],
     tier: 3,
     attack: 3,
@@ -2033,7 +2033,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Tatzelwurm',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/e/e2/Tatzelwurm.png',
     pack: ['Unicorn Pack'],
     tier: 3,
     attack: 1,
@@ -2043,7 +2043,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Tree',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/a/ae/Tree_Ent.png',
     pack: ['Unicorn Pack', 'Custom Pack'],
     tier: 3,
     attack: 2,
@@ -2053,7 +2053,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Dimetrodon',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/7/7c/Dimetrodon.png',
     pack: ['Custom Pack'],
     tier: 3,
     attack: 1,
@@ -2063,7 +2063,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Great Potoo',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/3/3d/Great_Potoo.png',
     pack: ['Custom Pack'],
     tier: 3,
     attack: 3,
@@ -2073,7 +2073,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Queen Bee',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/f/f0/Queen_Bee.png',
     pack: ['Custom Pack'],
     tier: 3,
     attack: 2,
@@ -2083,7 +2083,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Barnacle',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/a/af/Barnacle.png',
     pack: ['Custom Pack'],
     tier: 3,
     attack: 1,
@@ -2093,7 +2093,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Centipede',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/4/43/Centipede.png',
     pack: ['Custom Pack'],
     tier: 3,
     attack: 1,
@@ -2103,7 +2103,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Gerenuk',
-    imageSrc: '',
+    imageSrc: 'https://superautopets.wiki.gg/images/0/0a/Gerenuk.png',
     pack: ['Custom Pack'],
     tier: 3,
     attack: 3,
