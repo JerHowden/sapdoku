@@ -27,13 +27,16 @@ export const ABILITY_TRIGGERS_LIST = [
   'End Turn',
   'Knock Out',
   'Before Attack',
+  'Before Friend Attacks', // nrk
   'After Attack',
   'Eats Food',
   'Friendly Eats Food',
   'Friendly Gained Perk',
   'Friendly Gained Ailment',
+  'Friendly Gained Strawberry', // natrk
   'Friendly Attacked',
   'Friendly Level-Up',
+  'Friendly Toy Broke', // nrk
   'Friend Ahead Attacks',
   'Friend Ahead Hurt',
   'Friend Ahead Faints',
@@ -44,10 +47,15 @@ export const ABILITY_TRIGGERS_LIST = [
   'Friend Jumped',
   'Roll',
   'Roll 4 Times',
+  'Roll & Sell', // nrk
   'Shop Tier Upgraded',
   'Gains Mana',
+  'Enemy Summoned', // nrk
   'Enemy Summoned or Pushed', // nrk
+  'Enemy Hurt', // nrk
   'Empty Front Space',
+  'Anyone Hurt', // nrk
+  'Bee Summoned', // natrk
 ] as const;
 
 export const TAGS_LIST = [
