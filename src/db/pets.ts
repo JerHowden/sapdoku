@@ -960,7 +960,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Shima Enaga',
-    imageSrc: '', // no src
+    imageSrc: 'https://superautopets.wiki.gg/images/5/59/Shima_Enaga_Icon.png',
     pack: ['Star Pack', 'Custom Pack'],
     tier: 2,
     attack: 2,
@@ -1010,7 +1010,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Desert Rain Frog',
-    imageSrc: '', // no src
+    imageSrc: 'https://superautopets.wiki.gg/images/f/fa/Desert_Rain_Frog_Icon.png',
     pack: ['Golden Pack', 'Custom Pack'],
     tier: 2,
     attack: 2,
@@ -1050,7 +1050,7 @@ export const PETS_LIST: Pet[] = [
   },
   {
     name: 'Honduran White Bat',
-    imageSrc: '', // no src
+    imageSrc: 'https://superautopets.wiki.gg/images/9/96/Honduran_White_Bat_Icon.png',
     pack: ['Golden Pack', 'Custom Pack'],
     tier: 2,
     attack: 1,

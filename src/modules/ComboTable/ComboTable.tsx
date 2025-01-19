@@ -21,6 +21,7 @@ export function ComboTable() {
               key={specReq.label}
               className="whitespace-nowrap"
             >
+              {specReq.display}
               {specReq.label}
             </TableHead>
           ))}
@@ -29,7 +30,10 @@ export function ComboTable() {
       <TableBody>
         {GENERIC_REQUIREMENT_LIST.map((genReq) => (
           <TableRow key={genReq.label}>
-            <TableCell className="font-semibold whitespace-nowrap">{genReq.label}</TableCell>
+            <TableCell className="font-semibold whitespace-nowrap flex flex-row gap-2 items-center text-muted-foreground">
+              {genReq.display}
+              {genReq.label}
+            </TableCell>
             {SPECIFIC_REQUIREMENT_LIST.map((specReq) => (
               <TableCell key={`${genReq.label}-${specReq.label}`}>
                 {PETS_LIST.filter((pet) => specReq.logic(pet) && genReq.logic(pet)).length}

@@ -20,6 +20,13 @@ export const IMAGE_SRCS = {
   health: 'https://superautopets.wiki.gg/images/4/44/Health_Icon.png',
   experience: 'https://superautopets.wiki.gg/images/0/0f/Experience_Icon.png',
   trophy: 'https://superautopets.wiki.gg/images/c/cb/TrophyHat.png',
+  gold: 'https://superautopets.wiki.gg/images/1/10/Gold.png',
+  mana: 'https://superautopets.wiki.gg/images/8/80/Mana_Potion.png',
+  damage: 'https://superautopets.wiki.gg/images/4/42/Damage_Icon.png',
+  // Food, Perks, and Ailments
+  apple: 'https://superautopets.wiki.gg/images/7/7d/Apple.png',
+  melon: 'https://superautopets.wiki.gg/images/1/19/Melon.png',
+  weak: 'https://superautopets.wiki.gg/images/e/e9/Weak.png',
 } as const;
 
 export const IMAGE_SRCS_TIER_MAP = {

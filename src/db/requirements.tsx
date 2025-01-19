@@ -1,15 +1,10 @@
 'use client';
 
 import {
-  Apple,
-  ArrowRight,
   ArrowRightFromLine,
   ArrowRightToLine,
-  BadgePlus,
-  Beef,
-  Coins,
+  ArrowUp,
   DiamondPlus,
-  Milk,
   Redo,
   RefreshCw,
   Skull,
@@ -20,14 +15,15 @@ import {
 import { getImageProps } from 'next/image';
 import { IMAGE_SRCS } from './imageSrc';
 import { Requirement, RequirementKey } from './types';
+import { JSX } from 'react';
 
 type RequirementImageProps = {
   src: string;
   alt: string;
   baseSize: number;
-};
+} & JSX.IntrinsicElements['picture'];
 
-function RequirementImage({ src, alt = '', baseSize }: RequirementImageProps) {
+function RequirementImage({ src, alt = '', baseSize, ...paramRest }: RequirementImageProps) {
   const common = { src, alt };
   const {
     props: { srcSet: desktop },
@@ -47,7 +43,7 @@ function RequirementImage({ src, alt = '', baseSize }: RequirementImageProps) {
   });
 
   return (
-    <picture>
+    <picture {...paramRest}>
       <source
         media="(min-width: 768px)"
         srcSet={desktop}
@@ -280,22 +276,46 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
   },
   buy: {
     logic: (pet) => pet.abilityTrigger === 'Buy',
-    display: <Coins className="w-6 md:w-12 h-auto" />,
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.gold}
+        alt="Buy"
+        baseSize={32}
+      />
+    ),
     label: 'Buy',
   },
   buyFriend: {
     logic: (pet) => pet.abilityTrigger === 'Buy Friend',
-    display: <Coins className="w-6 md:w-12 h-auto" />,
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.gold}
+        alt="Buy Friend"
+        baseSize={32}
+      />
+    ),
     label: 'Buy Friend',
   },
   buyFood: {
     logic: (pet) => pet.abilityTrigger === 'Buy Food',
-    display: <Coins className="w-6 md:w-12 h-auto" />,
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.apple}
+        alt="Buy Food"
+        baseSize={32}
+      />
+    ),
     label: 'Buy Food',
   },
   sell: {
     logic: (pet) => ['Sell', 'Hurt & Sell', 'Faint & Sell'].includes(pet.abilityTrigger),
-    display: <Coins className="w-6 md:w-12 h-auto" />,
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.gold}
+        alt="Sell"
+        baseSize={32}
+      />
+    ),
     label: 'Sell',
   },
   hurt: {
@@ -310,7 +330,13 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
   },
   levelUp: {
     logic: (pet) => pet.abilityTrigger === 'Level Up',
-    display: <BadgePlus className="w-6 md:w-12 h-auto" />,
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.experience}
+        alt="Friend Level-Up"
+        baseSize={32}
+      />
+    ),
     label: 'Level Up',
   },
   friendSummoned: {
@@ -340,33 +366,51 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
   },
   knockOut: {
     logic: (pet) => pet.abilityTrigger === 'Knock Out',
-    display: <Sword className="w-6 md:w-12 h-auto" />,
+    display: <Sword className="w-6 md:w-12 h-auto -scale-x-100" />,
     label: 'Knock Out',
   },
   beforeAttack: {
     logic: (pet) => pet.abilityTrigger === 'Before Attack',
-    display: <Sword className="w-6 md:w-12 h-auto" />,
+    display: <Sword className="w-6 md:w-12 h-auto -scale-x-100" />,
     label: 'Before Attack',
   },
   afterAttack: {
     logic: (pet) => pet.abilityTrigger === 'After Attack',
-    display: <Sword className="w-6 md:w-12 h-auto" />,
+    display: <Sword className="w-6 md:w-12 h-auto -scale-x-100" />,
     label: 'After Attack',
   },
   eatsFood: {
     logic: (pet) => pet.abilityTrigger === 'Eats Food',
-    display: <Apple className="w-6 md:w-12 h-auto" />,
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.apple}
+        alt="Eats Food"
+        baseSize={32}
+      />
+    ),
     label: 'Eats Food',
   },
   friendlyEatsFood: {
     logic: (pet) => pet.abilityTrigger === 'Friendly Eats Food',
-    display: <Apple className="w-6 md:w-12 h-auto" />,
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.apple}
+        alt="Friendly Eats Food"
+        baseSize={32}
+      />
+    ),
     label: 'Friendly Eats Food',
   },
   friendlyGained: {
     logic: (pet) =>
       ['Friendly Gained Perk', 'Friendly Gained Ailment'].includes(pet.abilityTrigger),
-    display: <Beef className="w-6 md:w-12 h-auto" />,
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.melon}
+        alt="Friendly Gained Perk or Ailment"
+        baseSize={32}
+      />
+    ),
     label: 'Friendly Gained ...',
   },
   friendAhead: {
@@ -379,7 +423,13 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
   },
   friendLevelUp: {
     logic: (pet) => pet.abilityTrigger === 'Friend Level-Up',
-    display: <BadgePlus className="w-6 md:w-12 h-auto" />,
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.experience}
+        alt="Friend Level-Up"
+        baseSize={32}
+      />
+    ),
     label: 'Friend Level-Up',
   },
   friendHurt: {
@@ -394,12 +444,18 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
   },
   shopTierUpgraded: {
     logic: (pet) => pet.abilityTrigger === 'Shop Tier Upgraded',
-    display: <ArrowRight className="w-6 md:w-12 h-auto" />,
+    display: <ArrowUp className="w-6 md:w-12 h-auto" />,
     label: 'Shop Tier Upgraded',
   },
   gainsMana: {
     logic: (pet) => pet.abilityTrigger === 'Gains Mana',
-    display: <Milk className="w-6 md:w-12 h-auto" />,
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.mana}
+        alt="Gains Mana"
+        baseSize={32}
+      />
+    ),
     label: 'Gains Mana',
   },
 } as const;
@@ -446,4 +502,8 @@ export const GENERIC_REQUIREMENT_LIST: Requirement[] = [
   REQUIREMENT_MAP.friendlyGained,
   REQUIREMENT_MAP.friendAhead,
   REQUIREMENT_MAP.friendLevelUp,
+  REQUIREMENT_MAP.friendHurt,
+  REQUIREMENT_MAP.roll,
+  REQUIREMENT_MAP.shopTierUpgraded,
+  REQUIREMENT_MAP.gainsMana,
 ] as const;
