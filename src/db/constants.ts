@@ -14,6 +14,7 @@ export const ABILITY_TRIGGERS_LIST = [
   'Buy',
   'Buy Friend',
   'Buy Food',
+  'Buy & Sell', // natrk
   'Sell',
   'Hurt',
   'Hurt & Sell',
@@ -44,6 +45,7 @@ export const ABILITY_TRIGGERS_LIST = [
   'Friend Ahead Attacks',
   'Friend Ahead Hurt',
   'Friend Ahead Faints',
+  'Friend Bought', // nrk
   'Friend Gained Ailment',
   'Friend Faints',
   'Two Friends Faint', // natrk
@@ -52,6 +54,7 @@ export const ABILITY_TRIGGERS_LIST = [
   'Friend Hurt',
   'Friend Sold',
   'Three Friends Sold', // natrk
+  'Level 3 Friend Sold', // natrk
   'Friend Jumped',
   'Roll',
   'Roll 4 Times',
@@ -61,10 +64,13 @@ export const ABILITY_TRIGGERS_LIST = [
   'Enemy Summoned', // nrk
   'Enemy Summoned or Pushed', // nrk
   'Enemy Hurt', // nrk
+  'Enemy Hurt or Pushed', // natrk
   'Enemy Faints', // nrk
   'Empty Front Space',
+  'Enemy Gained Ailment', // natrk
   'Anyone Hurt', // nrk
   'Bee Summoned', // natrk
+  'Pet Flung', // idek dude
 ] as const;
 
 export const TAGS_LIST = [

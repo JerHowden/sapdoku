@@ -14,7 +14,7 @@ export function CompletionMessage({ type }: CompletionMessageProps) {
       case 'loss':
         return 'You Lost :(';
       case 'perfect':
-        return 'Perfect Win!';
+        return 'Perfect!!';
       case 'under-minute-gang':
         return (
           <div className="flex flex-row items-center gap-2">
@@ -25,7 +25,7 @@ export function CompletionMessage({ type }: CompletionMessageProps) {
               alt=""
               className="rotate-180"
             />
-            <p className="text-xl sm:text-2xl md:text-3xl ">UNDER MINUTE GANG</p>
+            <p className="text-xl sm:text-2xl md:text-3xl italic">SPEED PERFECT</p>
             <Image
               src={IMAGE_SRCS.trophy}
               width={48}
