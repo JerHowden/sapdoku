@@ -22,14 +22,17 @@ export const ABILITY_TRIGGERS_LIST = [
   'Level Up',
   'Friend Summoned',
   'Summoned',
-  'Start Of Battle',
-  'Start Of Turn',
+  'Start of Battle',
+  'Start of Turn',
   'End Turn',
   'Knock Out',
   'Before Attack',
   'Before Friend Attacks', // nrk
   'After Attack',
   'Eats Food',
+  'Eats Two Food', // natrk
+  'Eats Apple', // natrk
+  'Gain Perk or Ailment', // nrk or natrk
   'Friendly Eats Food',
   'Friendly Gained Perk',
   'Friendly Gained Ailment',
@@ -37,13 +40,18 @@ export const ABILITY_TRIGGERS_LIST = [
   'Friendly Attacked',
   'Friendly Level-Up',
   'Friendly Toy Broke', // nrk
+  'Friend Attacks', // natrk
   'Friend Ahead Attacks',
   'Friend Ahead Hurt',
   'Friend Ahead Faints',
+  'Friend Gained Ailment',
   'Friend Faints',
+  'Two Friends Faint', // natrk
+  'Three Friends Faint', // natrk
   'Friend Level-Up',
   'Friend Hurt',
   'Friend Sold',
+  'Three Friends Sold', // natrk
   'Friend Jumped',
   'Roll',
   'Roll 4 Times',
@@ -53,6 +61,7 @@ export const ABILITY_TRIGGERS_LIST = [
   'Enemy Summoned', // nrk
   'Enemy Summoned or Pushed', // nrk
   'Enemy Hurt', // nrk
+  'Enemy Faints', // nrk
   'Empty Front Space',
   'Anyone Hurt', // nrk
   'Bee Summoned', // natrk

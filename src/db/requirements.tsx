@@ -350,12 +350,12 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
     label: 'Summoned',
   },
   startOfBattle: {
-    logic: (pet) => pet.abilityTrigger === 'Start Of Battle',
+    logic: (pet) => pet.abilityTrigger === 'Start of Battle',
     display: <Swords className="w-6 md:w-12 h-auto" />,
     label: 'Start of Battle',
   },
   startOfTurn: {
-    logic: (pet) => pet.abilityTrigger === 'Start Of Turn',
+    logic: (pet) => pet.abilityTrigger === 'Start of Turn',
     display: <ArrowRightFromLine className="w-6 md:w-12 h-auto" />,
     label: 'Start of Turn',
   },
