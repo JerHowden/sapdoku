@@ -32,13 +32,20 @@ export const ABILITY_TRIGGERS_LIST = [
   'After Attack',
   'Eats Food',
   'Eats Two Food', // natrk
+  'Eats Three Food', // natrk
   'Eats Apple', // natrk
+  'Food Bought', // natrk
+  'Gain Perk', // nrk
   'Gain Perk or Ailment', // nrk or natrk
+  'Friend Lost Perk', // natrk
   'Friendly Eats Food',
+  'Friendly Ate Food', // natrk
+  'Friend Ate Corncob', // natrk
   'Friendly Gained Perk',
   'Friendly Gained Ailment',
   'Friendly Gained Strawberry', // natrk
   'Friendly Attacked',
+  'Five Friendly Attacks', // natrk
   'Friendly Level-Up',
   'Friendly Toy Broke', // nrk
   'Friend Attacks', // natrk
@@ -52,10 +59,13 @@ export const ABILITY_TRIGGERS_LIST = [
   'Three Friends Faint', // natrk
   'Friend Level-Up',
   'Friend Hurt',
+  'Four Friends Hurt', // natrk
   'Friend Sold',
   'Three Friends Sold', // natrk
   'Level 3 Friend Sold', // natrk
+  'Sell Friend', // natrk
   'Friend Jumped',
+  'Spend 7 Gold', // nrk
   'Roll',
   'Roll 4 Times',
   'Roll & Sell', // nrk
