@@ -1,4 +1,4 @@
-import { ComboTable } from '@/modules/ComboTable';
+import { ComboTable, TotalsTable } from '@/modules/ComboTable';
 
 export default function Combos() {
   return (
@@ -7,6 +7,10 @@ export default function Combos() {
         Combos
       </h1>
       <ComboTable />
+      <h1 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+        Tiers, Abilities, and Tags
+      </h1>
+      <TotalsTable />
     </div>
   );
 }
