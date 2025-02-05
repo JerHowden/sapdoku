@@ -1,25 +1,17 @@
 import { Combo } from './types';
-import { REQUIREMENT_MAP } from './requirements';
+import { REQUIREMENT_MAP_GENERIC, REQUIREMENT_MAP_SPECIFIC } from './requirements';
 
 export const COMBO_MAP: Record<number, Combo> = {
   20250101: {
-    rows: [REQUIREMENT_MAP.tier1, REQUIREMENT_MAP.tier3, REQUIREMENT_MAP.tier6],
-    columns: [REQUIREMENT_MAP.buy, REQUIREMENT_MAP.faint, REQUIREMENT_MAP.sell],
-  },
-  20250116: {
-    rows: [REQUIREMENT_MAP.tier1, REQUIREMENT_MAP.tier3, REQUIREMENT_MAP.tier6],
-    columns: [REQUIREMENT_MAP.buy, REQUIREMENT_MAP.hurt, REQUIREMENT_MAP.faint],
-  },
-  20250117: {
-    rows: [REQUIREMENT_MAP.tier1, REQUIREMENT_MAP.tier1, REQUIREMENT_MAP.tier1],
-    columns: [REQUIREMENT_MAP.turtlePack, REQUIREMENT_MAP.goldenPack, REQUIREMENT_MAP.unicornPack],
-  },
-  20250118: {
-    rows: [REQUIREMENT_MAP.tier1, REQUIREMENT_MAP.tier1, REQUIREMENT_MAP.tier1],
-    columns: [REQUIREMENT_MAP.starPack, REQUIREMENT_MAP.puppyPack, REQUIREMENT_MAP.turtlePack],
-  },
-  20250119: {
-    rows: [REQUIREMENT_MAP.tier1, REQUIREMENT_MAP.tier1, REQUIREMENT_MAP.tier1],
-    columns: [REQUIREMENT_MAP.starPack, REQUIREMENT_MAP.puppyPack, REQUIREMENT_MAP.turtlePack],
+    rows: [
+      REQUIREMENT_MAP_SPECIFIC.tier1,
+      REQUIREMENT_MAP_SPECIFIC.tier3,
+      REQUIREMENT_MAP_SPECIFIC.tier6,
+    ],
+    columns: [
+      REQUIREMENT_MAP_GENERIC.buy,
+      REQUIREMENT_MAP_GENERIC.faint,
+      REQUIREMENT_MAP_GENERIC.sell,
+    ],
   },
 } as const;

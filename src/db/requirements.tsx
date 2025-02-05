@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { getImageProps } from 'next/image';
 import { IMAGE_SRCS } from './imageSrc';
-import { Requirement, RequirementKey } from './types';
+import { Requirement, RequirementGenericKey, RequirementSpecificKey } from './types';
 import { JSX } from 'react';
 
 type RequirementImageProps = {
@@ -58,7 +58,7 @@ function RequirementImage({ src, alt = '', baseSize, ...paramRest }: Requirement
   );
 }
 
-export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
+export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requirement> = {
   //
   // --- TIERS ---
   //
@@ -129,6 +129,45 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
     label: 'Tier 6',
   },
   //
+  // --- STATS ---
+  //
+  statsHealth: {
+    logic: (pet) => pet.health > pet.attack,
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.health}
+        alt="Health Highest Stat"
+        baseSize={32}
+      />
+    ),
+    label: 'Health > Attack',
+  },
+  statsAttack: {
+    logic: (pet) => pet.attack > pet.health,
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.attack}
+        alt="Attack Highest Stat"
+        baseSize={32}
+      />
+    ),
+    label: 'Attack > Health',
+  },
+  statsEven: {
+    logic: (pet) => pet.health === pet.attack,
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.health}
+        alt="Stats Even"
+        baseSize={32}
+      />
+    ),
+    label: 'Health = Attack',
+  },
+} as const;
+
+export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement> = {
+  //
   // --- PACKS ---
   //
   turtlePack: {
@@ -198,75 +237,6 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
     label: 'Custom Pack',
   },
   //
-  // --- STATS ---
-  //
-  healthLow: {
-    logic: (pet) => pet.health <= 3,
-    display: (
-      <RequirementImage
-        src={IMAGE_SRCS.health}
-        alt="Health"
-        baseSize={32}
-      />
-    ),
-    label: 'Low Health (1 - 3)',
-  },
-  healthMedium: {
-    logic: (pet) => pet.health >= 4 && pet.health <= 6,
-    display: (
-      <RequirementImage
-        src={IMAGE_SRCS.health}
-        alt="Health"
-        baseSize={32}
-      />
-    ),
-    label: 'Medium Health (4 - 6)',
-  },
-  healthHigh: {
-    logic: (pet) => pet.health >= 7,
-    display: (
-      <RequirementImage
-        src={IMAGE_SRCS.health}
-        alt="Health"
-        baseSize={32}
-      />
-    ),
-    label: 'High Health (7+)',
-  },
-  attackLow: {
-    logic: (pet) => pet.attack <= 3,
-    display: (
-      <RequirementImage
-        src={IMAGE_SRCS.attack}
-        alt="Attack"
-        baseSize={32}
-      />
-    ),
-    label: 'Low Attack (1 - 3)',
-  },
-  attackMedium: {
-    logic: (pet) => pet.attack >= 4 && pet.attack <= 6,
-    display: (
-      <RequirementImage
-        src={IMAGE_SRCS.attack}
-        alt="Attack"
-        baseSize={32}
-      />
-    ),
-    label: 'Medium Attack (4 - 6)',
-  },
-  attackHigh: {
-    logic: (pet) => pet.attack >= 7,
-    display: (
-      <RequirementImage
-        src={IMAGE_SRCS.attack}
-        alt="Attack"
-        baseSize={32}
-      />
-    ),
-    label: 'High Attack (7+)',
-  },
-  //
   // --- TRIGGER ---
   //
   noAbility: {
@@ -284,28 +254,6 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
       />
     ),
     label: 'Buy',
-  },
-  buyFriend: {
-    logic: (pet) => pet.abilityTrigger === 'Buy Friend',
-    display: (
-      <RequirementImage
-        src={IMAGE_SRCS.gold}
-        alt="Buy Friend"
-        baseSize={32}
-      />
-    ),
-    label: 'Buy Friend',
-  },
-  buyFood: {
-    logic: (pet) => pet.abilityTrigger === 'Buy Food',
-    display: (
-      <RequirementImage
-        src={IMAGE_SRCS.apple}
-        alt="Buy Food"
-        baseSize={32}
-      />
-    ),
-    label: 'Buy Food',
   },
   sell: {
     logic: (pet) => ['Sell', 'Hurt & Sell', 'Faint & Sell'].includes(pet.abilityTrigger),
@@ -503,56 +451,5 @@ export const REQUIREMENT_MAP: Record<RequirementKey, Requirement> = {
   },
 } as const;
 
-export const SPECIFIC_REQUIREMENT_LIST: Requirement[] = [
-  REQUIREMENT_MAP.tier1,
-  REQUIREMENT_MAP.tier2,
-  REQUIREMENT_MAP.tier3,
-  REQUIREMENT_MAP.tier4,
-  REQUIREMENT_MAP.tier5,
-  REQUIREMENT_MAP.tier6,
-  REQUIREMENT_MAP.healthLow,
-  REQUIREMENT_MAP.healthMedium,
-  REQUIREMENT_MAP.healthHigh,
-  REQUIREMENT_MAP.attackLow,
-  REQUIREMENT_MAP.attackMedium,
-  REQUIREMENT_MAP.attackHigh,
-] as const;
-export const GENERIC_REQUIREMENT_LIST: Requirement[] = [
-  REQUIREMENT_MAP.turtlePack,
-  REQUIREMENT_MAP.puppyPack,
-  REQUIREMENT_MAP.starPack,
-  REQUIREMENT_MAP.goldenPack,
-  REQUIREMENT_MAP.unicornPack,
-  REQUIREMENT_MAP.customPack,
-  REQUIREMENT_MAP.noAbility,
-  REQUIREMENT_MAP.buy,
-  REQUIREMENT_MAP.buyFriend,
-  REQUIREMENT_MAP.buyFood,
-  REQUIREMENT_MAP.sell,
-  REQUIREMENT_MAP.hurt,
-  REQUIREMENT_MAP.faint,
-  REQUIREMENT_MAP.levelUp,
-  REQUIREMENT_MAP.friendSummoned,
-  REQUIREMENT_MAP.summoned,
-  REQUIREMENT_MAP.startOfBattle,
-  REQUIREMENT_MAP.startOfTurn,
-  REQUIREMENT_MAP.endTurn,
-  REQUIREMENT_MAP.knockOut,
-  REQUIREMENT_MAP.beforeAttack,
-  REQUIREMENT_MAP.afterAttack,
-  REQUIREMENT_MAP.eatsFood,
-  REQUIREMENT_MAP.friendlyEatsFood,
-  REQUIREMENT_MAP.friendlyGained,
-  REQUIREMENT_MAP.friendlyAttacked,
-  REQUIREMENT_MAP.friendlyLevelUp,
-  REQUIREMENT_MAP.friendAhead,
-  REQUIREMENT_MAP.friendLevelUp,
-  REQUIREMENT_MAP.friendHurt,
-  REQUIREMENT_MAP.friendFaints,
-  REQUIREMENT_MAP.friendSold,
-  REQUIREMENT_MAP.friendJumped,
-  REQUIREMENT_MAP.roll,
-  REQUIREMENT_MAP.shopTierUpgraded,
-  REQUIREMENT_MAP.gainsMana,
-  REQUIREMENT_MAP.emptyFrontSpace,
-] as const;
+export const REQUIREMENT_LIST_SPECIFIC: Requirement[] = Object.values(REQUIREMENT_MAP_SPECIFIC);
+export const REQUIREMENT_LIST_GENERIC: Requirement[] = Object.values(REQUIREMENT_MAP_GENERIC);

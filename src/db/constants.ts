@@ -12,8 +12,6 @@ export const TIERS_LIST = [1, 2, 3, 4, 5, 6] as const;
 export const ABILITY_TRIGGERS_LIST = [
   '',
   'Buy',
-  'Buy Friend',
-  'Buy Food',
   'Buy & Sell', // natrk
   'Sell',
   'Hurt',
@@ -110,12 +108,9 @@ export const REQUIREMENT_SPECIFIC_KEYS = [
   'tier4',
   'tier5',
   'tier6',
-  'healthLow',
-  'healthMedium',
-  'healthHigh',
-  'attackLow',
-  'attackMedium',
-  'attackHigh',
+  'statsHealth',
+  'statsAttack',
+  'statsEven',
 ] as const;
 
 export const REQUIREMENT_GENERIC_KEYS = [
@@ -127,8 +122,6 @@ export const REQUIREMENT_GENERIC_KEYS = [
   'customPack',
   'noAbility',
   'buy',
-  'buyFriend',
-  'buyFood',
   'sell',
   'hurt',
   'faint',

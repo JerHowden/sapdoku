@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { GENERIC_REQUIREMENT_LIST, PETS_LIST, SPECIFIC_REQUIREMENT_LIST } from '@/db';
+import { PETS_LIST, REQUIREMENT_LIST_GENERIC, REQUIREMENT_LIST_SPECIFIC } from '@/db';
 
 export function ComboTable() {
   return (
@@ -17,7 +17,7 @@ export function ComboTable() {
         <TableRow>
           <TableHead>Requirement</TableHead>
           <TableHead>Total</TableHead>
-          {SPECIFIC_REQUIREMENT_LIST.map((specReq) => (
+          {REQUIREMENT_LIST_SPECIFIC.map((specReq) => (
             <TableHead
               key={specReq.label}
               className="whitespace-nowrap"
@@ -34,7 +34,7 @@ export function ComboTable() {
             Total
           </TableCell>
           <TableCell className="font-semibold whitespace-nowrap"></TableCell>
-          {SPECIFIC_REQUIREMENT_LIST.map((specReq) => (
+          {REQUIREMENT_LIST_SPECIFIC.map((specReq) => (
             <TableCell
               key={specReq.label}
               className="font-bold"
@@ -43,7 +43,7 @@ export function ComboTable() {
             </TableCell>
           ))}
         </TableRow>
-        {GENERIC_REQUIREMENT_LIST.map((genReq) => (
+        {REQUIREMENT_LIST_GENERIC.map((genReq) => (
           <TableRow key={genReq.label}>
             <TableCell className="font-semibold whitespace-nowrap flex flex-row gap-2 items-center text-muted-foreground">
               <div className="max-w-12 max-h-12">{genReq.display}</div>
@@ -52,7 +52,7 @@ export function ComboTable() {
             <TableCell className="font-bold">
               {PETS_LIST.filter((pet) => genReq.logic(pet)).length}
             </TableCell>
-            {SPECIFIC_REQUIREMENT_LIST.map((specReq) => (
+            {REQUIREMENT_LIST_SPECIFIC.map((specReq) => (
               <TableCell key={`${genReq.label}-${specReq.label}`}>
                 {PETS_LIST.filter((pet) => specReq.logic(pet) && genReq.logic(pet)).length}
               </TableCell>
