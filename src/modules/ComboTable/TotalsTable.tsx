@@ -94,8 +94,9 @@ export function TotalsTable() {
               data-selected={selections.some(
                 (selection) => selection.type === 'tier' && selection.value === tier
               )}
+              data-none={count === 0}
               onClick={() => toggleSelection({ type: 'tier', value: tier })}
-              className="data-[selected=true]:text-red-500"
+              className="data-[selected=true]:text-red-500 data-[none=true]:text-muted-foreground"
             >
               <TableCell>{tier}</TableCell>
               <TableCell>{count}</TableCell>
@@ -111,8 +112,9 @@ export function TotalsTable() {
               data-selected={selections.some(
                 (selection) => selection.type === 'stats' && selection.value === stats
               )}
+              data-none={count === 0}
               onClick={() => toggleSelection({ type: 'stats', value: stats })}
-              className="data-[selected=true]:text-red-500"
+              className="data-[selected=true]:text-red-500 data-[none=true]:text-muted-foreground"
             >
               <TableCell>{stats}</TableCell>
               <TableCell>{count}</TableCell>
@@ -138,8 +140,9 @@ export function TotalsTable() {
               data-selected={selections.some(
                 (selection) => selection.type === 'trigger' && selection.value === trigger
               )}
+              data-none={count === 0}
               onClick={() => toggleSelection({ type: 'trigger', value: trigger })}
-              className="data-[selected=true]:text-red-500"
+              className="data-[selected=true]:text-red-500 data-[none=true]:text-muted-foreground"
             >
               <TableCell>{trigger || 'No Ability'}</TableCell>
               <TableCell>{count}</TableCell>
@@ -161,8 +164,9 @@ export function TotalsTable() {
               data-selected={selections.some(
                 (selection) => selection.type === 'tag' && selection.value === tag
               )}
+              data-none={count === 0}
               onClick={() => toggleSelection({ type: 'tag', value: tag })}
-              className="data-[selected=true]:text-red-500"
+              className="data-[selected=true]:text-red-500 data-[none=true]:text-muted-foreground"
             >
               <TableCell>{tag}</TableCell>
               <TableCell>{count}</TableCell>
@@ -172,8 +176,9 @@ export function TotalsTable() {
             data-selected={selections.some(
               (selection) => selection.type === 'tag' && selection.value === 'No Tags'
             )}
+            data-none={selectionPets.filter((pet) => pet.tags.length === 0).length === 0}
             onClick={() => toggleSelection({ type: 'tag', value: 'No Tags' })}
-            className="data-[selected=true]:text-red-500"
+            className="data-[selected=true]:text-red-500 data-[none=true]:text-muted-foreground"
           >
             <TableCell>No Tags</TableCell>
             <TableCell>{selectionPets.filter((pet) => pet.tags.length === 0).length}</TableCell>

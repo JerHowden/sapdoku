@@ -18,7 +18,7 @@ export const ABILITY_TRIGGERS_LIST = [
   'Hurt & Sell',
   'Faint',
   'Faint & Sell',
-  'Level Up',
+  'Level-Up',
   'Friend Summoned',
   'Summoned',
   'Start of Battle',
@@ -115,24 +115,97 @@ export const REQUIREMENT_SPECIFIC_KEYS = [
 
 /*
   --- UPDATED REQS ---
-  Buy: -- 20
-    - AT: Buy
-    - AT: Buy & Sell
-  Sell: -- 30
-    - AT: Sell
-    - AT: Buy & Sell
-    - AT: Hurt & Sell
-    - AT: Faint & Sell
-    - AT: Roll & Sell
-    - AT: Sell Friend
-  Hurt: --
+  Summon: -- 54
+    - Tag: Summon
+    - AT: Friend Summoned
+    - AT: Summoned
+    - AT: Bee Summoned
+  Hurt: -- 33
+    - Tag: Hurt
     - AT: Hurt
     - AT: Hurt & Sell
     - AT: Friend Ahead Hurt
     - AT: Friend Hurt
     - AT: Four Friends Hurt
     - AT: Anyone Hurt
-    - Tag: Hurt
+  Food: -- 31
+    - Tag: Food
+    - AT: Eats Food
+    - AT: Eats Two Food
+    - AT: Eats Three Food
+    - AT: Eats Apple
+    - AT: Food Bought
+    - AT: Friendly Eats Food
+    - AT: Friendly Ate Food
+    - AT: Friend Ate Corncob
+  Guard: -- 24
+    - Tag: Guard
+    - AT: Friend Ahead Attacks
+    - AT: Friend Ahead Hurt
+    - AT: Friend Ahead Faints
+    - AT: Friend Jumped
+    - AT: Empty Front Space
+  Perks: -- 32
+    - Tag: Perks
+    - AT: Gain Perk
+    - AT: Gain Perk or Ailment
+    - AT: Friend Lost Perk
+    - AT: Friendly Gained Perk
+  Ailment: -- 26
+    - Tag: Ailment
+    - AT: Gain Perk or Ailment
+    - AT: Friendly Gained Ailment
+    - AT: Friend Gained Ailment
+    - AT: Enemy Gained Ailment
+  Cycle: -- 68
+    - Tag: Cycle
+    - AT: Buy
+    - AT: Buy & Sell
+    - AT: Sell
+    - AT: Hurt & Sell
+    - AT: Faint & Sell
+    - AT: Roll & Sell
+    - AT: Sell Friend
+  Level-Up: -- 33
+    - Tag: Level-Up
+    - AT: Level-Up
+    - AT: Friendly Level-Up
+    - AT: Friend Level-Up
+  GoldAndRoll: -- 40
+    - Tag: Gold
+    - Tag: Rolling
+    - AT: Food Bought
+    - AT: Spend 7 Gold
+    - AT: Roll
+    - AT: Roll 4 Times
+    - AT: Roll & Sell
+  Toys: -- 21
+    - Tag: Toys
+    - AT: Friendly Toy Broke
+  Strawberry: -- 18
+    - Tag: Strawberry
+    - AT: Friendly Gained Strawberry
+  Trumpets: -- 25
+    - Tag: Trumpets
+  Mana: -- 26
+    - Tag: Mana
+    - AT: Gains Mana
+  Faint: -- 104
+    - Tag: Faint
+    - AT: Faint
+    - AT: Faint & Sell
+  Buffs: -- 36
+    - Tag: Buffs
+  Disruption: -- 47
+    - Tag: Disruption
+    - AT: Enemy Summoned or Pushed
+    - AT: Enemy Hurt or Pushed
+  Start of Battle: -- 84
+    - AT: Start of Battle
+  Turn: -- 67
+    - AT: Start of Turn
+    - AT: End Turn
+    - AT: Shop Tier Upgraded
 */
 
 export const REQUIREMENT_GENERIC_KEYS = [
@@ -142,33 +215,22 @@ export const REQUIREMENT_GENERIC_KEYS = [
   'goldenPack',
   'unicornPack',
   'customPack',
-  'noAbility',
-  'buy',
-  'sell',
+  'summon',
   'hurt',
-  'faint',
+  'food',
+  'guard',
+  'perks',
+  'ailment',
+  'cycle',
   'levelUp',
-  'friendSummoned',
-  'summoned',
+  'goldAndRoll',
+  'toys',
+  'strawberry',
+  'trumpets',
+  'mana',
+  'faint',
+  'buffs',
+  'disruption',
   'startOfBattle',
-  'startOfTurn',
-  'endTurn',
-  'knockOut',
-  'beforeAttack',
-  'afterAttack',
-  'eatsFood',
-  'friendlyEatsFood',
-  'friendlyGained',
-  'friendlyAttacked',
-  'friendlyLevelUp',
-  'friendAhead',
-  'friendLevelUp',
-  'friendHurt',
-  'friendFaints',
-  'friendSold',
-  'friendJumped',
-  'roll',
-  'shopTierUpgraded',
-  'gainsMana',
-  'emptyFrontSpace',
+  'turn',
 ] as const;

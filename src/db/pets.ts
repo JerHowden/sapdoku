@@ -52,7 +52,7 @@ export const PETS_LIST: Pet[] = [
     tier: 1,
     attack: 2,
     health: 3,
-    abilityTrigger: 'Level Up',
+    abilityTrigger: 'Level-Up',
     tags: ['Level-Up'],
   },
   {
@@ -1978,7 +1978,7 @@ export const PETS_LIST: Pet[] = [
     tier: 3,
     attack: 2,
     health: 3,
-    abilityTrigger: 'Level Up',
+    abilityTrigger: 'Level-Up',
     tags: ['Level-Up', 'Gold'],
   },
   {

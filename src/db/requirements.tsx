@@ -1,17 +1,5 @@
 'use client';
 
-import {
-  ArrowRightFromLine,
-  ArrowRightToLine,
-  ArrowUp,
-  DiamondPlus,
-  Redo,
-  RefreshCw,
-  Skull,
-  Sword,
-  Swords,
-  X,
-} from 'lucide-react';
 import { getImageProps } from 'next/image';
 import { IMAGE_SRCS } from './imageSrc';
 import { Requirement, RequirementGenericKey, RequirementSpecificKey } from './types';
@@ -239,215 +227,268 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
   //
   // --- TRIGGER ---
   //
-  noAbility: {
-    logic: (pet) => pet.abilityTrigger === '',
-    display: <X className="w-6 md:w-12 h-auto" />,
-    label: 'No Ability Trigger',
-  },
-  buy: {
-    logic: (pet) => pet.abilityTrigger === 'Buy',
+  summon: {
+    logic: (pet) =>
+      pet.tags.includes('Summon') ||
+      pet.abilityTrigger === 'Friend Summoned' ||
+      pet.abilityTrigger === 'Summoned' ||
+      pet.abilityTrigger === 'Bee Summoned',
     display: (
       <RequirementImage
-        src={IMAGE_SRCS.gold}
-        alt="Buy"
+        src={IMAGE_SRCS.honey}
+        alt="Summon"
         baseSize={32}
       />
     ),
-    label: 'Buy',
-  },
-  sell: {
-    logic: (pet) => ['Sell', 'Hurt & Sell', 'Faint & Sell'].includes(pet.abilityTrigger),
-    display: (
-      <RequirementImage
-        src={IMAGE_SRCS.gold}
-        alt="Sell"
-        baseSize={32}
-      />
-    ),
-    label: 'Sell',
+    label: 'Summon',
   },
   hurt: {
-    logic: (pet) => ['Hurt', 'Hurt & Sell'].includes(pet.abilityTrigger),
-    display: <Sword className="w-6 md:w-12 h-auto" />,
-    label: 'Hurt',
-  },
-  faint: {
-    logic: (pet) => ['Faint', 'Faint & Sell'].includes(pet.abilityTrigger),
-    display: <Skull className="w-6 md:w-12 h-auto" />,
-    label: 'Faint',
-  },
-  levelUp: {
-    logic: (pet) => pet.abilityTrigger === 'Level Up',
+    logic: (pet) =>
+      pet.tags.includes('Hurt') ||
+      pet.abilityTrigger === 'Hurt' ||
+      pet.abilityTrigger === 'Hurt & Sell' ||
+      pet.abilityTrigger === 'Friend Ahead Hurt' ||
+      pet.abilityTrigger === 'Friend Hurt' ||
+      pet.abilityTrigger === 'Four Friends Hurt' ||
+      pet.abilityTrigger === 'Anyone Hurt',
     display: (
       <RequirementImage
-        src={IMAGE_SRCS.experience}
-        alt="Friend Level-Up"
+        src={IMAGE_SRCS.garlic}
+        alt="Hurt"
+        baseSize={32}
+      />
+    ),
+    label: 'Hurt',
+  },
+  food: {
+    logic: (pet) =>
+      pet.tags.includes('Food') ||
+      pet.abilityTrigger === 'Eats Food' ||
+      pet.abilityTrigger === 'Eats Two Food' ||
+      pet.abilityTrigger === 'Eats Three Food' ||
+      pet.abilityTrigger === 'Eats Apple' ||
+      pet.abilityTrigger === 'Food Bought' ||
+      pet.abilityTrigger === 'Friendly Eats Food' ||
+      pet.abilityTrigger === 'Friendly Ate Food' ||
+      pet.abilityTrigger === 'Friend Ate Corncob',
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.apple}
+        alt="Food"
+        baseSize={32}
+      />
+    ),
+    label: 'Food',
+  },
+  guard: {
+    logic: (pet) =>
+      pet.tags.includes('Guard') ||
+      pet.abilityTrigger === 'Friend Ahead Attacks' ||
+      pet.abilityTrigger === 'Friend Ahead Hurt' ||
+      pet.abilityTrigger === 'Friend Ahead Faints' ||
+      pet.abilityTrigger === 'Friend Jumped' ||
+      pet.abilityTrigger === 'Empty Front Space',
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.fairyDust}
+        alt="Guard"
+        baseSize={32}
+      />
+    ),
+    label: 'Guard',
+  },
+  perks: {
+    logic: (pet) =>
+      pet.tags.includes('Perks') ||
+      pet.abilityTrigger === 'Gain Perk' ||
+      pet.abilityTrigger === 'Gain Perk or Ailment' ||
+      pet.abilityTrigger === 'Friend Lost Perk' ||
+      pet.abilityTrigger === 'Friendly Gained Perk',
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.melon}
+        alt="Perks"
+        baseSize={32}
+      />
+    ),
+    label: 'Perks',
+  },
+  ailment: {
+    logic: (pet) =>
+      pet.tags.includes('Ailment') ||
+      pet.abilityTrigger === 'Gain Perk or Ailment' ||
+      pet.abilityTrigger === 'Friendly Gained Ailment' ||
+      pet.abilityTrigger === 'Friend Gained Ailment' ||
+      pet.abilityTrigger === 'Enemy Gained Ailment',
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.weak}
+        alt="Ailment"
+        baseSize={32}
+      />
+    ),
+    label: 'Ailment',
+  },
+  cycle: {
+    logic: (pet) =>
+      pet.tags.includes('Cycle') ||
+      pet.abilityTrigger === 'Buy' ||
+      pet.abilityTrigger === 'Buy & Sell' ||
+      pet.abilityTrigger === 'Sell' ||
+      pet.abilityTrigger === 'Hurt & Sell' ||
+      pet.abilityTrigger === 'Faint & Sell' ||
+      pet.abilityTrigger === 'Roll & Sell' ||
+      pet.abilityTrigger === 'Sell Friend',
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.lovePotion}
+        alt="Cycle"
+        baseSize={32}
+      />
+    ),
+    label: 'Cycle',
+  },
+  levelUp: {
+    logic: (pet) =>
+      pet.tags.includes('Level-Up') ||
+      pet.abilityTrigger === 'Level-Up' ||
+      pet.abilityTrigger === 'Friendly Level-Up' ||
+      pet.abilityTrigger === 'Friend Level-Up',
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.chocolate}
+        alt="Level Up"
         baseSize={32}
       />
     ),
     label: 'Level Up',
   },
-  friendSummoned: {
-    logic: (pet) => pet.abilityTrigger === 'Friend Summoned',
-    display: <DiamondPlus className="w-6 md:w-12 h-auto" />,
-    label: 'Friend Summoned',
-  },
-  summoned: {
-    logic: (pet) => pet.abilityTrigger === 'Summoned',
-    display: <DiamondPlus className="w-6 md:w-12 h-auto" />,
-    label: 'Summoned',
-  },
-  startOfBattle: {
-    logic: (pet) => pet.abilityTrigger === 'Start of Battle',
-    display: <Swords className="w-6 md:w-12 h-auto" />,
-    label: 'Start of Battle',
-  },
-  startOfTurn: {
-    logic: (pet) => pet.abilityTrigger === 'Start of Turn',
-    display: <ArrowRightFromLine className="w-6 md:w-12 h-auto" />,
-    label: 'Start of Turn',
-  },
-  endTurn: {
-    logic: (pet) => pet.abilityTrigger === 'End Turn',
-    display: <ArrowRightToLine className="w-6 md:w-12 h-auto" />,
-    label: 'End Turn',
-  },
-  knockOut: {
-    logic: (pet) => pet.abilityTrigger === 'Knock Out',
-    display: <Sword className="w-6 md:w-12 h-auto -scale-x-100" />,
-    label: 'Knock Out',
-  },
-  beforeAttack: {
-    logic: (pet) => pet.abilityTrigger === 'Before Attack',
-    display: <Sword className="w-6 md:w-12 h-auto -scale-x-100" />,
-    label: 'Before Attack',
-  },
-  afterAttack: {
-    logic: (pet) => pet.abilityTrigger === 'After Attack',
-    display: <Sword className="w-6 md:w-12 h-auto -scale-x-100" />,
-    label: 'After Attack',
-  },
-  eatsFood: {
-    logic: (pet) => pet.abilityTrigger === 'Eats Food',
-    display: (
-      <RequirementImage
-        src={IMAGE_SRCS.apple}
-        alt="Eats Food"
-        baseSize={32}
-      />
-    ),
-    label: 'Eats Food',
-  },
-  friendlyEatsFood: {
-    logic: (pet) => pet.abilityTrigger === 'Friendly Eats Food',
-    display: (
-      <RequirementImage
-        src={IMAGE_SRCS.apple}
-        alt="Friendly Eats Food"
-        baseSize={32}
-      />
-    ),
-    label: 'Friendly Eats Food',
-  },
-  friendlyGained: {
+  goldAndRoll: {
     logic: (pet) =>
-      ['Friendly Gained Perk', 'Friendly Gained Ailment'].includes(pet.abilityTrigger),
-    display: (
-      <RequirementImage
-        src={IMAGE_SRCS.melon}
-        alt="Friendly Gained Perk or Ailment"
-        title="Friendly Gained Perk or Ailment"
-        baseSize={32}
-      />
-    ),
-    label: 'Friendly Gained ...',
-  },
-  friendlyAttacked: {
-    logic: (pet) => pet.abilityTrigger === 'Friendly Attacked',
-    display: <Sword className="w-6 md:w-12 h-auto -scale-x-100" />,
-    label: 'Friendly Attacked',
-  },
-  friendlyLevelUp: {
-    logic: (pet) => pet.abilityTrigger === 'Friendly Level-Up',
-    display: (
-      <RequirementImage
-        src={IMAGE_SRCS.experience}
-        alt="Friendly Level-Up"
-        baseSize={32}
-      />
-    ),
-    label: 'Friendly Level-Up',
-  },
-  friendAhead: {
-    logic: (pet) =>
-      ['Friend Ahead Attacks', 'Friend Ahead Hurt', 'Friend Ahead Faints'].includes(
-        pet.abilityTrigger
-      ),
-    display: <Redo className="w-6 md:w-12 h-auto" />,
-    label: 'Friend Ahead ...',
-  },
-  friendLevelUp: {
-    logic: (pet) => pet.abilityTrigger === 'Friend Level-Up',
-    display: (
-      <RequirementImage
-        src={IMAGE_SRCS.experience}
-        alt="Friend Level-Up"
-        baseSize={32}
-      />
-    ),
-    label: 'Friend Level-Up',
-  },
-  friendHurt: {
-    logic: (pet) => pet.abilityTrigger === 'Friend Hurt',
-    display: <Sword className="w-6 md:w-12 h-auto" />,
-    label: 'Friend Hurt',
-  },
-  friendFaints: {
-    logic: (pet) => pet.abilityTrigger === 'Friend Faints',
-    display: <Skull className="w-6 md:w-12 h-auto" />,
-    label: 'Friend Faints',
-  },
-  friendSold: {
-    logic: (pet) => pet.abilityTrigger === 'Friend Sold',
+      pet.tags.includes('Gold') ||
+      pet.tags.includes('Rolling') ||
+      pet.abilityTrigger === 'Food Bought' ||
+      pet.abilityTrigger === 'Spend 7 Gold' ||
+      pet.abilityTrigger === 'Roll' ||
+      pet.abilityTrigger === 'Roll 4 Times' ||
+      pet.abilityTrigger === 'Roll & Sell',
     display: (
       <RequirementImage
         src={IMAGE_SRCS.gold}
-        alt="Friend Sold"
+        alt="Gold & Roll"
         baseSize={32}
       />
     ),
-    label: 'Friend Sold',
+    label: 'Gold & Roll',
   },
-  friendJumped: {
-    logic: (pet) => pet.abilityTrigger === 'Friend Jumped',
-    display: <Redo className="w-6 md:w-12 h-auto" />,
-    label: 'Friend Jumped',
+  toys: {
+    logic: (pet) => pet.tags.includes('Toys') || pet.abilityTrigger === 'Friendly Toy Broke',
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.tennisBall}
+        alt="Toys"
+        baseSize={32}
+      />
+    ),
+    label: 'Toys',
   },
-  roll: {
-    logic: (pet) => ['Roll', 'Roll 4 Times'].includes(pet.abilityTrigger),
-    display: <RefreshCw className="w-6 md:w-12 h-auto" />,
-    label: 'Roll',
+  strawberry: {
+    logic: (pet) =>
+      pet.tags.includes('Strawberry') || pet.abilityTrigger === 'Friendly Gained Strawberry',
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.strawberry}
+        alt="Strawberry"
+        baseSize={32}
+      />
+    ),
+    label: 'Strawberry',
   },
-  shopTierUpgraded: {
-    logic: (pet) => pet.abilityTrigger === 'Shop Tier Upgraded',
-    display: <ArrowUp className="w-6 md:w-12 h-auto" />,
-    label: 'Shop Tier Upgraded',
+  trumpets: {
+    logic: (pet) => pet.tags.includes('Trumpets'),
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.trumpet}
+        alt="Trumpets"
+        baseSize={32}
+      />
+    ),
+    label: 'Trumpets',
   },
-  gainsMana: {
-    logic: (pet) => pet.abilityTrigger === 'Gains Mana',
+  mana: {
+    logic: (pet) => pet.tags.includes('Mana') || pet.abilityTrigger === 'Gains Mana',
     display: (
       <RequirementImage
         src={IMAGE_SRCS.mana}
-        alt="Gains Mana"
+        alt="Mana"
         baseSize={32}
       />
     ),
-    label: 'Gains Mana',
+    label: 'Mana',
   },
-  emptyFrontSpace: {
-    logic: (pet) => pet.abilityTrigger === 'Empty Front Space',
-    display: <Redo className="w-6 md:w-12 h-auto" />,
-    label: 'Empty Front Space',
+  faint: {
+    logic: (pet) =>
+      pet.tags.includes('Faint') ||
+      pet.abilityTrigger === 'Faint' ||
+      pet.abilityTrigger === 'Faint & Sell',
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.pill}
+        alt="Faint"
+        baseSize={32}
+      />
+    ),
+    label: 'Faint',
+  },
+  buffs: {
+    logic: (pet) => pet.tags.includes('Buffs'),
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.carrot}
+        alt="Buffs"
+        baseSize={32}
+      />
+    ),
+    label: 'Buffs',
+  },
+  disruption: {
+    logic: (pet) =>
+      pet.tags.includes('Disruption') ||
+      pet.abilityTrigger === 'Enemy Summoned or Pushed' ||
+      pet.abilityTrigger === 'Enemy Hurt or Pushed',
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.tomato}
+        alt="Disruption"
+        baseSize={32}
+      />
+    ),
+    label: 'Disruption',
+  },
+  startOfBattle: {
+    logic: (pet) => pet.abilityTrigger === 'Start of Battle',
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.pancakes}
+        alt="Start of Battle"
+        baseSize={32}
+      />
+    ),
+    label: 'Start of Battle',
+  },
+  turn: {
+    logic: (pet) =>
+      pet.abilityTrigger === 'Start of Turn' ||
+      pet.abilityTrigger === 'End Turn' ||
+      pet.abilityTrigger === 'Shop Tier Upgraded',
+    display: (
+      <RequirementImage
+        src={IMAGE_SRCS.can}
+        alt="Turn"
+        baseSize={32}
+      />
+    ),
+    label: 'Turn',
   },
 } as const;
 

@@ -22,11 +22,26 @@ export const IMAGE_SRCS = {
   trophy: 'https://superautopets.wiki.gg/images/c/cb/TrophyHat.png',
   gold: 'https://superautopets.wiki.gg/images/1/10/Gold.png',
   mana: 'https://superautopets.wiki.gg/images/8/80/Mana_Potion.png',
+  trumpet: 'https://superautopets.wiki.gg/images/6/62/Trumpet.png',
   damage: 'https://superautopets.wiki.gg/images/4/42/Damage_Icon.png',
   // Food, Perks, and Ailments
+  honey: 'https://superautopets.wiki.gg/images/c/c6/Honey.png',
+  garlic: 'https://superautopets.wiki.gg/images/c/cc/Garlic.png',
   apple: 'https://superautopets.wiki.gg/images/7/7d/Apple.png',
+  fairyDust: 'https://superautopets.wiki.gg/images/f/fc/Fairy_Dust.png',
   melon: 'https://superautopets.wiki.gg/images/1/19/Melon.png',
   weak: 'https://superautopets.wiki.gg/images/e/e9/Weak.png',
+  lovePotion: 'https://superautopets.wiki.gg/images/3/3b/Love_Potion.png',
+  chocolate: 'https://superautopets.wiki.gg/images/d/df/Chocolate.png',
+  grapes: 'https://superautopets.wiki.gg/images/3/39/Grapes.png',
+  strawberry: 'https://superautopets.wiki.gg/images/6/6d/Strawberry.png',
+  pill: 'https://superautopets.wiki.gg/images/2/2b/Sleeping_Pill.png',
+  carrot: 'https://superautopets.wiki.gg/images/c/c3/Carrot.png',
+  tomato: 'https://superautopets.wiki.gg/images/9/9d/Tomato.png',
+  pancakes: 'https://superautopets.wiki.gg/images/6/6b/Pancakes.png',
+  can: 'https://superautopets.wiki.gg/images/c/c3/Canned_Food.png',
+  // Toys
+  tennisBall: 'https://superautopets.wiki.gg/images/2/23/Tennis_Ball.png',
 } as const;
 
 export const IMAGE_SRCS_TIER_MAP = {

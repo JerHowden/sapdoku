@@ -136,7 +136,7 @@ export function PetsTable() {
                   ? 'No Ability'
                   : abilityFilter}
               </MenubarTrigger>
-              <MenubarContent>
+              <MenubarContent className="max-h-[50vh] overflow-auto">
                 <MenubarItem onClick={() => setAbilityFilter(undefined)}>All</MenubarItem>
                 <Separator className="my-1.5 mx-2 w-auto" />
                 {ABILITY_TRIGGERS_LIST.filter((ability) => ability !== '').map((ability) => (
