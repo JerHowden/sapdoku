@@ -113,6 +113,28 @@ export const REQUIREMENT_SPECIFIC_KEYS = [
   'statsEven',
 ] as const;
 
+/*
+  --- UPDATED REQS ---
+  Buy: -- 20
+    - AT: Buy
+    - AT: Buy & Sell
+  Sell: -- 30
+    - AT: Sell
+    - AT: Buy & Sell
+    - AT: Hurt & Sell
+    - AT: Faint & Sell
+    - AT: Roll & Sell
+    - AT: Sell Friend
+  Hurt: --
+    - AT: Hurt
+    - AT: Hurt & Sell
+    - AT: Friend Ahead Hurt
+    - AT: Friend Hurt
+    - AT: Four Friends Hurt
+    - AT: Anyone Hurt
+    - Tag: Hurt
+*/
+
 export const REQUIREMENT_GENERIC_KEYS = [
   'turtlePack',
   'puppyPack',
