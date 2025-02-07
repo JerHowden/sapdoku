@@ -30,7 +30,7 @@ export function PetCard({ pet }: PetCardProps) {
               className="[grid-area:1/1]"
             />
             <div className="[grid-area:1/1] flex justify-center">
-              <p className="w-auto font-extrabold text-2xl -mt-1 -mr-1 text-white [-webkit-text-stroke:1px_black]">
+              <p className="w-auto font-extrabold text-2xl -mr-1 font-lapsus leading-none text-white [-webkit-text-stroke:1px_black]">
                 {pet.attack}
               </p>
             </div>
@@ -44,7 +44,7 @@ export function PetCard({ pet }: PetCardProps) {
               className="[grid-area:1/1]"
             />
             <div className="[grid-area:1/1] flex justify-center">
-              <p className="w-auto font-extrabold text-2xl -mt-1 text-white [-webkit-text-stroke:1px_black]">
+              <p className="w-auto font-extrabold text-2xl font-lapsus leading-none text-white [-webkit-text-stroke:1px_black]">
                 {pet.health}
               </p>
             </div>
@@ -82,7 +82,9 @@ export function PetCard({ pet }: PetCardProps) {
           />
         </div>
         <Separator />
-        <p className="text-sm">{pet.abilityTrigger}</p>
+        <p className={`text-sm ${pet.abilityTrigger ? '' : 'italic'}`}>
+          {pet.abilityTrigger || 'No Trigger'}
+        </p>
         {pet.tags.length ? <Separator /> : null}
         <div className="flex flex-row items-center flex-wrap gap-1">
           {pet.tags.map((tag) => (

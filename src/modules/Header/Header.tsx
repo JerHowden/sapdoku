@@ -30,7 +30,7 @@ export function Header() {
               height={30.5}
               alt=""
             />
-            <h1 className="scroll-m-20 text-[16px] font-extrabold lg:text-[32px] leading-none font-lapsus">
+            <h1 className="scroll-m-20 text-[16px] md:text-[24px] font-extrabold lg:text-[32px] leading-none font-lapsus">
               Sapdoku
             </h1>
           </Link>
@@ -39,13 +39,13 @@ export function Header() {
           {pathname === '' || pathname === '/' ? <ChangeDate /> : null}
           {pathname !== '/pets' ? (
             <Button
-              variant="outline"
+              variant="ghost"
               type="button"
               onClick={() => router.push('/pets')}
               size="textToIcon"
               title="See all the SAP Pets"
             >
-              <Fish />
+              <Fish className="inline md:hidden" />
               <span className="hidden md:inline">Pets</span>
             </Button>
           ) : null}

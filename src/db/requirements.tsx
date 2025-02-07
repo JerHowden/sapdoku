@@ -128,7 +128,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
         baseSize={32}
       />
     ),
-    label: 'Health > Attack',
+    label: 'More Health',
   },
   statsAttack: {
     logic: (pet) => pet.attack > pet.health,
@@ -139,7 +139,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
         baseSize={32}
       />
     ),
-    label: 'Attack > Health',
+    label: 'More Attack',
   },
   statsEven: {
     logic: (pet) => pet.health === pet.attack,
@@ -150,7 +150,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
         baseSize={32}
       />
     ),
-    label: 'Health = Attack',
+    label: 'Even Stats',
   },
 } as const;
 

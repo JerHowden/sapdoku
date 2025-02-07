@@ -60,7 +60,7 @@ export default function RootLayout({
             </div>
             <footer className="mx-auto flex max-w-7xl items-center justify-center p-6 lg:px-8">
               <p className="text-muted text-sm text-center">
-                {`Not Affiliated with the official Super Auto Pets game or the wonderful people at Team Wood Games <3`}
+                {`Not affiliated with the official Super Auto Pets game or Team Wood Games.`}
               </p>
             </footer>
           </Providers>

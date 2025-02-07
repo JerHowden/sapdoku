@@ -23,7 +23,7 @@ export function ComboTable() {
               className="whitespace-nowrap"
             >
               <div className="max-w-8">{specReq.display}</div>
-              {specReq.label.replace('Attack', '').replace('Health', '')}
+              {specReq.label}
             </TableHead>
           ))}
         </TableRow>

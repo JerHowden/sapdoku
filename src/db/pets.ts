@@ -4522,20 +4522,6 @@ export const PETS_LIST: Pet[] = [
   },
 ] as const;
 
-/*
-{
-  name: '',
-  imageSrc: '',
-  pack: [],
-  tier: 6,
-  attack: 0,
-  health: 0,
-  abilityTrigger: '',
-  tags: []
-},
-
-*/
-
 type PetsName = (typeof PETS_LIST)[number]['name'];
 type PetsMapType = Record<PetsName, Pet>;
 

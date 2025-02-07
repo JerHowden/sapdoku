@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Sapdoku | Combos',
-  description: 'A list and table of sapdoku requirement combos.',
+  title: 'Sapdoku | Data',
+  description: 'Sapdoku data.',
 };
 
-export default function CombosLayout({
+export default function DataLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

@@ -6,7 +6,7 @@ import { Coffee } from 'lucide-react';
 export function Donation() {
   return (
     <Button
-      variant="outline"
+      variant="ghost"
       size="icon"
       type="button"
       onClick={() => window.open('https://buymeacoffee.com/jeremiahhowden', '_blank')}

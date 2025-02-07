@@ -42,6 +42,13 @@ export const IMAGE_SRCS = {
   can: 'https://superautopets.wiki.gg/images/c/c3/Canned_Food.png',
   // Toys
   tennisBall: 'https://superautopets.wiki.gg/images/2/23/Tennis_Ball.png',
+  // Reactions
+  fishPog: 'https://superautopets.wiki.gg/images/e/e8/FishPog.png',
+  monkeyThumbsUp: 'https://superautopets.wiki.gg/images/4/4e/MonkeyThumbsUp.png',
+  blowfishBible: 'https://superautopets.wiki.gg/images/9/9b/BlowfishBible.png',
+  // Ribbons
+  ribbon: 'https://superautopets.wiki.gg/images/8/8c/Ribbon.png',
+  hardRibbon: 'https://superautopets.wiki.gg/images/2/27/Hard_Ribbon.png',
 } as const;
 
 export const IMAGE_SRCS_TIER_MAP = {
