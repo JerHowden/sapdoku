@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Lapsus';
+  src: local('Lapsus'), url(../assets/fonts/LapsusPro-Bold.otf) format('opentype');
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

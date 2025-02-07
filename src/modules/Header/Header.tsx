@@ -22,7 +22,7 @@ export function Header() {
         <div className="flex">
           <Link
             href="/"
-            className="-m-1.5 p-1.5 flex gap-2"
+            className="-m-1.5 p-1.5 flex gap-2 items-center"
           >
             <Image
               src="https://superautopets.wiki.gg/images/f/fa/Sloth.png"
@@ -30,7 +30,7 @@ export function Header() {
               height={30.5}
               alt=""
             />
-            <h1 className="scroll-m-20 text-xl font-extrabold tracking-tight lg:text-2xl">
+            <h1 className="scroll-m-20 text-[16px] font-extrabold lg:text-[32px] leading-none font-lapsus">
               Sapdoku
             </h1>
           </Link>
