@@ -1,10 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
-import { COMBO_MAP, Pet, PETS_LIST, Requirement, Run } from '@/db';
+import { Pet, PETS_LIST, Requirement, Run } from '@/db';
 import Image from 'next/image';
 import { useContext, useMemo } from 'react';
 import { GuessingDialogContent } from './GuessingDialogContent';
-import { DEFAULT_RUN, isoDateKey, useLocalStorage, useReqsMap } from '@/lib';
+import { DEFAULT_RUN, isoDateKey, useComboSeed, useLocalStorage, useReqsMap } from '@/lib';
 import { SapdokuContext } from '@/app/providers';
 
 type Box = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
@@ -18,7 +18,8 @@ type GuessingButtonProps = {
 export function GuessingButton({ box, reqs, makeGuess }: GuessingButtonProps) {
   const { date } = useContext(SapdokuContext);
   const [run] = useLocalStorage<Run>(isoDateKey(date), DEFAULT_RUN);
-  const reqsMap = useReqsMap(COMBO_MAP[isoDateKey(date)]);
+  const combo = useComboSeed(isoDateKey(date));
+  const reqsMap = useReqsMap(combo);
 
   const guess = useMemo(() => run.guesses[box], [run, box]);
 

@@ -1,8 +1,8 @@
-import { Combo, REQUIREMENT_LIST_GENERIC, REQUIREMENT_LIST_SPECIFIC } from '@/db';
+import { Combo, DEFAULT_COMBO, REQUIREMENT_LIST_GENERIC, REQUIREMENT_LIST_SPECIFIC } from '@/db';
 import { useState, useEffect } from 'react';
 
 export const useComboSeed = (seed: number) => {
-  const [combo, setCombo] = useState<Combo | null>(null);
+  const [combo, setCombo] = useState<Combo>(DEFAULT_COMBO);
   const ROW_NUM = REQUIREMENT_LIST_SPECIFIC.length;
   const COL_NUM = REQUIREMENT_LIST_GENERIC.length;
 
@@ -11,24 +11,29 @@ export const useComboSeed = (seed: number) => {
       let currentSeed = seed;
 
       const random = () => {
-        const x = Math.sin((currentSeed += 0.1)) * 10000;
+        const x = Math.sin((currentSeed += 100000)) * 10000;
+        // console.log(x - Math.floor(x));
         return x - Math.floor(x);
       };
 
-      const randomInt = (min: number, max: number) => {
-        return Math.floor(random() * (max - min + 1)) + min;
-      };
+      function generateUniqueNumbers(min: number, max: number) {
+        const numbers = new Set<number>();
+        while (numbers.size < 3) {
+          const rand = Math.floor(random() * (max - min)) + min;
+          numbers.add(rand);
+          seed++;
+        }
+        return Array.from(numbers);
+      }
 
       const generateCombo = (): Combo => {
-        const rows = [randomInt(0, ROW_NUM), randomInt(0, ROW_NUM), randomInt(0, ROW_NUM)].sort(
-          (a, b) => a - b
-        );
-        const cols = [randomInt(0, COL_NUM), randomInt(0, COL_NUM), randomInt(0, COL_NUM)].sort(
-          (a, b) => a - b
-        );
+        const rows = generateUniqueNumbers(0, ROW_NUM).sort((a, b) => a - b);
+        const cols = generateUniqueNumbers(0, COL_NUM).sort((a, b) => a - b);
+        console.log(rows, REQUIREMENT_LIST_SPECIFIC.length);
+        console.log(cols, REQUIREMENT_LIST_GENERIC.length);
         return {
           rows: rows.map((reqIndex) => REQUIREMENT_LIST_SPECIFIC[reqIndex]),
-          columns: cols.map((reqIndex) => REQUIREMENT_LIST_SPECIFIC[reqIndex]),
+          columns: cols.map((reqIndex) => REQUIREMENT_LIST_GENERIC[reqIndex]),
         } as Combo;
       };
 

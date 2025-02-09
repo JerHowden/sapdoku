@@ -1,8 +1,8 @@
 'use client';
 
 import { SapdokuContext } from '@/app/providers';
-import { Box, COMBO_MAP, Pet, Run } from '@/db';
-import { isoDateKey, useReqsMap, useRun } from '@/lib';
+import { Box, Pet, Run } from '@/db';
+import { isoDateKey, useComboSeed, useReqsMap, useRun } from '@/lib';
 import { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { GuessingGrid } from '../GuessingGrid';
 import { GameTimer } from './GameTimer';
@@ -12,7 +12,10 @@ import { CompletionMessage } from './CompletionMessage';
 export function DailyGame() {
   const { date } = useContext(SapdokuContext);
   const { run, setRun, runStarted } = useRun();
-  const reqsMap = useReqsMap(COMBO_MAP[isoDateKey(date)]);
+  const combo = useComboSeed(isoDateKey(date));
+  const reqsMap = useReqsMap(combo);
+
+  console.log({ date: isoDateKey(date), combo });
 
   const [seconds, setSeconds] = useState(run.time);
 
@@ -76,7 +79,7 @@ export function DailyGame() {
         {gameTitle}
       </h1>
       <GuessingGrid
-        combo={COMBO_MAP[isoDateKey(date)]}
+        combo={combo}
         makeGuess={makeGuess}
       />
       <Hearts />

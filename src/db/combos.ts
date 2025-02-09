@@ -1,4 +1,4 @@
-import { Combo } from './types';
+import { Combo, Pet, Requirement } from './types';
 import { REQUIREMENT_MAP_GENERIC, REQUIREMENT_MAP_SPECIFIC } from './requirements';
 
 export const COMBO_MAP: Record<number, Combo> = {
@@ -39,3 +39,14 @@ export const COMBO_MAP: Record<number, Combo> = {
     ],
   },
 } as const;
+
+const REQUIREMENT_NULL: Requirement = {
+  logic: (pet: Pet) => !pet,
+  display: null,
+  label: '',
+};
+
+export const DEFAULT_COMBO: Combo = {
+  rows: [REQUIREMENT_NULL, REQUIREMENT_NULL, REQUIREMENT_NULL],
+  columns: [REQUIREMENT_NULL, REQUIREMENT_NULL, REQUIREMENT_NULL],
+};
