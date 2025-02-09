@@ -28,14 +28,14 @@ export function ChangeDate() {
     <Dialog>
       <DialogTrigger asChild>
         <Button
-          variant="outline"
+          variant="ghost"
           type="button"
-          size="textToIcon"
+          size="icon"
           title="Play a Game from another Day"
           disabled={runStarted && !run.complete}
         >
           <CalendarIcon />
-          <span className="hidden md:inline">Choose Date</span>
+          <span className="sr-only">Choose Date</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="flex flex-col gap-4 w-auto">

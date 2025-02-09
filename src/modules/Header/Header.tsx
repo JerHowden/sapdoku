@@ -1,18 +1,17 @@
-'use client';
-
-import { Button } from '@/components/ui/button';
-import { Fish } from 'lucide-react';
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import { ChangeDate } from './ChangeDate';
 import { Donation } from './Donation';
 import { ThemeToggle } from './ThemeToggle';
+import { Separator } from '@/components/ui/separator';
 
 export function Header() {
-  const router = useRouter();
-  const pathname = usePathname();
-
   return (
     <header className="sticky">
       <nav
@@ -35,23 +34,34 @@ export function Header() {
             </h1>
           </Link>
         </div>
-        <div className="flex gap-2 md:gap-4 justify-end items-center">
-          {pathname === '' || pathname === '/' ? <ChangeDate /> : null}
-          {pathname !== '/pets' ? (
-            <Button
-              variant="ghost"
-              type="button"
-              onClick={() => router.push('/pets')}
-              size="textToIcon"
-              title="See all the SAP Pets"
-            >
-              <Fish className="inline md:hidden" />
-              <span className="hidden md:inline">Pets</span>
-            </Button>
-          ) : null}
-          <ThemeToggle />
-          <Donation />
-        </div>
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <Link
+                href="/pets"
+                legacyBehavior
+                passHref
+              >
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Pets
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+          <Separator
+            orientation="vertical"
+            className="h-8 mx-2"
+          />
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <ThemeToggle />
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Donation />
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+        {/* <div className="flex gap-2 md:gap-4 justify-end items-center"></div> */}
       </nav>
     </header>
   );

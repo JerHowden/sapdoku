@@ -8,14 +8,13 @@ import { GuessingGrid } from '../GuessingGrid';
 import { GameTimer } from './GameTimer';
 import { Hearts } from './Hearts';
 import { CompletionMessage } from './CompletionMessage';
+import { ChangeDate } from './ChangeDate';
 
 export function DailyGame() {
   const { date } = useContext(SapdokuContext);
   const { run, setRun, runStarted } = useRun();
   const combo = useComboSeed(isoDateKey(date));
   const reqsMap = useReqsMap(combo);
-
-  console.log({ date: isoDateKey(date), combo });
 
   const [seconds, setSeconds] = useState(run.time);
 
@@ -75,9 +74,12 @@ export function DailyGame() {
 
   return (
     <div className="w-full flex flex-col gap-6 sm:gap-9 md:gap-12 items-center">
-      <h1 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-        {gameTitle}
-      </h1>
+      <div className="flex flex-row gap-4">
+        <h1 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+          {gameTitle}
+        </h1>
+        <ChangeDate />
+      </div>
       <GuessingGrid
         combo={combo}
         makeGuess={makeGuess}

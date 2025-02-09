@@ -29,8 +29,6 @@ export const useComboSeed = (seed: number) => {
       const generateCombo = (): Combo => {
         const rows = generateUniqueNumbers(0, ROW_NUM).sort((a, b) => a - b);
         const cols = generateUniqueNumbers(0, COL_NUM).sort((a, b) => a - b);
-        console.log(rows, REQUIREMENT_LIST_SPECIFIC.length);
-        console.log(cols, REQUIREMENT_LIST_GENERIC.length);
         return {
           rows: rows.map((reqIndex) => REQUIREMENT_LIST_SPECIFIC[reqIndex]),
           columns: cols.map((reqIndex) => REQUIREMENT_LIST_GENERIC[reqIndex]),
