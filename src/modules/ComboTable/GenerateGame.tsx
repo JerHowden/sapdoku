@@ -33,9 +33,9 @@ export function GenerateGame() {
   const [genericReqs, setGenericReqs] = useState<GeneratedReqList>([null, null, null]);
 
   const availablePets = (specReq: number, genReq: number) => {
-    if (specificReqs[genReq] === null || genericReqs[specReq] === null) return [];
+    if (specificReqs[specReq] === null || genericReqs[genReq] === null) return [];
     return PETS_LIST.filter(
-      (pet) => specificReqs[genReq]?.logic(pet) && genericReqs[specReq]?.logic(pet)
+      (pet) => specificReqs[specReq]?.logic(pet) && genericReqs[genReq]?.logic(pet)
     );
   };
   const handleSpecificReqChange = (index: number, req: Requirement | null) => {
@@ -71,11 +71,11 @@ export function GenerateGame() {
       if (colEntry) return colEntry[0];
       return '';
     });
-    const logCombo = {
-      rows: [rowKeys.map((rowKey) => `REQUIREMENT_MAP_SPECIFIC.${rowKey}`).join(', ')],
-      columns: [colKeys.map((colKey) => `REQUIREMENT_MAP_SPECIFIC.${colKey}`).join(', ')],
-    };
-    console.log(isoDateKey(new Date()), logCombo);
+    console.log(isoDateKey(new Date()));
+    console.log('rows:');
+    console.log(rowKeys.map((rowKey) => `REQUIREMENT_MAP_SPECIFIC.${rowKey}`).join(', '));
+    console.log(', columns:');
+    console.log(colKeys.map((colKey) => `REQUIREMENT_MAP_GENERIC.${colKey}`).join(', '));
   };
 
   return (
