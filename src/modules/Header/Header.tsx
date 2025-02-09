@@ -5,11 +5,12 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
+import { Separator } from '@/components/ui/separator';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Donation } from './Donation';
+import { IntroDialog } from './IntroDialog';
 import { ThemeToggle } from './ThemeToggle';
-import { Separator } from '@/components/ui/separator';
 
 export function Header() {
   return (
@@ -53,6 +54,9 @@ export function Header() {
             className="h-8 mx-2"
           />
           <NavigationMenuList>
+            <NavigationMenuItem>
+              <IntroDialog />
+            </NavigationMenuItem>
             <NavigationMenuItem>
               <ThemeToggle />
             </NavigationMenuItem>

@@ -49,6 +49,10 @@ export const IMAGE_SRCS = {
   // Ribbons
   ribbon: 'https://superautopets.wiki.gg/images/8/8c/Ribbon.png',
   hardRibbon: 'https://superautopets.wiki.gg/images/2/27/Hard_Ribbon.png',
+  // Mascots
+  mascotBee: 'https://superautopets.wiki.gg/images/4/4d/Bee_Mascot_Preview.png',
+  mascotPenguin: 'https://superautopets.wiki.gg/images/8/8a/Penguin_Mascot_Preview.png',
+  mascotShark: 'https://superautopets.wiki.gg/images/6/64/Shark_Mascot_Preview.png',
 } as const;
 
 export const IMAGE_SRCS_TIER_MAP = {
