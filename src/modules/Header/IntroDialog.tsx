@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -93,8 +94,14 @@ export function IntroDialog() {
                   Teamwood Games.
                 </li>
                 <li>
-                  The game is open source and you can find it on GitHub{' '}
-                  <a href="https://github.com/JerHowden/sapdoku">here</a>.
+                  Sapdoku is open source and you can find it on GitHub{' '}
+                  <a
+                    className="underline"
+                    href="https://github.com/JerHowden/sapdoku"
+                  >
+                    here
+                  </a>
+                  .
                 </li>
                 <li>
                   If you like the game, consider donating or send me a message at{' '}
@@ -118,7 +125,9 @@ export function IntroDialog() {
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit">Got it!</Button>
+          <DialogClose asChild>
+            <Button type="button">Got It!</Button>
+          </DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>
