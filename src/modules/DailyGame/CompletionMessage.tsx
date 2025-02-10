@@ -1,9 +1,9 @@
-import { IMAGE_SRCS } from '@/db';
+import { Completion, IMAGE_SRCS } from '@/db';
 import Image from 'next/image';
 import { useMemo } from 'react';
 
 type CompletionMessageProps = {
-  type?: 'win' | 'loss' | 'perfect' | 'under-minute-gang';
+  type?: Completion;
 };
 
 export function CompletionMessage({ type }: CompletionMessageProps) {
@@ -15,7 +15,7 @@ export function CompletionMessage({ type }: CompletionMessageProps) {
         return 'You Lost :(';
       case 'perfect':
         return 'Perfect!!';
-      case 'under-minute-gang':
+      case 'gridbomb':
         return (
           <div className="flex flex-row items-center gap-2">
             <Image
@@ -25,7 +25,7 @@ export function CompletionMessage({ type }: CompletionMessageProps) {
               alt=""
               className="rotate-180"
             />
-            <p className="text-xl sm:text-2xl md:text-3xl italic">SPEED PERFECT</p>
+            <p className="text-xl sm:text-2xl md:text-3xl italic">GRIDBOMB</p>
             <Image
               src={IMAGE_SRCS.trophy}
               width={48}
@@ -48,7 +48,7 @@ export function CompletionMessage({ type }: CompletionMessageProps) {
         return 'text-green-500 font-bold';
       case 'perfect':
         return 'text-blue-500 font-extrabold';
-      case 'under-minute-gang':
+      case 'gridbomb':
         return 'text-purple-500 font-black';
       default:
         return 'text-gray-500';

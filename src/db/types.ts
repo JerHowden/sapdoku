@@ -49,3 +49,5 @@ export type Run = {
   complete: boolean;
   hearts: number;
 };
+
+export type Completion = 'loss' | 'win' | 'perfect' | 'gridbomb';

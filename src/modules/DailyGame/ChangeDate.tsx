@@ -14,18 +14,25 @@ import {
 import { Separator } from '@/components/ui/separator';
 import { useRun } from '@/lib';
 import { Calendar as CalendarIcon } from 'lucide-react';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 export function ChangeDate() {
   const { date, setDate } = useContext(SapdokuContext);
   const { run, runStarted } = useRun();
+  const [open, setOpen] = useState(false);
 
   function onSelect(newDate?: Date) {
-    if (newDate) setDate(newDate);
+    if (newDate) {
+      setDate(newDate);
+      setOpen(false);
+    }
   }
 
   return (
-    <Dialog>
+    <Dialog
+      open={open}
+      onOpenChange={setOpen}
+    >
       <DialogTrigger asChild>
         <Button
           variant="ghost"

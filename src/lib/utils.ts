@@ -1,4 +1,4 @@
-import { Combo, Run } from '@/db';
+import { Combo, Completion, Run } from '@/db';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -45,3 +45,11 @@ export const useReqsMap = (combo: Combo) => ({
   8: [combo?.rows[2], combo?.columns[1]],
   9: [combo?.rows[2], combo?.columns[2]],
 });
+
+export function getCompletionType(run: Run, seconds: number): Completion | undefined {
+  if (!run.complete) return undefined;
+  if (!run.hearts) return 'loss';
+  if (run.hearts < 5) return 'win';
+  if (seconds >= 60) return 'perfect';
+  return 'gridbomb';
+}

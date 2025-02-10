@@ -2,7 +2,7 @@
 
 import { SapdokuContext } from '@/app/providers';
 import { Box, Pet, Run } from '@/db';
-import { isoDateKey, useComboSeed, useReqsMap, useRun } from '@/lib';
+import { getCompletionType, isoDateKey, useComboSeed, useReqsMap, useRun } from '@/lib';
 import { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { GuessingGrid } from '../GuessingGrid';
 import { GameTimer } from './GameTimer';
@@ -64,14 +64,6 @@ export function DailyGame() {
     [reqsMap, run, seconds, setRun]
   );
 
-  const completionType = useMemo(() => {
-    if (!run.complete) return undefined;
-    if (!run.hearts) return 'loss';
-    if (run.hearts < 5) return 'win';
-    if (seconds >= 60) return 'perfect';
-    return 'under-minute-gang';
-  }, [run.complete, run.hearts, seconds]);
-
   return (
     <div className="w-full flex flex-col gap-6 sm:gap-9 md:gap-12 items-center">
       <div className="flex flex-row gap-4">
@@ -85,7 +77,7 @@ export function DailyGame() {
         makeGuess={makeGuess}
       />
       <Hearts />
-      {run.complete ? <CompletionMessage type={completionType} /> : null}
+      {run.complete ? <CompletionMessage type={getCompletionType(run, seconds)} /> : null}
       <GameTimer
         seconds={seconds}
         setSeconds={setSeconds}
