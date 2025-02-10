@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -11,17 +13,24 @@ import {
 } from '@/components/ui/dialog';
 import { Separator } from '@/components/ui/separator';
 import { IMAGE_SRCS } from '@/db';
+import { useLocalStorage } from '@/lib';
 import { CircleHelp } from 'lucide-react';
 import Image from 'next/image';
 
 export function IntroDialog() {
+  const [closed, setClosed] = useLocalStorage('knows-how-to-play', false);
+
   return (
-    <Dialog>
+    <Dialog
+      open={!closed}
+      onOpenChange={(value) => setClosed(!value)}
+    >
       <DialogTrigger asChild>
         <Button
           variant="ghost"
           size="icon"
           title="Learn how to play Sapdoku!"
+          onClick={() => setClosed(false)}
         >
           <span className="sr-only">How to Play</span>
           <CircleHelp />
@@ -126,7 +135,12 @@ export function IntroDialog() {
         </div>
         <DialogFooter>
           <DialogClose asChild>
-            <Button type="button">Got It!</Button>
+            <Button
+              type="button"
+              onClick={() => setClosed(true)}
+            >
+              Got It!
+            </Button>
           </DialogClose>
         </DialogFooter>
       </DialogContent>

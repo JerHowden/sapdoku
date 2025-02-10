@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 
 // export const useLocalStorage = <T>(
@@ -36,7 +38,7 @@ import { useEffect, useState } from 'react';
 //   return [localStorageValue, setLocalStorageStateValue];
 // };
 
-export const useLocalStorage = <T extends object>(
+export const useLocalStorage = <T>(
   keyParam: string | number,
   defaultValue: T
 ): [T, (newValue: T) => void] => {

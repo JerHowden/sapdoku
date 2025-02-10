@@ -1,3 +1,5 @@
+'use client';
+
 import { Combo, DEFAULT_COMBO, REQUIREMENT_LIST_GENERIC, REQUIREMENT_LIST_SPECIFIC } from '@/db';
 import { useState, useEffect } from 'react';
 
