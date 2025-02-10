@@ -36,14 +36,22 @@ export function IntroDialog() {
           <CircleHelp />
         </Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="max-h-[75vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>How to Play Sapdoku</DialogTitle>
+          <DialogTitle className="font-lapsus">How to Play Sapdoku</DialogTitle>
           <DialogDescription></DialogDescription>
         </DialogHeader>
         <Separator />
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-row gap-4 items-center">
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col sm:flex-row-reverse gap-4 items-center">
+            <Image
+              src={IMAGE_SRCS.mascotShark}
+              width="256"
+              height="256"
+              quality={100}
+              className="w-[128px] h-[128px]"
+              alt=""
+            />
             <div className="flex-1">
               <h5 className="scroll-m-20 text-md font-semibold tracking-tight">The Game</h5>
               <ul className="list-disc px-4">
@@ -62,22 +70,14 @@ export function IntroDialog() {
                 </li>
               </ul>
             </div>
-            <Image
-              src={IMAGE_SRCS.mascotShark}
-              width="256"
-              height="256"
-              quality={100}
-              className="flex w-[128px] h-[128px]"
-              alt=""
-            />
           </div>
-          <div className="flex flex-row gap-4 items-center">
+          <div className="flex flex-col sm:flex-row gap-4 items-center">
             <Image
               src={IMAGE_SRCS.mascotBee}
               width="256"
               height="256"
               quality={100}
-              className="flex w-[128px] h-[128px] -scale-x-100"
+              className="w-[128px] h-[128px] -scale-x-100"
               alt=""
             />
             <div className="flex-1">
@@ -91,7 +91,15 @@ export function IntroDialog() {
               </ul>
             </div>
           </div>
-          <div className="flex flex-row gap-4 items-center">
+          <div className="flex flex-col sm:flex-row-reverse gap-4 items-center">
+            <Image
+              src={IMAGE_SRCS.mascotPenguin}
+              width="256"
+              height="256"
+              quality={100}
+              className="w-[128px] h-[128px]"
+              alt=""
+            />
             <div className="flex-1">
               <h5 className="scroll-m-20 text-md font-semibold tracking-tight">More Info</h5>
               <ul className="list-disc px-4">
@@ -123,14 +131,6 @@ export function IntroDialog() {
                 </li>
               </ul>
             </div>
-            <Image
-              src={IMAGE_SRCS.mascotPenguin}
-              width="256"
-              height="256"
-              quality={100}
-              className="flex w-[128px] h-[128px]"
-              alt=""
-            />
           </div>
         </div>
         <DialogFooter>
