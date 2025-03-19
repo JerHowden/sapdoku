@@ -1,7 +1,6 @@
 'use client';
 
 import { SapdokuContext } from '@/app/providers';
-import { IMAGE_SRCS } from '@/db';
 import { DEFAULT_RUN, isoDateKey, useLocalStorage } from '@/lib';
 import Image from 'next/image';
 import { useContext } from 'react';
@@ -11,11 +10,11 @@ export function Hearts() {
   const [run] = useLocalStorage(isoDateKey(date), DEFAULT_RUN);
   return (
     <div className="flex flex-row gap-4">
-      {[...Array(run.hearts)].map((_, index) => (
+      {[...Array(DEFAULT_RUN.hearts)].map((_, index) => (
         <Image
           key={index}
-          src={IMAGE_SRCS.health ?? ''}
-          alt="1 Life"
+          src={index < run.hearts ? '/images/heart.png' : '/images/heart-broken.png'}
+          alt={index < run.hearts ? 'Heart' : ''}
           width="48"
           height="48"
           className="w-6 sm:w-9 md:w-12 h-auto"

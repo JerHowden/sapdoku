@@ -29,6 +29,7 @@ export type RequirementSpecificKey = (typeof REQUIREMENT_SPECIFIC_KEYS)[number];
 export type RequirementKey = RequirementGenericKey | RequirementSpecificKey;
 
 export type Requirement = {
+  id: RequirementKey;
   logic: (pet: Pet) => boolean;
   display: ReactNode;
   label: string;

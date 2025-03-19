@@ -51,6 +51,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
   // --- TIERS ---
   //
   tier1: {
+    id: 'tier1',
     logic: (pet) => pet.tier === 1,
     display: (
       <RequirementImage
@@ -62,6 +63,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
     label: 'Tier 1',
   },
   tier2: {
+    id: 'tier2',
     logic: (pet) => pet.tier === 2,
     display: (
       <RequirementImage
@@ -73,6 +75,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
     label: 'Tier 2',
   },
   tier3: {
+    id: 'tier3',
     logic: (pet) => pet.tier === 3,
     display: (
       <RequirementImage
@@ -84,6 +87,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
     label: 'Tier 3',
   },
   tier4: {
+    id: 'tier4',
     logic: (pet) => pet.tier === 4,
     display: (
       <RequirementImage
@@ -95,6 +99,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
     label: 'Tier 4',
   },
   tier5: {
+    id: 'tier5',
     logic: (pet) => pet.tier === 5,
     display: (
       <RequirementImage
@@ -106,6 +111,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
     label: 'Tier 5',
   },
   tier6: {
+    id: 'tier6',
     logic: (pet) => pet.tier === 6,
     display: (
       <RequirementImage
@@ -120,34 +126,37 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
   // --- STATS ---
   //
   statsHealth: {
+    id: 'statsHealth',
     logic: (pet) => pet.health > pet.attack,
     display: (
       <RequirementImage
         src={IMAGE_SRCS.health}
         alt="Health Highest Stat"
-        baseSize={32}
+        baseSize={24}
       />
     ),
     label: 'More Health',
   },
   statsAttack: {
+    id: 'statsAttack',
     logic: (pet) => pet.attack > pet.health,
     display: (
       <RequirementImage
         src={IMAGE_SRCS.attack}
         alt="Attack Highest Stat"
-        baseSize={32}
+        baseSize={24}
       />
     ),
     label: 'More Attack',
   },
   statsEven: {
+    id: 'statsEven',
     logic: (pet) => pet.health === pet.attack,
     display: (
       <RequirementImage
         src={IMAGE_SRCS.health}
         alt="Stats Even"
-        baseSize={32}
+        baseSize={24}
       />
     ),
     label: 'Even Stats',
@@ -159,6 +168,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
   // --- PACKS ---
   //
   turtlePack: {
+    id: 'turtlePack',
     logic: (pet) => pet.pack.includes('Turtle Pack'),
     display: (
       <RequirementImage
@@ -170,6 +180,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Turtle Pack',
   },
   puppyPack: {
+    id: 'puppyPack',
     logic: (pet) => pet.pack.includes('Puppy Pack'),
     display: (
       <RequirementImage
@@ -181,6 +192,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Puppy Pack',
   },
   starPack: {
+    id: 'starPack',
     logic: (pet) => pet.pack.includes('Star Pack'),
     display: (
       <RequirementImage
@@ -192,6 +204,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Star Pack',
   },
   goldenPack: {
+    id: 'goldenPack',
     logic: (pet) => pet.pack.includes('Golden Pack'),
     display: (
       <RequirementImage
@@ -203,6 +216,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Golden Pack',
   },
   unicornPack: {
+    id: 'unicornPack',
     logic: (pet) => pet.pack.includes('Unicorn Pack'),
     display: (
       <RequirementImage
@@ -214,6 +228,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Unicorn Pack',
   },
   customPack: {
+    id: 'customPack',
     logic: (pet) => pet.pack.includes('Custom Pack'),
     display: (
       <RequirementImage
@@ -228,6 +243,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
   // --- TRIGGER ---
   //
   summon: {
+    id: 'summon',
     logic: (pet) =>
       pet.tags.includes('Summon') ||
       pet.abilityTrigger === 'Friend Summoned' ||
@@ -243,6 +259,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Summon',
   },
   hurt: {
+    id: 'hurt',
     logic: (pet) =>
       pet.tags.includes('Hurt') ||
       pet.abilityTrigger === 'Hurt' ||
@@ -261,6 +278,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Hurt',
   },
   food: {
+    id: 'food',
     logic: (pet) =>
       pet.tags.includes('Food') ||
       pet.abilityTrigger === 'Eats Food' ||
@@ -281,6 +299,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Food',
   },
   guard: {
+    id: 'guard',
     logic: (pet) =>
       pet.tags.includes('Guard') ||
       pet.abilityTrigger === 'Friend Ahead Attacks' ||
@@ -298,6 +317,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Guard',
   },
   perks: {
+    id: 'perks',
     logic: (pet) =>
       pet.tags.includes('Perks') ||
       pet.abilityTrigger === 'Gain Perk' ||
@@ -314,6 +334,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Perks',
   },
   ailment: {
+    id: 'ailment',
     logic: (pet) =>
       pet.tags.includes('Ailment') ||
       pet.abilityTrigger === 'Gain Perk or Ailment' ||
@@ -330,6 +351,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Ailment',
   },
   cycle: {
+    id: 'cycle',
     logic: (pet) =>
       pet.tags.includes('Cycle') ||
       pet.abilityTrigger === 'Buy' ||
@@ -349,6 +371,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Cycle',
   },
   levelUp: {
+    id: 'levelUp',
     logic: (pet) =>
       pet.tags.includes('Level-Up') ||
       pet.abilityTrigger === 'Level-Up' ||
@@ -364,6 +387,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Level Up',
   },
   goldAndRoll: {
+    id: 'goldAndRoll',
     logic: (pet) =>
       pet.tags.includes('Gold') ||
       pet.tags.includes('Rolling') ||
@@ -382,6 +406,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Gold & Roll',
   },
   toys: {
+    id: 'toys',
     logic: (pet) => pet.tags.includes('Toys') || pet.abilityTrigger === 'Friendly Toy Broke',
     display: (
       <RequirementImage
@@ -393,6 +418,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Toys',
   },
   strawberry: {
+    id: 'strawberry',
     logic: (pet) =>
       pet.tags.includes('Strawberry') || pet.abilityTrigger === 'Friendly Gained Strawberry',
     display: (
@@ -405,6 +431,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Strawberry',
   },
   trumpets: {
+    id: 'trumpets',
     logic: (pet) => pet.tags.includes('Trumpets'),
     display: (
       <RequirementImage
@@ -416,6 +443,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Trumpets',
   },
   mana: {
+    id: 'mana',
     logic: (pet) => pet.tags.includes('Mana') || pet.abilityTrigger === 'Gains Mana',
     display: (
       <RequirementImage
@@ -427,6 +455,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Mana',
   },
   faint: {
+    id: 'faint',
     logic: (pet) =>
       pet.tags.includes('Faint') ||
       pet.abilityTrigger === 'Faint' ||
@@ -441,6 +470,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Faint',
   },
   buffs: {
+    id: 'buffs',
     logic: (pet) => pet.tags.includes('Buffs'),
     display: (
       <RequirementImage
@@ -452,6 +482,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Buffs',
   },
   disruption: {
+    id: 'disruption',
     logic: (pet) =>
       pet.tags.includes('Disruption') ||
       pet.abilityTrigger === 'Enemy Summoned or Pushed' ||
@@ -466,6 +497,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Disruption',
   },
   startOfBattle: {
+    id: 'startOfBattle',
     logic: (pet) => pet.abilityTrigger === 'Start of Battle',
     display: (
       <RequirementImage
@@ -477,6 +509,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
     label: 'Start of Battle',
   },
   turn: {
+    id: 'turn',
     logic: (pet) =>
       pet.abilityTrigger === 'Start of Turn' ||
       pet.abilityTrigger === 'End Turn' ||
