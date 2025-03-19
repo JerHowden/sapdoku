@@ -1,9 +1,11 @@
 import { Card } from '@/components/ui/card';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Pet } from '@/db';
+import memoize from 'memoize-one';
 import Image from 'next/image';
 import { memo } from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { FixedSizeList as List, areEqual } from 'react-window';
 
 type PetsListProps = {
   pets: Pet[];
@@ -11,11 +13,18 @@ type PetsListProps = {
 };
 
 type PetSelectButtonProps = {
-  pet: Pet;
-  choosePet: (pet: Pet) => void;
+  data: PetsListProps;
+  index: number;
+  style: React.CSSProperties;
 };
 
-const PetSelectButton = memo(function PetSelectButton({ pet, choosePet }: PetSelectButtonProps) {
+const PetSelectButton = memo(function PetSelectButton({
+  data,
+  index,
+  style,
+}: PetSelectButtonProps) {
+  const { pets, choosePet } = data;
+  const pet = pets[index];
   return (
     <ToggleGroupItem
       key={pet.name}
@@ -23,38 +32,70 @@ const PetSelectButton = memo(function PetSelectButton({ pet, choosePet }: PetSel
       size="auto"
       onClick={() => choosePet(pet)}
       className="py-3 px-6 w-full justify-start data-[state=on]:text-primary"
+      style={style}
     >
-      <div className="flex flex-row items-center gap-6 text-sm sm:text-base md:text-lg">
-        <Image
-          src={pet.imageSrc || 'https://superautopets.wiki.gg/images/0/0b/Rock.png'}
-          alt={pet.name}
-          width={80}
-          height={80}
-          className="w-[32px] sm:w-[48px] md:w-[80px]"
-        />
-        {pet.name}
+      <div className="flex flex-row items-center gap-6">
+        <div
+          className={`
+            relative
+            h-[32px] 
+            sm:h-[48px] 
+            md:h-[80px]
+            w-[32px] 
+            sm:w-[48px] 
+            md:w-[80px]
+          `}
+        >
+          <Image
+            src={pet.imageSrc || 'https://superautopets.wiki.gg/images/0/0b/Rock.png'}
+            alt={pet.name}
+            fill
+            sizes="(max-width: 640px) 32px, (max-width: 768px) 48px, 80px"
+            className="object-contain"
+          />
+        </div>
+        <span className="text-sm sm:text-base md:text-lg">{pet.name}</span>
       </div>
     </ToggleGroupItem>
   );
-});
+},
+areEqual);
+
+const createPetData = memoize((pets, choosePet) => ({
+  pets,
+  choosePet,
+}));
 
 export function PetsList({ pets, choosePet }: PetsListProps) {
+  const petData = createPetData(pets, choosePet);
+
   return (
     <Card className="rounded-md">
-      <ScrollArea className="h-[250px] sm:h-[350px] md:h-[500px]">
-        <ToggleGroup
-          type="single"
-          className="flex-col gap-2 p-6"
-        >
-          {pets.map((pet) => (
-            <PetSelectButton
-              key={pet.name}
-              pet={pet}
-              choosePet={choosePet}
-            />
-          ))}
-        </ToggleGroup>
-      </ScrollArea>
+      {/* <ScrollArea className="h-[250px] sm:h-[350px] md:h-[500px]"> */}
+      <ToggleGroup
+        type="single"
+        className="h-[250px] sm:h-[350px] md:h-[500px] flex-col"
+      >
+        <AutoSizer>
+          {({ width, height }) => (
+            <List
+              height={height}
+              itemCount={pets.length}
+              itemData={petData}
+              itemSize={104}
+              width={width}
+              style={{
+                left: -width / 2,
+                top: -height / 2,
+                scrollbarColor: 'hsl(var(--border)) transparent',
+              }}
+            >
+              {PetSelectButton}
+            </List>
+          )}
+        </AutoSizer>
+      </ToggleGroup>
+      {/* </ScrollArea> */}
     </Card>
   );
 }

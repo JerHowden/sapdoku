@@ -43,13 +43,80 @@ export function GuessingDialogContent({ box, reqs, makeGuess }: GuessingModalPro
     [guessed]
   );
 
-  const searchedPets = useMemo(
-    () =>
-      sortedPets.filter((pet) =>
-        pet.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
-      ),
-    [sortedPets, searchText]
-  );
+  const searchedPets = useMemo(() => {
+    if (!searchText) return sortedPets;
+
+    const lowerSearchText = searchText.toLowerCase();
+
+    // Binary search for the first pet that starts with the search text
+    const findStartIndex = () => {
+      let low = 0;
+      let high = sortedPets.length - 1;
+
+      while (low <= high) {
+        const mid = Math.floor((low + high) / 2);
+        const midName = sortedPets[mid].name.toLowerCase();
+
+        if (midName.startsWith(lowerSearchText)) {
+          if (mid === 0 || !sortedPets[mid - 1].name.toLowerCase().startsWith(lowerSearchText)) {
+            return mid;
+          }
+          high = mid - 1;
+        } else if (midName < lowerSearchText) {
+          low = mid + 1;
+        } else {
+          high = mid - 1;
+        }
+      }
+
+      return -1;
+    };
+
+    // Binary search for the last pet that starts with the search text
+    const findEndIndex = (startIndex: number) => {
+      let low = startIndex;
+      let high = sortedPets.length - 1;
+
+      while (low <= high) {
+        const mid = Math.floor((low + high) / 2);
+        const midName = sortedPets[mid].name.toLowerCase();
+
+        if (midName.startsWith(lowerSearchText)) {
+          if (
+            mid === sortedPets.length - 1 ||
+            !sortedPets[mid + 1].name.toLowerCase().startsWith(lowerSearchText)
+          ) {
+            return mid;
+          }
+          low = mid + 1;
+        } else {
+          high = mid - 1;
+        }
+      }
+
+      return startIndex;
+    };
+
+    const startIndex = findStartIndex();
+    if (startIndex === -1) {
+      // No pets start with the search text, fall back to includes
+      return sortedPets.filter((pet) => pet.name.toLowerCase().includes(lowerSearchText));
+    }
+
+    const endIndex = findEndIndex(startIndex);
+
+    // Slice out the pets that start with the search text
+    const startsWithPets = sortedPets.slice(startIndex, endIndex + 1);
+
+    // Filter the remaining pets for those that include the search text
+    const includesPets = sortedPets.filter((pet, index) =>
+      index < startIndex || index > endIndex
+        ? pet.name.toLowerCase().includes(lowerSearchText)
+        : false
+    );
+
+    return [...startsWithPets, ...includesPets];
+  }, [sortedPets, searchText]);
 
   function choosePet(pet: Pet) {
     if (pet.name === chosenPet?.name) {
