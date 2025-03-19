@@ -1,4 +1,4 @@
-import { PetsTable } from '@/modules/PetsTable';
+import { PetsDisplay } from '@/modules/PetsDisplay';
 
 export default function Pets() {
   return (
@@ -6,7 +6,7 @@ export default function Pets() {
       <h1 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
         Pets
       </h1>
-      <PetsTable />
+      <PetsDisplay />
     </div>
   );
 }

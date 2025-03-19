@@ -9,14 +9,7 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from '@/components/ui/menubar';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
+import { Separator } from '@/components/ui/separator';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import {
   AbilityTrigger,
@@ -31,10 +24,10 @@ import { ABILITY_TRIGGERS_LIST, PACKS_LIST, TAGS_LIST, TIERS_LIST } from '@/db/c
 import { Columns3, RotateCcw, Table2 } from 'lucide-react';
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
-import { PetCard } from './PetCard';
-import { Separator } from '@/components/ui/separator';
+import { PetsCards } from './PetsCards';
+import { PetsTable } from './PetsTable';
 
-export function PetsTable() {
+export function PetsDisplay() {
   const [searchText, setSearchText] = useState('');
   const [tierFilter, setTierFilter] = useState<Tier | undefined>();
   const [packFilter, setPackFilter] = useState<Pack | undefined>();
@@ -207,53 +200,8 @@ export function PetsTable() {
           </ToggleGroup>
         </div>
       </div>
-      {mode === 'table' ? (
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Image</TableHead>
-              <TableHead>Name</TableHead>
-              <TableHead>Tier</TableHead>
-              <TableHead>Pack</TableHead>
-              <TableHead className="text-right">Attack</TableHead>
-              <TableHead className="text-right">Health</TableHead>
-              <TableHead>Ability Trigger</TableHead>
-              <TableHead>Tags</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {filteredPets.map((pet) => (
-              <TableRow key={pet.name}>
-                <TableCell>
-                  <Image
-                    src={pet.imageSrc || 'https://superautopets.wiki.gg/images/0/0b/Rock.png'}
-                    alt={pet.name}
-                    width={32}
-                    height={32}
-                  />
-                </TableCell>
-                <TableCell>{pet.name}</TableCell>
-                <TableCell>{pet.tier}</TableCell>
-                <TableCell>{pet.pack.join(', ')}</TableCell>
-                <TableCell className="text-right">{pet.attack}</TableCell>
-                <TableCell className="text-right">{pet.health}</TableCell>
-                <TableCell>{pet.abilityTrigger}</TableCell>
-                <TableCell>{pet.tags.join(', ')}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      ) : null}{' '}
-      {mode === 'cards' ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredPets.map((pet) => (
-            <PetCard
-              key={pet.name}
-              pet={pet}
-            />
-          ))}
-        </div>
-      ) : null}
+      {mode === 'table' ? <PetsTable filteredPets={filteredPets} /> : null}
+      {mode === 'cards' ? <PetsCards filteredPets={filteredPets} /> : null}
     </div>
   );
 }

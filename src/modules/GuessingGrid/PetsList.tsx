@@ -3,7 +3,7 @@ import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Pet } from '@/db';
 import memoize from 'memoize-one';
 import Image from 'next/image';
-import { memo } from 'react';
+import { CSSProperties, memo } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList as List, areEqual } from 'react-window';
 
@@ -15,7 +15,7 @@ type PetsListProps = {
 type PetSelectButtonProps = {
   data: PetsListProps;
   index: number;
-  style: React.CSSProperties;
+  style: CSSProperties;
 };
 
 const PetSelectButton = memo(function PetSelectButton({
@@ -71,7 +71,6 @@ export function PetsList({ pets, choosePet }: PetsListProps) {
 
   return (
     <Card className="rounded-md">
-      {/* <ScrollArea className="h-[250px] sm:h-[350px] md:h-[500px]"> */}
       <ToggleGroup
         type="single"
         className="h-[250px] sm:h-[350px] md:h-[500px] flex-col"
@@ -95,7 +94,6 @@ export function PetsList({ pets, choosePet }: PetsListProps) {
           )}
         </AutoSizer>
       </ToggleGroup>
-      {/* </ScrollArea> */}
     </Card>
   );
 }

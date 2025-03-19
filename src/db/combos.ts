@@ -41,6 +41,7 @@ export const COMBO_MAP: Record<number, Combo> = {
 } as const;
 
 const REQUIREMENT_NULL: Requirement = {
+  id: 'customPack',
   logic: (pet: Pet) => !pet,
   display: null,
   label: '',
