@@ -1,18 +1,28 @@
 'use client';
 
-import { SapdokuContext } from '@/app/providers';
-import { Box, Pet, Run } from '@/db';
-import { getCompletionType, isoDateKey, useComboSeed, useReqsMap, useRun } from '@/lib';
-import { useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { Box, ClassicRun, Pet } from '@/db';
+import {
+  getCompletionType,
+  isoDateKey,
+  isoDateString,
+  useComboSeed,
+  useReqsMap,
+  useRun,
+} from '@/lib';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { GuessingGrid } from '../GuessingGrid';
+import { ChangeDate } from './ChangeDate';
+import { CompletionMessage } from './CompletionMessage';
 import { GameTimer } from './GameTimer';
 import { Hearts } from './Hearts';
-import { CompletionMessage } from './CompletionMessage';
-import { ChangeDate } from './ChangeDate';
 
-export function DailyGame() {
-  const { date } = useContext(SapdokuContext);
-  const { run, setRun, runStarted } = useRun();
+type DailyGameProps = {
+  date: Date;
+  gamemode: 'classic' | 'reverse';
+};
+
+export function DailyGame({ date, gamemode }: DailyGameProps) {
+  const { run, setRun, runStarted } = useRun(date, gamemode);
   const combo = useComboSeed(isoDateKey(date));
   const reqsMap = useReqsMap(combo);
 
@@ -44,7 +54,8 @@ export function DailyGame() {
 
   const makeGuess = useCallback(
     (pet: Pet, box: Box) => {
-      const updatedRun: Run = run;
+      const updatedRun: ClassicRun = run;
+      if (!updatedRun.date) updatedRun.date = isoDateString(date);
       updatedRun.guesses = {
         ...run.guesses,
         [box]: pet,
@@ -61,7 +72,7 @@ export function DailyGame() {
       updatedRun.time = seconds;
       setRun(updatedRun);
     },
-    [reqsMap, run, seconds, setRun]
+    [date, reqsMap, run, seconds, setRun]
   );
 
   return (
@@ -70,13 +81,17 @@ export function DailyGame() {
         <h1 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
           {gameTitle}
         </h1>
-        <ChangeDate />
+        <ChangeDate date={date} />
       </div>
       <GuessingGrid
+        run={run}
         combo={combo}
         makeGuess={makeGuess}
       />
-      <Hearts />
+      <Hearts
+        lives={run.hearts}
+        maxLives={5}
+      />
       {run.complete ? <CompletionMessage type={getCompletionType(run, seconds)} /> : null}
       <GameTimer
         seconds={seconds}

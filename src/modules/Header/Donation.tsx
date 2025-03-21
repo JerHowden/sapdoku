@@ -9,7 +9,7 @@ export function Donation() {
       variant="ghost"
       size="icon"
       type="button"
-      onClick={() => window.open('https://buymeacoffee.com/jeremiahhowden', '_blank')}
+      onClick={() => window.open('https://buymeacoffee.com/sapdoku', '_blank')}
       title="Buy me a Coffee ↗"
     >
       <Coffee />

@@ -43,12 +43,34 @@ export type Combo = {
 };
 
 export type Guesses = Record<Box, Pet | undefined>;
+export type ReqGuesses = {
+  [K in keyof Combo]: [Requirement | undefined, Requirement | undefined, Requirement | undefined];
+};
+
+export type Gamemode = 'classic' | 'reverse';
+
+interface BaseRun {
+  complete: boolean;
+  hearts: number;
+  time: number;
+  date: string; // ISO8601 YYYY-MM-DD
+}
+
+export interface ClassicRun extends BaseRun {
+  gamemode: 'classic';
+  guesses: Guesses;
+}
+
+export interface ReverseRun extends BaseRun {
+  gamemode: 'reverse';
+  reqGuesses: ReqGuesses;
+}
 
 export type Run = {
-  guesses: Guesses;
   time: number;
   complete: boolean;
   hearts: number;
+  guesses: Guesses;
 };
 
 export type Completion = 'loss' | 'win' | 'perfect' | 'gridbomb';

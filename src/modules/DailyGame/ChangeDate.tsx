@@ -1,6 +1,5 @@
 'use client';
 
-import { SapdokuContext } from '@/app/providers';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import {
@@ -12,18 +11,23 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { Separator } from '@/components/ui/separator';
-import { useRun } from '@/lib';
+import { isoDateString } from '@/lib';
 import { Calendar as CalendarIcon } from 'lucide-react';
-import { useContext, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
-export function ChangeDate() {
-  const { date, setDate } = useContext(SapdokuContext);
-  const { run, runStarted } = useRun();
+type ChangeDateProps = {
+  date: Date;
+};
+
+export function ChangeDate({ date }: ChangeDateProps) {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
 
   function onSelect(newDate?: Date) {
     if (newDate) {
-      setDate(newDate);
+      console.log({ newDate, iso: isoDateString(newDate) });
+      router.push(`?date=${isoDateString(newDate)}`);
       setOpen(false);
     }
   }
@@ -39,7 +43,7 @@ export function ChangeDate() {
           type="button"
           size="icon"
           title="Play a Game from another Day"
-          disabled={runStarted && !run.complete}
+          // disabled={runStarted && !run.complete}
         >
           <CalendarIcon />
           <span className="sr-only">Choose Date</span>

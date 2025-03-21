@@ -1,16 +1,17 @@
-import { Combo, Pet } from '@/db';
+import { ClassicRun, Combo, Pet } from '@/db';
 import { useReqsMap } from '@/lib';
 import { Category } from './Category';
 import { GuessingButton } from './GuessingButton';
 
 type GuessingGridProps = {
+  run: ClassicRun;
   combo: Combo;
   makeGuess: (pet: Pet, box: Box) => void;
 };
 
 type Box = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
-export function GuessingGrid({ combo, makeGuess }: GuessingGridProps) {
+export function GuessingGrid({ run, combo, makeGuess }: GuessingGridProps) {
   const reqsMap = useReqsMap(combo);
 
   return (
@@ -48,6 +49,7 @@ export function GuessingGrid({ combo, makeGuess }: GuessingGridProps) {
       </div>
       <div className="[grid-area:box-1]">
         <GuessingButton
+          run={run}
           box={1}
           reqs={reqsMap[1]}
           makeGuess={makeGuess}
@@ -55,6 +57,7 @@ export function GuessingGrid({ combo, makeGuess }: GuessingGridProps) {
       </div>
       <div className="[grid-area:box-2]">
         <GuessingButton
+          run={run}
           box={2}
           reqs={reqsMap[2]}
           makeGuess={makeGuess}
@@ -62,6 +65,7 @@ export function GuessingGrid({ combo, makeGuess }: GuessingGridProps) {
       </div>
       <div className="[grid-area:box-3]">
         <GuessingButton
+          run={run}
           box={3}
           reqs={reqsMap[3]}
           makeGuess={makeGuess}
@@ -69,6 +73,7 @@ export function GuessingGrid({ combo, makeGuess }: GuessingGridProps) {
       </div>
       <div className="[grid-area:box-4]">
         <GuessingButton
+          run={run}
           box={4}
           reqs={reqsMap[4]}
           makeGuess={makeGuess}
@@ -76,6 +81,7 @@ export function GuessingGrid({ combo, makeGuess }: GuessingGridProps) {
       </div>
       <div className="[grid-area:box-5]">
         <GuessingButton
+          run={run}
           box={5}
           reqs={reqsMap[5]}
           makeGuess={makeGuess}
@@ -83,6 +89,7 @@ export function GuessingGrid({ combo, makeGuess }: GuessingGridProps) {
       </div>
       <div className="[grid-area:box-6]">
         <GuessingButton
+          run={run}
           box={6}
           reqs={reqsMap[6]}
           makeGuess={makeGuess}
@@ -90,6 +97,7 @@ export function GuessingGrid({ combo, makeGuess }: GuessingGridProps) {
       </div>
       <div className="[grid-area:box-7]">
         <GuessingButton
+          run={run}
           box={7}
           reqs={reqsMap[7]}
           makeGuess={makeGuess}
@@ -97,6 +105,7 @@ export function GuessingGrid({ combo, makeGuess }: GuessingGridProps) {
       </div>
       <div className="[grid-area:box-8]">
         <GuessingButton
+          run={run}
           box={8}
           reqs={reqsMap[8]}
           makeGuess={makeGuess}
@@ -104,6 +113,7 @@ export function GuessingGrid({ combo, makeGuess }: GuessingGridProps) {
       </div>
       <div className="[grid-area:box-9]">
         <GuessingButton
+          run={run}
           box={9}
           reqs={reqsMap[9]}
           makeGuess={makeGuess}

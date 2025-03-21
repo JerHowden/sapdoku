@@ -37,6 +37,28 @@ export function Header() {
         </div>
         <NavigationMenu>
           <NavigationMenuList>
+            {/* <NavigationMenuItem>
+              <Link
+                href="/classic"
+                legacyBehavior
+                passHref
+              >
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Classic
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link
+                href="/reverse"
+                legacyBehavior
+                passHref
+              >
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Reverse
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem> */}
             <NavigationMenuItem>
               <Link
                 href="/pets"

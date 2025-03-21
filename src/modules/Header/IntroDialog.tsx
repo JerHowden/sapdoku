@@ -38,7 +38,9 @@ export function IntroDialog() {
       </DialogTrigger>
       <DialogContent className="max-h-[75vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="font-lapsus">How to Play Sapdoku</DialogTitle>
+          <DialogTitle className="font-lapsus text-xl leading-none">
+            How to Play Sapdoku
+          </DialogTitle>
           <DialogDescription></DialogDescription>
         </DialogHeader>
         <Separator />

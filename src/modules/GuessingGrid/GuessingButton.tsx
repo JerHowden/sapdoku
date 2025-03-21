@@ -1,27 +1,25 @@
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
-import { Pet, PETS_LIST, Requirement, Run } from '@/db';
+import { ClassicRun, Pet, PETS_LIST, Requirement } from '@/db';
+import { useComboSeed, useReqsMap } from '@/lib';
 import Image from 'next/image';
-import { useContext, useMemo } from 'react';
+import { useMemo } from 'react';
 import { GuessingDialogContent } from './GuessingDialogContent';
-import { DEFAULT_RUN, isoDateKey, useComboSeed, useLocalStorage, useReqsMap } from '@/lib';
-import { SapdokuContext } from '@/app/providers';
 
 type Box = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
 type GuessingButtonProps = {
+  run: ClassicRun;
   box: Box;
   reqs: Requirement[];
   makeGuess: (pet: Pet, box: Box) => void;
 };
 
-export function GuessingButton({ box, reqs, makeGuess }: GuessingButtonProps) {
-  const { date } = useContext(SapdokuContext);
-  const [run] = useLocalStorage<Run>(isoDateKey(date), DEFAULT_RUN);
-  const combo = useComboSeed(isoDateKey(date));
+export function GuessingButton({ run, box, reqs, makeGuess }: GuessingButtonProps) {
+  const combo = useComboSeed(Number(run.date.replaceAll('-', '')));
   const reqsMap = useReqsMap(combo);
 
-  const guess = useMemo(() => run.guesses[box], [run, box]);
+  const guess = useMemo(() => run.guesses[box], [run.guesses, box]);
 
   const image = useMemo(() => {
     if (guess) {
@@ -34,7 +32,11 @@ export function GuessingButton({ box, reqs, makeGuess }: GuessingButtonProps) {
         />
       );
     } else {
-      return <p>{PETS_LIST.filter((pet) => reqsMap[box].every((req) => req.logic(pet))).length}</p>;
+      return (
+        <p className="sr-only">
+          {PETS_LIST.filter((pet) => reqsMap[box].every((req) => req.logic(pet))).length}
+        </p>
+      );
     }
   }, [box, guess, reqsMap]);
   const guessStyles = useMemo(() => {
@@ -63,6 +65,7 @@ export function GuessingButton({ box, reqs, makeGuess }: GuessingButtonProps) {
         </Button>
       </DialogTrigger>
       <GuessingDialogContent
+        run={run}
         box={box}
         reqs={reqs}
         makeGuess={makeGuess}

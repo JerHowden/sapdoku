@@ -8,22 +8,20 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { Pet, PETS_LIST, Requirement } from '@/db';
-import { useRun } from '@/lib';
+import { ClassicRun, Pet, PETS_LIST, Requirement } from '@/db';
 import { Fragment, useMemo, useState } from 'react';
 import { PetsList } from './PetsList';
 
 type Box = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
 type GuessingModalProps = {
+  run: ClassicRun;
   box: Box;
   reqs: Requirement[];
   makeGuess: (pet: Pet, box: Box) => void;
 };
 
-export function GuessingDialogContent({ box, reqs, makeGuess }: GuessingModalProps) {
-  const { run } = useRun();
-
+export function GuessingDialogContent({ run, box, reqs, makeGuess }: GuessingModalProps) {
   const [searchText, setSearchText] = useState('');
   const [chosenPet, setChosenPet] = useState<Pet>();
 
