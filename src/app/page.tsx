@@ -1,36 +1,12 @@
-'use client';
-
-import { ISO_DATE_REGEX, isoDateKey } from '@/lib';
-import { DailyGame } from '@/modules/DailyGame';
-import { forbidden, notFound, useSearchParams } from 'next/navigation';
-import { useMemo } from 'react';
+import { DailyGame, DailyGameLoading } from '@/modules/DailyGame';
+import { Suspense } from 'react';
 
 export default function Home() {
-  const searchParams = useSearchParams();
-  const urlDate = searchParams.get('date');
-
-  const date = useMemo(() => {
-    if (!urlDate) return new Date();
-    if (!ISO_DATE_REGEX.test(urlDate)) {
-      notFound();
-    } else if (Number(urlDate.replaceAll('-', '')) > isoDateKey(new Date())) {
-      forbidden();
-    }
-    const urlDateNums = urlDate.split('-').map((section) => Number(section));
-    if (urlDateNums.length === 3) {
-      return new Date(urlDateNums[0], urlDateNums[1] - 1, urlDateNums[2]);
-    } else {
-      console.error('Where are you going??');
-      notFound();
-    }
-  }, [urlDate]);
-
   return (
     <div className="p-6 lg:px-8 font-[family-name:var(--font-geist-sans)]">
-      <DailyGame
-        date={date}
-        gamemode="classic"
-      />
+      <Suspense fallback={<DailyGameLoading />}>
+        <DailyGame gamemode="classic" />
+      </Suspense>
     </div>
   );
 

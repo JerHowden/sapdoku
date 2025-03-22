@@ -1,9 +1,9 @@
 'use client';
 
-import { getImageProps } from 'next/image';
+import Image from 'next/image';
+import { JSX } from 'react';
 import { IMAGE_SRCS } from './imageSrc';
 import { Requirement, RequirementGenericKey, RequirementSpecificKey } from './types';
-import { JSX } from 'react';
 
 type RequirementImageProps = {
   src: string;
@@ -11,38 +11,47 @@ type RequirementImageProps = {
   baseSize: number;
 } & JSX.IntrinsicElements['picture'];
 
-function RequirementImage({ src, alt = '', baseSize, ...paramRest }: RequirementImageProps) {
-  const common = { src, alt };
-  const {
-    props: { srcSet: desktop },
-  } = getImageProps({
-    ...common,
-    width: baseSize * 2,
-    height: baseSize * 2,
-    quality: 80,
-  });
-  const {
-    props: { srcSet: mobile, ...rest },
-  } = getImageProps({
-    ...common,
-    width: baseSize,
-    height: baseSize,
-    quality: 70,
-  });
+function RequirementImage({ src, alt = '', baseSize }: RequirementImageProps) {
+  if (baseSize === 24) {
+    return (
+      <div
+        className={`
+        relative
+        h-[24px] 
+        md:h-[48px]
+        w-[24px] 
+        md:w-[48px]
+      `}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="(max-width: 768px) 24px, 48px"
+          className="object-contain"
+        />
+      </div>
+    );
+  }
 
   return (
-    <picture {...paramRest}>
-      <source
-        media="(min-width: 768px)"
-        srcSet={desktop}
+    <div
+      className={`
+        relative
+        h-[32px] 
+        md:h-[64px]
+        w-[32px] 
+        md:w-[64px]
+      `}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(max-width: 768px) 32px, 64px"
+        className="object-contain"
       />
-      <source srcSet={mobile} />
-      {/* eslint-disable-next-line jsx-a11y/alt-text */}
-      <img
-        {...rest}
-        style={{ width: '100%', height: 'auto' }}
-      />
-    </picture>
+    </div>
   );
 }
 
@@ -57,7 +66,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
       <RequirementImage
         src={IMAGE_SRCS.tier_1}
         alt="Tier 1"
-        baseSize={32}
+        baseSize={24}
       />
     ),
     label: 'Tier 1',
@@ -69,7 +78,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
       <RequirementImage
         src={IMAGE_SRCS.tier_2}
         alt="Tier 2"
-        baseSize={32}
+        baseSize={24}
       />
     ),
     label: 'Tier 2',
@@ -81,7 +90,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
       <RequirementImage
         src={IMAGE_SRCS.tier_3}
         alt="Tier 3"
-        baseSize={32}
+        baseSize={24}
       />
     ),
     label: 'Tier 3',
@@ -93,7 +102,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
       <RequirementImage
         src={IMAGE_SRCS.tier_4}
         alt="Tier 4"
-        baseSize={32}
+        baseSize={24}
       />
     ),
     label: 'Tier 4',
@@ -105,7 +114,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
       <RequirementImage
         src={IMAGE_SRCS.tier_5}
         alt="Tier 5"
-        baseSize={32}
+        baseSize={24}
       />
     ),
     label: 'Tier 5',
@@ -117,7 +126,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
       <RequirementImage
         src={IMAGE_SRCS.tier_6}
         alt="Tier 6"
-        baseSize={32}
+        baseSize={24}
       />
     ),
     label: 'Tier 6',
@@ -154,7 +163,7 @@ export const REQUIREMENT_MAP_SPECIFIC: Record<RequirementSpecificKey, Requiremen
     logic: (pet) => pet.health === pet.attack,
     display: (
       <RequirementImage
-        src={IMAGE_SRCS.health}
+        src="/images/even-stats.png"
         alt="Stats Even"
         baseSize={24}
       />

@@ -25,7 +25,7 @@ export function GuessingGrid({ run, combo, makeGuess }: GuessingGridProps) {
           aspect-square
           min-w-64
           max-w-full
-          md:min-w-96
+          md:min-w-[30rem]
         `}
     >
       <div className="[grid-area:corner]"></div>

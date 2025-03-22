@@ -3,12 +3,14 @@
 import { Box, ClassicRun, Pet } from '@/db';
 import {
   getCompletionType,
+  ISO_DATE_REGEX,
   isoDateKey,
   isoDateString,
   useComboSeed,
   useReqsMap,
   useRun,
 } from '@/lib';
+import { forbidden, notFound, useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { GuessingGrid } from '../GuessingGrid';
 import { ChangeDate } from './ChangeDate';
@@ -17,11 +19,29 @@ import { GameTimer } from './GameTimer';
 import { Hearts } from './Hearts';
 
 type DailyGameProps = {
-  date: Date;
   gamemode: 'classic' | 'reverse';
 };
 
-export function DailyGame({ date, gamemode }: DailyGameProps) {
+export function DailyGame({ gamemode }: DailyGameProps) {
+  const searchParams = useSearchParams();
+  const urlDate = searchParams.get('date');
+
+  const date = useMemo(() => {
+    if (!urlDate) return new Date();
+    if (!ISO_DATE_REGEX.test(urlDate)) {
+      notFound();
+    } else if (Number(urlDate.replaceAll('-', '')) > isoDateKey(new Date())) {
+      forbidden();
+    }
+    const urlDateNums = urlDate.split('-').map((section) => Number(section));
+    if (urlDateNums.length === 3) {
+      return new Date(urlDateNums[0], urlDateNums[1] - 1, urlDateNums[2]);
+    } else {
+      console.error('Where are you going??');
+      notFound();
+    }
+  }, [urlDate]);
+
   const { run, setRun, runStarted } = useRun(date, gamemode);
   const combo = useComboSeed(isoDateKey(date));
   const reqsMap = useReqsMap(combo);
