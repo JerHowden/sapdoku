@@ -54,7 +54,7 @@ function PetSquare({ pet, valid, selected, onSelect }: PetSquareProps) {
               className="object-contain"
             />
           </div>
-          <p className="text-xs sm:text-sm md:text-base font-medium text-center whitespace-normal">
+          <p className="text-[0.5rem] !leading-tight sm:text-xs md:text-base font-medium text-center whitespace-normal">
             {pet.name}
           </p>
         </>
