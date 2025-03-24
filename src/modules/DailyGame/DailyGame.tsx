@@ -10,11 +10,11 @@ import {
   useReqsMap,
   useRun,
 } from '@/lib';
-import { forbidden, notFound, useSearchParams } from 'next/navigation';
+import { notFound, useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { GuessingGrid } from '../GuessingGrid';
 import { ChangeDate } from './ChangeDate';
-import { CompletionMessage } from './CompletionMessage';
+import { CompletionDialog } from './CompletionDialog';
 import { GameTimer } from './GameTimer';
 import { Hearts } from './Hearts';
 
@@ -31,7 +31,7 @@ export function DailyGame({ gamemode }: DailyGameProps) {
     if (!ISO_DATE_REGEX.test(urlDate)) {
       notFound();
     } else if (Number(urlDate.replaceAll('-', '')) > isoDateKey(new Date())) {
-      forbidden();
+      notFound(); // forbiddion()
     }
     const urlDateNums = urlDate.split('-').map((section) => Number(section));
     if (urlDateNums.length === 3) {
@@ -47,6 +47,7 @@ export function DailyGame({ gamemode }: DailyGameProps) {
   const reqsMap = useReqsMap(combo);
 
   const [seconds, setSeconds] = useState(run.time);
+  const [completionOpen, setCompletionOpen] = useState(false);
 
   useEffect(() => {
     setSeconds(run.time);
@@ -91,6 +92,9 @@ export function DailyGame({ gamemode }: DailyGameProps) {
       }
       updatedRun.time = seconds;
       setRun(updatedRun);
+      if (updatedRun.complete) {
+        setTimeout(() => setCompletionOpen(true), 1500);
+      }
     },
     [date, reqsMap, run, seconds, setRun]
   );
@@ -112,12 +116,20 @@ export function DailyGame({ gamemode }: DailyGameProps) {
         lives={run.hearts}
         maxLives={5}
       />
-      {run.complete ? <CompletionMessage type={getCompletionType(run, seconds)} /> : null}
       <GameTimer
         seconds={seconds}
         setSeconds={setSeconds}
         tick={runStarted && !run.complete}
       />
+      {run.complete ? (
+        <CompletionDialog
+          open={completionOpen}
+          setOpen={setCompletionOpen}
+          run={run}
+          combo={combo}
+          type={getCompletionType(run, seconds)}
+        />
+      ) : null}
     </div>
   );
 }

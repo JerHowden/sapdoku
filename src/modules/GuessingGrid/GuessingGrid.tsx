@@ -49,6 +49,7 @@ export function GuessingGrid({ run, combo, makeGuess }: GuessingGridProps) {
       </div>
       <div className="[grid-area:box-1]">
         <GuessingButton
+          key={`${run.date}-1`}
           run={run}
           box={1}
           reqs={reqsMap[1]}
@@ -57,6 +58,7 @@ export function GuessingGrid({ run, combo, makeGuess }: GuessingGridProps) {
       </div>
       <div className="[grid-area:box-2]">
         <GuessingButton
+          key={`${run.date}-2`}
           run={run}
           box={2}
           reqs={reqsMap[2]}
@@ -65,6 +67,7 @@ export function GuessingGrid({ run, combo, makeGuess }: GuessingGridProps) {
       </div>
       <div className="[grid-area:box-3]">
         <GuessingButton
+          key={`${run.date}-3`}
           run={run}
           box={3}
           reqs={reqsMap[3]}

@@ -13,7 +13,7 @@ type PetsTableProps = {
   filteredPets: Pet[];
 };
 
-export function PetsTable({ filteredPets }: PetsTableProps) {
+export default function PetsTable({ filteredPets }: PetsTableProps) {
   return (
     <Table>
       <TableHeader>

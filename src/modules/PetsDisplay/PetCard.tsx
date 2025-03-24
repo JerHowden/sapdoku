@@ -11,13 +11,14 @@ type PetCardProps = {
 export function PetCard({ pet }: PetCardProps) {
   return (
     <Card className="p-4 flex flex-row w-full gap-2">
-      <div className="flex-1 flex flex-col justify-center gap-2">
-        <div className="flex justify-center h-auto w-auto mt-2">
+      <div className="flex-1 flex flex-col justify-center items-center gap-2">
+        <div className="relative flex justify-center h-[64px] w-[64px] mt-2">
           <Image
             src={pet.imageSrc || 'https://superautopets.wiki.gg/images/0/0b/Rock.png'}
             alt={pet.name}
-            width={64}
-            height={64}
+            fill
+            sizes="64px"
+            className="object-contain"
           />
         </div>
         <div className="flex flex-row justify-center gap-1">

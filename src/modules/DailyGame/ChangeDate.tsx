@@ -26,7 +26,6 @@ export function ChangeDate({ date }: ChangeDateProps) {
 
   function onSelect(newDate?: Date) {
     if (newDate) {
-      console.log({ newDate, iso: isoDateString(newDate) });
       router.push(`?date=${isoDateString(newDate)}`);
       setOpen(false);
     }

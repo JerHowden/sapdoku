@@ -23,9 +23,10 @@ import {
 import { ABILITY_TRIGGERS_LIST, PACKS_LIST, TAGS_LIST, TIERS_LIST } from '@/db/constants';
 import { Columns3, RotateCcw, Table2 } from 'lucide-react';
 import Image from 'next/image';
-import { useMemo, useState } from 'react';
-import { PetsCards } from './PetsCards';
-import { PetsTable } from './PetsTable';
+import { Suspense, useMemo, useState } from 'react';
+import dynamic from 'next/dynamic';
+const PetsCards = dynamic(() => import('./PetsCards'));
+const PetsTable = dynamic(() => import('./PetsTable'));
 
 export function PetsDisplay() {
   const [searchText, setSearchText] = useState('');
@@ -200,8 +201,16 @@ export function PetsDisplay() {
           </ToggleGroup>
         </div>
       </div>
-      {mode === 'table' ? <PetsTable filteredPets={filteredPets} /> : null}
-      {mode === 'cards' ? <PetsCards filteredPets={filteredPets} /> : null}
+      {mode === 'table' ? (
+        <Suspense fallback={<div>Loading table...</div>}>
+          <PetsTable filteredPets={filteredPets} />
+        </Suspense>
+      ) : null}
+      {mode === 'cards' ? (
+        <Suspense fallback={<div>Loading cards...</div>}>
+          <PetsCards filteredPets={filteredPets} />
+        </Suspense>
+      ) : null}
     </div>
   );
 }

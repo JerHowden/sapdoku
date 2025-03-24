@@ -16,6 +16,7 @@ type GuessingButtonProps = {
 };
 
 export function GuessingButton({ run, box, reqs, makeGuess }: GuessingButtonProps) {
+  // console.log('date:', run.date, 'seed:', Number(run.date.replaceAll('-', '')));
   const combo = useComboSeed(Number(run.date.replaceAll('-', '')));
   const reqsMap = useReqsMap(combo);
 

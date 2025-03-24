@@ -10,11 +10,12 @@ export const useComboSeed = (seed: number) => {
 
   useEffect(() => {
     const randomNumbersGenerator = () => {
+      if (seed === 0) return DEFAULT_COMBO;
       let currentSeed = seed;
 
       const random = () => {
         const x = Math.sin((currentSeed += 100000)) * 10000;
-        // console.log(x - Math.floor(x));
+        // console.log(seed, currentSeed, 'combo-random:', x - Math.floor(x));
         return x - Math.floor(x);
       };
 
@@ -23,7 +24,6 @@ export const useComboSeed = (seed: number) => {
         while (numbers.size < 3) {
           const rand = Math.floor(random() * (max - min)) + min;
           numbers.add(rand);
-          seed++;
         }
         return Array.from(numbers);
       }
