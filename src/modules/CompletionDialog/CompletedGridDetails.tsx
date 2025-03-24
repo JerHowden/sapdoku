@@ -225,7 +225,7 @@ export function CompletedGridDetails({ run, combo }: GuessDetailsProps) {
       <Separator />
       <div className="flex flex-row justify-between items-center">
         <div className="flex flex-col">
-          <h4 className="font-lapsus text-xl">Guess Details</h4>
+          <h4 className="font-lapsus text-lg md:text-xl">Guess Details</h4>
           {selectedBox ? (
             <div className="flex flex-col sm:flex-row gap-1 text-xs text-muted-foreground">
               <span>{run.guesses[selectedBox] ? 'Your Guess and ' : ''}Valid Options for:</span>

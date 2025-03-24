@@ -53,7 +53,7 @@ export function CompletionDialog({ open, setOpen, run, combo, type }: Completion
       </DialogTrigger>
       <DialogContent className="max-h-[75vh] overflow-y-auto md:max-w-xl">
         <DialogHeader className="flex-row gap-2 items-center">
-          <DialogTitle className="font-lapsus text-3xl leading-none tracking-wide">
+          <DialogTitle className="font-lapsus text-xl md:text-3xl leading-none tracking-wide">
             Game Summary
           </DialogTitle>
           <DialogDescription></DialogDescription>

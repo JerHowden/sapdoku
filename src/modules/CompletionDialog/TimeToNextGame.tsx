@@ -27,7 +27,7 @@ export function TimeToNextGame() {
   }, [timeLeft]);
 
   return (
-    <p className="flex flex-col sm:flex-row gap-x-1 text-lg font-lapsus text-muted-foreground">
+    <p className="flex flex-row gap-x-1 text-base md:text-lg font-lapsus text-muted-foreground">
       <span>Next Game in </span>
       <span className="text-foreground">{display()}</span>
     </p>
