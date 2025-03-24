@@ -1,3 +1,4 @@
+import { Badge } from '@/components/ui/badge';
 import { Completion, IMAGE_SRCS } from '@/db';
 import Image from 'next/image';
 import { useMemo } from 'react';
@@ -20,16 +21,16 @@ export function CompletionMessage({ type }: CompletionMessageProps) {
           <div className="flex flex-row items-center gap-2">
             <Image
               src={IMAGE_SRCS.trophy}
-              width={48}
-              height={48}
+              width={16}
+              height={16}
               alt=""
               className="rotate-180"
             />
-            <span className="text-xl sm:text-2xl md:text-3xl italic">GRIDBOMB</span>
+            <span className="text-xs md:text-base italic leading-none">GRIDBOMB</span>
             <Image
               src={IMAGE_SRCS.trophy}
-              width={48}
-              height={48}
+              width={16}
+              height={16}
               alt=""
               className="rotate-180"
             />
@@ -56,10 +57,10 @@ export function CompletionMessage({ type }: CompletionMessageProps) {
   }, [type]);
 
   return (
-    <div
-      className={`flex text-xl sm:text-2xl md:text-3xl text-foreground justify-center rounded-md px-2 pt-2 pb-3 ${styles}`}
+    <Badge
+      className={`flex text-xs md:text-base text-foreground !m-0 pointer-events-none pb-1 ${styles}`}
     >
       {message}
-    </div>
+    </Badge>
   );
 }

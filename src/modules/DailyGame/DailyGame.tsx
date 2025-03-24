@@ -12,9 +12,9 @@ import {
 } from '@/lib';
 import { notFound, useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { CompletionDialog } from '../CompletionDialog';
 import { GuessingGrid } from '../GuessingGrid';
 import { ChangeDate } from './ChangeDate';
-import { CompletionDialog } from './CompletionDialog';
 import { GameTimer } from './GameTimer';
 import { Hearts } from './Hearts';
 
