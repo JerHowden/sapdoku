@@ -93,7 +93,7 @@ export function DailyGame({ gamemode }: DailyGameProps) {
       updatedRun.time = seconds;
       setRun(updatedRun);
       if (updatedRun.complete) {
-        setTimeout(() => setCompletionOpen(true), 1500);
+        setTimeout(() => setCompletionOpen(true), 500);
       }
     },
     [date, reqsMap, run, seconds, setRun]
