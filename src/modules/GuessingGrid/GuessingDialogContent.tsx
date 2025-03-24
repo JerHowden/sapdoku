@@ -145,12 +145,21 @@ export function GuessingDialogContent({ run, box, reqs, makeGuess }: GuessingMod
       </DialogHeader>
       <div className="flex flex-col gap-6">
         <Input
+          id="dialog-search-mobile"
+          type="text"
+          placeholder="Search Pets"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          className="flex md:hidden"
+        />
+        <Input
           id="dialog-search"
           type="text"
           placeholder="Search Pets"
           autoFocus
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
+          className="hidden md:flex"
         />
         <PetsList
           pets={searchedPets}

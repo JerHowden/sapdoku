@@ -73,7 +73,53 @@ export function PetsList({ pets, choosePet }: PetsListProps) {
     <Card className="rounded-md">
       <ToggleGroup
         type="single"
-        className="h-[250px] sm:h-[350px] md:h-[500px] flex-col"
+        className="h-[250px] flex sm:hidden flex-col"
+      >
+        <AutoSizer>
+          {({ width, height }) => (
+            <List
+              height={height}
+              itemCount={pets.length}
+              itemData={petData}
+              itemSize={56}
+              width={width}
+              style={{
+                left: -width / 2,
+                top: -height / 2,
+                scrollbarColor: 'hsl(var(--border)) transparent',
+              }}
+            >
+              {PetSelectButton}
+            </List>
+          )}
+        </AutoSizer>
+      </ToggleGroup>
+      <ToggleGroup
+        type="single"
+        className="h-[350px] hidden sm:flex md:hidden flex-col"
+      >
+        <AutoSizer>
+          {({ width, height }) => (
+            <List
+              height={height}
+              itemCount={pets.length}
+              itemData={petData}
+              itemSize={72}
+              width={width}
+              style={{
+                left: -width / 2,
+                top: -height / 2,
+                scrollbarColor: 'hsl(var(--border)) transparent',
+              }}
+            >
+              {PetSelectButton}
+            </List>
+          )}
+        </AutoSizer>
+      </ToggleGroup>
+      <ToggleGroup
+        type="single"
+        className="h-[500px] hidden md:flex flex-col"
       >
         <AutoSizer>
           {({ width, height }) => (
