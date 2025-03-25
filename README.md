@@ -44,6 +44,8 @@ Sapdoku is a daily game based on Super Auto Pets. The goal is to fill in the gri
 - Data Visualization
   - See your most used pets
   - See the community's most common board
+- Pets Version History
+  - As pets are adjusted, ensure past game results stay consistent
 
 ## 🚀 Running Locally
 
