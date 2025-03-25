@@ -372,7 +372,7 @@ export const REQUIREMENT_MAP_GENERIC: Record<RequirementGenericKey, Requirement>
       pet.abilityTrigger === 'Sell Friend',
     display: (
       <RequirementImage
-        src={IMAGE_SRCS.lovePotion}
+        src={IMAGE_SRCS.rice}
         alt="Cycle"
         baseSize={32}
       />

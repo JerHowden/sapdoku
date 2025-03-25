@@ -40,6 +40,7 @@ export const IMAGE_SRCS = {
   tomato: 'https://superautopets.wiki.gg/images/9/9d/Tomato.png',
   pancakes: 'https://superautopets.wiki.gg/images/6/6b/Pancakes.png',
   can: 'https://superautopets.wiki.gg/images/c/c3/Canned_Food.png',
+  rice: 'https://superautopets.wiki.gg/images/d/da/Rice.png',
   // Toys
   tennisBall: 'https://superautopets.wiki.gg/images/2/23/Tennis_Ball.png',
   // Reactions
