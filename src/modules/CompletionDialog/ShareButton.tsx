@@ -30,6 +30,19 @@ export function ShareButton({ run, combo, type }: ShareButtonProps) {
     [reqsMap, run.guesses]
   );
 
+  const iosOverkillSpacingFix = useCallback(
+    (rowID: 0 | 1 | 2) => {
+      if (!/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        return ' ';
+      }
+      if (combo.rows[rowID].id.includes('tier')) {
+        return ' ';
+      }
+      return '';
+    },
+    [combo.rows]
+  );
+
   const shareText = useMemo(() => {
     const time =
       run.time >= 60
@@ -54,16 +67,18 @@ export function ShareButton({ run, combo, type }: ShareButtonProps) {
     const date = `📅 ${run.date}`;
     const grid = `     ${EMOJIS[combo.columns[0].id]} ${EMOJIS[combo.columns[1].id]} ${
       EMOJIS[combo.columns[2].id]
-    }\n${EMOJIS[combo.rows[0].id]} ${EMOJIS[checkValid(1)]} ${EMOJIS[checkValid(2)]} ${
-      EMOJIS[checkValid(3)]
-    }\n${EMOJIS[combo.rows[1].id]} ${EMOJIS[checkValid(4)]} ${EMOJIS[checkValid(5)]} ${
-      EMOJIS[checkValid(6)]
-    }\n${EMOJIS[combo.rows[2].id]} ${EMOJIS[checkValid(7)]} ${EMOJIS[checkValid(8)]} ${
+    }\n${EMOJIS[combo.rows[0].id]}${iosOverkillSpacingFix(0)}${EMOJIS[checkValid(1)]} ${
+      EMOJIS[checkValid(2)]
+    } ${EMOJIS[checkValid(3)]}\n${EMOJIS[combo.rows[1].id]}${iosOverkillSpacingFix(1)}${
+      EMOJIS[checkValid(4)]
+    } ${EMOJIS[checkValid(5)]} ${EMOJIS[checkValid(6)]}\n${
+      EMOJIS[combo.rows[2].id]
+    }${iosOverkillSpacingFix(2)}${EMOJIS[checkValid(7)]} ${EMOJIS[checkValid(8)]} ${
       EMOJIS[checkValid(9)]
     }
     `;
     return `${result}\n${date}\n\n${grid}\nPlay at: ${window.location.href}`;
-  }, [checkValid, combo.columns, combo.rows, run.date, run.time, type]);
+  }, [checkValid, combo.columns, combo.rows, iosOverkillSpacingFix, run.date, run.time, type]);
 
   async function share() {
     try {
