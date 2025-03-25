@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import {
   ABILITY_TRIGGERS_LIST,
+  EMOJI_GUESS_KEYS,
   PACKS_LIST,
   REQUIREMENT_GENERIC_KEYS,
   REQUIREMENT_SPECIFIC_KEYS,
@@ -74,3 +75,5 @@ export type Run = {
 };
 
 export type Completion = 'loss' | 'win' | 'perfect' | 'gridbomb';
+
+export type EmojiGuessKey = (typeof EMOJI_GUESS_KEYS)[number];

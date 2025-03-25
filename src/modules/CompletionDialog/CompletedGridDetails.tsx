@@ -5,7 +5,7 @@ import { Separator } from '@/components/ui/separator';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Box, ClassicRun, Combo, Pet, PETS_LIST } from '@/db';
 import { useReqsMap } from '@/lib';
-import { Clock, Columns3, Table2 } from 'lucide-react';
+import { Columns3, Table2 } from 'lucide-react';
 import Image from 'next/image';
 import { Fragment, useCallback, useMemo, useState } from 'react';
 import { Category } from '../GuessingGrid';
@@ -147,12 +147,7 @@ export function CompletedGridDetails({ run, combo }: GuessDetailsProps) {
           aspect-square
         `}
         >
-          <div className="flex flex-col md:flex-row items-center justify-center gap-x-1">
-            <Clock className="text-xs text-muted-foreground" />
-            <p className="text-base md:text-xl text-muted-foreground font-extrabold tracking-wide">
-              {`${Math.floor(run.time / 60)}:${run.time % 60 < 10 ? 0 : ''}${run.time % 60}`}
-            </p>
-          </div>
+          <div />
           <div className="flex flex-col items-center justify-center">
             <Category {...combo?.columns[0]} />
           </div>

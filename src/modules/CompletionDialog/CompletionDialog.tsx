@@ -11,9 +11,10 @@ import {
 } from '@/components/ui/dialog';
 import { Separator } from '@/components/ui/separator';
 import { ClassicRun, Combo, Completion } from '@/db';
-import { ScrollText } from 'lucide-react';
+import { Clock, ScrollText } from 'lucide-react';
 import { CompletedGridDetails } from './CompletedGridDetails';
 import { CompletionMessage } from './CompletionMessage';
+import { ShareButton } from './ShareButton';
 import { TimeToNextGame } from './TimeToNextGame';
 
 type CompletionDialogProps = {
@@ -58,6 +59,15 @@ export function CompletionDialog({ open, setOpen, run, combo, type }: Completion
           </DialogTitle>
           <DialogDescription></DialogDescription>
           <CompletionMessage type={type} />
+          <div className="flex flex-row items-center justify-center gap-x-1 !m-0 pl-1">
+            <Clock
+              className="text-xs text-muted-foreground"
+              size={16}
+            />
+            <p className="text-xs md:text-base text-muted-foreground font-extrabold tracking-wide">
+              {`${Math.floor(run.time / 60)}:${run.time % 60 < 10 ? 0 : ''}${run.time % 60}`}
+            </p>
+          </div>
         </DialogHeader>
         <Separator />
         <CompletedGridDetails
@@ -67,14 +77,22 @@ export function CompletionDialog({ open, setOpen, run, combo, type }: Completion
         <Separator />
         <DialogFooter className="flex flex-row !justify-between items-center">
           <TimeToNextGame />
-          <DialogClose asChild>
-            <Button
-              type="button"
-              onClick={() => setOpen(false)}
-            >
-              Close
-            </Button>
-          </DialogClose>
+          <div className="flex flex-row gap-2 items-center">
+            <DialogClose asChild>
+              <Button
+                type="button"
+                variant="ghost"
+                onClick={() => setOpen(false)}
+              >
+                Close
+              </Button>
+            </DialogClose>
+            <ShareButton
+              run={run}
+              combo={combo}
+              type={type}
+            />
+          </div>
         </DialogFooter>
       </DialogContent>
     </Dialog>

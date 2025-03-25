@@ -234,3 +234,5 @@ export const REQUIREMENT_GENERIC_KEYS = [
   'startOfBattle',
   'turn',
 ] as const;
+
+export const EMOJI_GUESS_KEYS = ['valid', 'invalid', 'blank'] as const;

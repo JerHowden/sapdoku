@@ -3,3 +3,4 @@ export * from './imageSrc';
 export * from './pets';
 export * from './requirements';
 export type * from './types';
+export * from './emojis';
