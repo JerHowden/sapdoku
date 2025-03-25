@@ -12,12 +12,12 @@ export const EMOJIS_GUESSES: Record<EmojiGuessKey, string> = {
 } as const;
 
 export const EMOJIS_SPECIFIC: Record<RequirementSpecificKey, string> = {
-  tier1: ' ⚀',
-  tier2: ' ⚁',
-  tier3: ' ⚂',
-  tier4: ' ⚃',
-  tier5: ' ⚄',
-  tier6: ' ⚅',
+  tier1: ' ⚀ ',
+  tier2: ' ⚁ ',
+  tier3: ' ⚂ ',
+  tier4: ' ⚃ ',
+  tier5: ' ⚄ ',
+  tier6: ' ⚅ ',
   statsHealth: '❤️',
   statsAttack: '🗡️',
   statsEven: '💘',

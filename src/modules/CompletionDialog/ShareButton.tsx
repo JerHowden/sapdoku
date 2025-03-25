@@ -52,7 +52,7 @@ export function ShareButton({ run, combo, type }: ShareButtonProps) {
         break;
     }
     const date = `📅 ${run.date}`;
-    const grid = `    ${EMOJIS[combo.columns[0].id]} ${EMOJIS[combo.columns[1].id]} ${
+    const grid = `     ${EMOJIS[combo.columns[0].id]} ${EMOJIS[combo.columns[1].id]} ${
       EMOJIS[combo.columns[2].id]
     }\n${EMOJIS[combo.rows[0].id]} ${EMOJIS[checkValid(1)]} ${EMOJIS[checkValid(2)]} ${
       EMOJIS[checkValid(3)]
