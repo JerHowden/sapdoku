@@ -9,6 +9,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { PETS_LIST, REQUIREMENT_LIST_GENERIC, REQUIREMENT_LIST_SPECIFIC } from '@/db';
+import { PACKS_LIST } from '@/db/constants';
 
 export function ComboTable() {
   return (
@@ -24,6 +25,14 @@ export function ComboTable() {
             >
               <div className="max-w-8">{specReq.display}</div>
               {specReq.label}
+            </TableHead>
+          ))}
+          {PACKS_LIST.map((pack) => (
+            <TableHead
+              key={pack}
+              className="whitespace-nowrap"
+            >
+              {pack}
             </TableHead>
           ))}
         </TableRow>
@@ -55,6 +64,11 @@ export function ComboTable() {
             {REQUIREMENT_LIST_SPECIFIC.map((specReq) => (
               <TableCell key={`${genReq.label}-${specReq.label}`}>
                 {PETS_LIST.filter((pet) => specReq.logic(pet) && genReq.logic(pet)).length}
+              </TableCell>
+            ))}
+            {PACKS_LIST.map((pack) => (
+              <TableCell key={`${genReq.label}-${pack}`}>
+                {PETS_LIST.filter((pet) => pet.pack.includes(pack) && genReq.logic(pet)).length}
               </TableCell>
             ))}
           </TableRow>

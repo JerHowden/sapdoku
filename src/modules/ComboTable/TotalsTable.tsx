@@ -1,7 +1,7 @@
 'use client';
 
-import { AbilityTrigger, PETS_LIST, Tag, Tier } from '@/db';
-import { ABILITY_TRIGGERS_LIST, TAGS_LIST, TIERS_LIST } from '@/db/constants';
+import { AbilityTrigger, Pack, PETS_LIST, Tag, Tier } from '@/db';
+import { ABILITY_TRIGGERS_LIST, PACKS_LIST, TAGS_LIST, TIERS_LIST } from '@/db/constants';
 import {
   Table,
   TableBody,
@@ -15,8 +15,8 @@ import { useState } from 'react';
 type StatSelection = 'Healthier' | 'Stronger' | 'Even';
 
 type Selection = {
-  type: 'tier' | 'stats' | 'trigger' | 'tag';
-  value: Tier | StatSelection | AbilityTrigger | Tag | 'No Tags';
+  type: 'tier' | 'stats' | 'pack' | 'trigger' | 'tag';
+  value: Tier | StatSelection | Pack | AbilityTrigger | Tag | 'No Tags';
 };
 
 export function TotalsTable() {
@@ -34,6 +34,7 @@ export function TotalsTable() {
           (selected.value === 'Even' && pet.attack === pet.health))
       )
         return true;
+      if (selected.type === 'pack' && pet.pack.includes(selected.value as Pack)) return true;
       if (selected.type === 'trigger' && selected.value === pet.abilityTrigger) return true;
       if (selected.type === 'tag' && pet.tags.includes(selected.value as Tag)) return true;
       if (selected.type === 'tag' && selected.value === 'No Tags' && pet.tags.length === 0)
@@ -52,6 +53,11 @@ export function TotalsTable() {
     { stats: 'Stronger', count: selectionPets.filter((pet) => pet.attack > pet.health).length },
     { stats: 'Even', count: selectionPets.filter((pet) => pet.attack === pet.health).length },
   ] as const;
+
+  const packTotals = PACKS_LIST.map((pack) => ({
+    pack,
+    count: selectionPets.filter((pet) => pet.pack.includes(pack)).length,
+  }));
 
   const abilityTriggerTotals = ABILITY_TRIGGERS_LIST.map((trigger) => ({
     trigger,
@@ -74,7 +80,7 @@ export function TotalsTable() {
     }
   };
 
-  const handleClearType = (type: 'tier' | 'stats' | 'trigger' | 'tag') => {
+  const handleClearType = (type: Selection['type']) => {
     setSelections(selections.filter((selection) => selection.type !== type));
   };
 
@@ -117,6 +123,24 @@ export function TotalsTable() {
               className="data-[selected=true]:text-red-500 data-[none=true]:text-muted-foreground"
             >
               <TableCell>{stats}</TableCell>
+              <TableCell>{count}</TableCell>
+            </TableRow>
+          ))}
+          <TableRow onClick={() => handleClearType('stats')}>
+            <TableHead>Packs</TableHead>
+            <TableHead>Count</TableHead>
+          </TableRow>
+          {packTotals.map(({ pack, count }) => (
+            <TableRow
+              key={pack}
+              data-selected={selections.some(
+                (selection) => selection.type === 'pack' && selection.value === pack
+              )}
+              data-none={count === 0}
+              onClick={() => toggleSelection({ type: 'pack', value: pack })}
+              className="data-[selected=true]:text-red-500 data-[none=true]:text-muted-foreground"
+            >
+              <TableCell>{pack}</TableCell>
               <TableCell>{count}</TableCell>
             </TableRow>
           ))}
