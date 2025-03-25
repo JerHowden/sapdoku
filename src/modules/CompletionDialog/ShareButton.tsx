@@ -99,9 +99,20 @@ export function ShareButton({ run, combo, type }: ShareButtonProps) {
     }
   }
 
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(shareText);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (error) {
+      console.error('Failed to copy', error, shareText);
+    }
+  }
+
   return (
     <Button
       onClick={share}
+      onContextMenu={copy}
       disabled={copied}
     >
       {copied ? 'Copied!' : 'Share'}
