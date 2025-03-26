@@ -8,31 +8,26 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { PETS_LIST, REQUIREMENT_LIST_GENERIC, REQUIREMENT_LIST_SPECIFIC } from '@/db';
-import { PACKS_LIST } from '@/db/constants';
+import { PETS_LIST, Requirement, REQUIREMENT_LIST_GENERIC, REQUIREMENT_LIST_SPECIFIC } from '@/db';
+import { useState } from 'react';
 
 export function ComboTable() {
+  const [selectedReq, setSelectedReq] = useState<Requirement | null>(null);
   return (
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>Requirement</TableHead>
+          <TableHead onClick={() => setSelectedReq(null)}>Requirement</TableHead>
           <TableHead>Total</TableHead>
           {REQUIREMENT_LIST_SPECIFIC.map((specReq) => (
             <TableHead
               key={specReq.label}
               className="whitespace-nowrap"
+              onClick={() => setSelectedReq(specReq)}
+              style={selectedReq?.id === specReq.id ? { color: 'red' } : {}}
             >
               <div className="max-w-8">{specReq.display}</div>
               {specReq.label}
-            </TableHead>
-          ))}
-          {PACKS_LIST.map((pack) => (
-            <TableHead
-              key={pack}
-              className="whitespace-nowrap"
-            >
-              {pack}
             </TableHead>
           ))}
         </TableRow>
@@ -48,27 +43,41 @@ export function ComboTable() {
               key={specReq.label}
               className="font-bold"
             >
-              {PETS_LIST.filter((pet) => specReq.logic(pet)).length}
+              {
+                PETS_LIST.filter(
+                  (pet) => specReq.logic(pet) && (selectedReq ? selectedReq.logic(pet) : true)
+                ).length
+              }
             </TableCell>
           ))}
         </TableRow>
         {REQUIREMENT_LIST_GENERIC.map((genReq) => (
           <TableRow key={genReq.label}>
-            <TableCell className="font-semibold whitespace-nowrap flex flex-row gap-2 items-center text-muted-foreground">
+            <TableCell
+              className="font-semibold whitespace-nowrap flex flex-row gap-2 items-center text-muted-foreground"
+              style={selectedReq?.id === genReq.id ? { color: 'red' } : {}}
+              onClick={() => setSelectedReq(genReq)}
+            >
               <div className="max-w-12 max-h-12">{genReq.display}</div>
               {genReq.label}
             </TableCell>
             <TableCell className="font-bold">
-              {PETS_LIST.filter((pet) => genReq.logic(pet)).length}
+              {
+                PETS_LIST.filter(
+                  (pet) => genReq.logic(pet) && (selectedReq ? selectedReq.logic(pet) : true)
+                ).length
+              }
             </TableCell>
             {REQUIREMENT_LIST_SPECIFIC.map((specReq) => (
               <TableCell key={`${genReq.label}-${specReq.label}`}>
-                {PETS_LIST.filter((pet) => specReq.logic(pet) && genReq.logic(pet)).length}
-              </TableCell>
-            ))}
-            {PACKS_LIST.map((pack) => (
-              <TableCell key={`${genReq.label}-${pack}`}>
-                {PETS_LIST.filter((pet) => pet.pack.includes(pack) && genReq.logic(pet)).length}
+                {
+                  PETS_LIST.filter(
+                    (pet) =>
+                      specReq.logic(pet) &&
+                      genReq.logic(pet) &&
+                      (selectedReq ? selectedReq.logic(pet) : true)
+                  ).length
+                }
               </TableCell>
             ))}
           </TableRow>
