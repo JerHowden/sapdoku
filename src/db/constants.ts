@@ -11,74 +11,74 @@ export const TIERS_LIST = [1, 2, 3, 4, 5, 6] as const;
 
 export const ABILITY_TRIGGERS_LIST = [
   '',
+  'After Attack',
+  'Anyone Hurt',
+  'Before Attack',
+  'Before Friend Attacks',
+  'Bee Summoned',
   'Buy',
-  'Buy & Sell', // natrk
-  'Sell',
-  'Hurt',
-  'Hurt & Sell',
+  'Buy & Sell',
+  'Eats Apple',
+  'Eats Food',
+  'Eats Three Food',
+  'Eats Two Food',
+  'Empty Front Space',
+  'End Turn',
+  'Enemy Faints',
+  'Enemy Gained Ailment',
+  'Enemy Hurt',
+  'Enemy Hurt or Pushed',
+  'Enemy Summoned',
+  'Enemy Summoned or Pushed',
   'Faint',
   'Faint & Sell',
-  'Level-Up',
+  'Five Friendly Attacks',
+  'Food Bought',
+  'Four Friends Hurt',
+  'Friend Ahead Attacks',
+  'Friend Ahead Faints',
+  'Friend Ahead Hurt',
+  'Friend Ate Corncob',
+  'Friend Attacks',
+  'Friend Bought',
+  'Friend Faints',
+  'Friend Gained Ailment',
+  'Friend Hurt',
+  'Friend Jumped',
+  'Friend Level-Up',
+  'Friend Lost Perk',
+  'Friend Sold',
   'Friend Summoned',
-  'Summoned',
+  'Friendly Ate Food',
+  'Friendly Attacked',
+  'Friendly Eats Food',
+  'Friendly Gained Ailment',
+  'Friendly Gained Perk',
+  'Friendly Gained Strawberry',
+  'Friendly Level-Up',
+  'Friendly Toy Broke',
+  'Gain Perk',
+  'Gain Perk or Ailment',
+  'Gains Mana',
+  'Hurt',
+  'Hurt & Sell',
+  'Knock Out',
+  'Level 3 Friend Sold',
+  'Level-Up',
+  'Pet Flung',
+  'Roll',
+  'Roll & Sell',
+  'Roll 4 Times',
+  'Sell',
+  'Sell Friend',
+  'Shop Tier Upgraded',
+  'Spend 7 Gold',
   'Start of Battle',
   'Start of Turn',
-  'End Turn',
-  'Knock Out',
-  'Before Attack',
-  'Before Friend Attacks', // nrk
-  'After Attack',
-  'Eats Food',
-  'Eats Two Food', // natrk
-  'Eats Three Food', // natrk
-  'Eats Apple', // natrk
-  'Food Bought', // natrk
-  'Gain Perk', // nrk
-  'Gain Perk or Ailment', // nrk or natrk
-  'Friend Lost Perk', // natrk
-  'Friendly Eats Food',
-  'Friendly Ate Food', // natrk
-  'Friend Ate Corncob', // natrk
-  'Friendly Gained Perk',
-  'Friendly Gained Ailment',
-  'Friendly Gained Strawberry', // natrk
-  'Friendly Attacked',
-  'Five Friendly Attacks', // natrk
-  'Friendly Level-Up',
-  'Friendly Toy Broke', // nrk
-  'Friend Attacks', // natrk
-  'Friend Ahead Attacks',
-  'Friend Ahead Hurt',
-  'Friend Ahead Faints',
-  'Friend Bought', // nrk
-  'Friend Gained Ailment',
-  'Friend Faints',
-  'Two Friends Faint', // natrk
-  'Three Friends Faint', // natrk
-  'Friend Level-Up',
-  'Friend Hurt',
-  'Four Friends Hurt', // natrk
-  'Friend Sold',
-  'Three Friends Sold', // natrk
-  'Level 3 Friend Sold', // natrk
-  'Sell Friend', // natrk
-  'Friend Jumped',
-  'Spend 7 Gold', // nrk
-  'Roll',
-  'Roll 4 Times',
-  'Roll & Sell', // nrk
-  'Shop Tier Upgraded',
-  'Gains Mana',
-  'Enemy Summoned', // nrk
-  'Enemy Summoned or Pushed', // nrk
-  'Enemy Hurt', // nrk
-  'Enemy Hurt or Pushed', // natrk
-  'Enemy Faints', // nrk
-  'Empty Front Space',
-  'Enemy Gained Ailment', // natrk
-  'Anyone Hurt', // nrk
-  'Bee Summoned', // natrk
-  'Pet Flung', // idek dude
+  'Summoned',
+  'Three Friends Faint',
+  'Three Friends Sold',
+  'Two Friends Faint',
 ] as const;
 
 export const TAGS_LIST = [
@@ -235,4 +235,4 @@ export const REQUIREMENT_GENERIC_KEYS = [
   'turn',
 ] as const;
 
-export const EMOJI_GUESS_KEYS = ['valid', 'invalid', 'blank'] as const;
+export const EMOJI_SHARE_KEYS = ['valid', 'invalid', 'blank', 'sloth', 'calendar'] as const;

@@ -18,7 +18,10 @@ export function CompletionMessage({ type }: CompletionMessageProps) {
         return 'PERFECT';
       case 'gridbomb':
         return (
-          <div className="flex flex-row items-center gap-2">
+          <div
+            className="flex flex-row items-center gap-2"
+            title="Gridbomb is a perfect game under 2 minutes :)"
+          >
             <Image
               src={IMAGE_SRCS.trophy}
               width={16}
