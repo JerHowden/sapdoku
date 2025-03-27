@@ -104,7 +104,7 @@ export function ShareButton({ run, combo, type }: ShareButtonProps) {
           : copyType === 'reddit'
           ? '__ '
           : /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
-          ? '       '
+          ? '      '
           : '   ';
       const gridNewLine = copyType === 'reddit' ? '\n\n' : '\n';
       const grid = `${colSpacing}${col1} ${col2} ${col3}${gridNewLine}${row1} ${box1} ${box2} ${box3}${gridNewLine}${row2} ${box4} ${box5} ${box6}${gridNewLine}${row3} ${box7} ${box8} ${box9}`;
