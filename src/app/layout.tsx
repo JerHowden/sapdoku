@@ -1,9 +1,10 @@
+import { Footer } from '@/modules/Footer';
 import { Header } from '@/modules/Header';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import { Providers } from './providers';
-import Script from 'next/script';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -48,11 +49,7 @@ export default function RootLayout({
               <Header />
               <div className="max-w-7xl mx-auto">{children}</div>
             </div>
-            <footer className="mx-auto flex max-w-7xl items-center justify-center p-6 lg:px-8">
-              <p className="text-muted text-sm text-center">
-                {`Not affiliated with the official Super Auto Pets game or Team Wood Games.`}
-              </p>
-            </footer>
+            <Footer />
           </Providers>
         </div>
       </body>

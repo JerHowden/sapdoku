@@ -36,6 +36,10 @@ Sapdoku is a daily game based on Super Auto Pets. The goal is to fill in the gri
 - Gamemodes
   - Reverse gamemode: guess the categories from the pets
   - Pack specific: only use and only need pets from one pack
+- Difficulty
+  - Easy: Allow one reguess (yellow/orange border) if one req satisfied
+  - Normal: Implemented
+  - Hard: Must get a perfect board or lose (pokedoku style)
 - Performance
   - Virtualize the pets page
   - Proper skeleton components while loading

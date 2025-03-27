@@ -1,26 +1,34 @@
 import {
-  EmojiGuessKey,
+  EmojiShareKey,
   RequirementGenericKey,
   RequirementKey,
   RequirementSpecificKey,
 } from './types';
 
-export const EMOJIS_GUESSES: Record<EmojiGuessKey, string> = {
+export const EMOJIS_SHARE: Record<EmojiShareKey, string> = {
   valid: '🟩',
   invalid: '🟥',
   blank: '⬛',
+  sloth: '🦥',
+  calendar: '📅',
 } as const;
 
 export const EMOJIS_SPECIFIC: Record<RequirementSpecificKey, string> = {
-  tier1: ' ⚀ ',
-  tier2: ' ⚁ ',
-  tier3: ' ⚂ ',
-  tier4: ' ⚃ ',
-  tier5: ' ⚄ ',
-  tier6: ' ⚅ ',
+  // tier1: ' ⚀ ',
+  // tier2: ' ⚁ ',
+  // tier3: ' ⚂ ',
+  // tier4: ' ⚃ ',
+  // tier5: ' ⚄ ',
+  // tier6: ' ⚅ ',
+  tier1: '1️⃣',
+  tier2: '2️⃣',
+  tier3: '3️⃣',
+  tier4: '4️⃣',
+  tier5: '5️⃣',
+  tier6: '6️⃣',
   statsHealth: '❤️',
   statsAttack: '🗡️',
-  statsEven: '💘',
+  statsEven: '⚖️',
 } as const;
 
 export const EMOJIS_GENERIC: Record<RequirementGenericKey, string> = {
@@ -50,8 +58,49 @@ export const EMOJIS_GENERIC: Record<RequirementGenericKey, string> = {
   turn: '🥫',
 } as const;
 
-export const EMOJIS: Record<EmojiGuessKey | RequirementKey, string> = {
-  ...EMOJIS_GUESSES,
+export const EMOJIS: Record<EmojiShareKey | RequirementKey, string> = {
+  ...EMOJIS_SHARE,
   ...EMOJIS_SPECIFIC,
   ...EMOJIS_GENERIC,
+} as const;
+
+export const EMOJIS_DISCORD: Record<keyof typeof EMOJIS, string> = {
+  valid: ':green_square:',
+  invalid: ':red_square:',
+  blank: ':black_large_square:',
+  sloth: ':sloth:',
+  calendar: ':calendar:',
+  tier1: ':one:',
+  tier2: ':two:',
+  tier3: ':three:',
+  tier4: ':four:',
+  tier5: ':five:',
+  tier6: ':six:',
+  statsHealth: ':heart:',
+  statsAttack: ':crossed_swords:',
+  statsEven: ':scales:',
+  turtlePack: ':turtle:',
+  puppyPack: ':dog:',
+  starPack: ':star:',
+  goldenPack: ':dog2:',
+  unicornPack: ':unicorn:',
+  customPack: ':chess_pawn:',
+  summon: ':honey_pot:',
+  hurt: ':garlic:',
+  food: ':apple:',
+  guard: ':shield:',
+  perks: ':melon:',
+  ailment: ':zzz:',
+  cycle: ':rice_ball:',
+  levelUp: ':chocolate_bar:',
+  goldAndRoll: ':coin:',
+  toys: ':tennis:',
+  strawberry: ':strawberry:',
+  trumpets: ':trumpet:',
+  mana: ':milk:',
+  faint: ':pill:',
+  buffs: ':carrot:',
+  disruption: ':tomato:',
+  startOfBattle: ':pancakes:',
+  turn: ':canned_food:',
 } as const;
